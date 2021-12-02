@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Charge_Type__c</fullName>
+    <externalId>false</externalId>
+    <label>Charge Type</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>true</sorted>
+            <value>
+                <fullName>A</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>A</label>
+            </value>
+            <value>
+                <fullName>132</fullName>
+                <default>false</default>
+                <label>Administrative Fee</label>
+            </value>
+            <value>
+                <fullName>147</fullName>
+                <default>false</default>
+                <label>Advance Tow</label>
+            </value>
+            <value>
+                <fullName>B</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>B</label>
+            </value>
+            <value>
+                <fullName>C</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>C</label>
+            </value>
+            <value>
+                <fullName>148</fullName>
+                <default>false</default>
+                <label>Clean Up</label>
+            </value>
+            <value>
+                <fullName>D</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>D</label>
+            </value>
+            <value>
+                <fullName>133</fullName>
+                <default>false</default>
+                <label>Dismantling</label>
+            </value>
+            <value>
+                <fullName>149</fullName>
+                <default>false</default>
+                <label>Dolly</label>
+            </value>
+            <value>
+                <fullName>134</fullName>
+                <default>false</default>
+                <label>Estimate</label>
+            </value>
+            <value>
+                <fullName>467</fullName>
+                <default>false</default>
+                <label>Extra Equipment</label>
+            </value>
+            <value>
+                <fullName>135</fullName>
+                <default>false</default>
+                <label>Fuel Charge</label>
+            </value>
+            <value>
+                <fullName>514</fullName>
+                <default>false</default>
+                <label>Glass Repairs</label>
+            </value>
+            <value>
+                <fullName>151</fullName>
+                <default>false</default>
+                <label>Hook Up</label>
+            </value>
+            <value>
+                <fullName>136</fullName>
+                <default>false</default>
+                <label>Impound Fee</label>
+            </value>
+            <value>
+                <fullName>137</fullName>
+                <default>false</default>
+                <label>Labor</label>
+            </value>
+            <value>
+                <fullName>138</fullName>
+                <default>false</default>
+                <label>Lien Release</label>
+            </value>
+            <value>
+                <fullName>152</fullName>
+                <default>false</default>
+                <label>Mileage</label>
+            </value>
+            <value>
+                <fullName>139</fullName>
+                <default>false</default>
+                <label>Miscellaneous</label>
+            </value>
+            <value>
+                <fullName>140</fullName>
+                <default>false</default>
+                <label>Notification Fee</label>
+            </value>
+            <value>
+                <fullName>141</fullName>
+                <default>false</default>
+                <label>Paid Out</label>
+            </value>
+            <value>
+                <fullName>142</fullName>
+                <default>false</default>
+                <label>Preservation</label>
+            </value>
+            <value>
+                <fullName>369</fullName>
+                <default>false</default>
+                <label>Pull-Out Fee</label>
+            </value>
+            <value>
+                <fullName>465</fullName>
+                <default>false</default>
+                <label>Second Tow</label>
+            </value>
+            <value>
+                <fullName>146</fullName>
+                <default>false</default>
+                <label>Storage</label>
+            </value>
+            <value>
+                <fullName>377</fullName>
+                <default>false</default>
+                <label>Tear Down</label>
+            </value>
+            <value>
+                <fullName>154</fullName>
+                <default>false</default>
+                <label>Tolls</label>
+            </value>
+            <value>
+                <fullName>144</fullName>
+                <default>false</default>
+                <label>Tow in P/A Charge</label>
+            </value>
+            <value>
+                <fullName>371</fullName>
+                <default>false</default>
+                <label>Vehicle Inspection</label>
+            </value>
+            <value>
+                <fullName>155</fullName>
+                <default>false</default>
+                <label>Wait Time</label>
+            </value>
+            <value>
+                <fullName>156</fullName>
+                <default>false</default>
+                <label>Winch</label>
+            </value>
+            <value>
+                <fullName>145</fullName>
+                <default>false</default>
+                <label>Yard</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

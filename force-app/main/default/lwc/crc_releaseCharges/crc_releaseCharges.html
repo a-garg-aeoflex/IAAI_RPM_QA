@@ -1,0 +1,202 @@
+<template>
+
+	<lightning-spinner alternative-text="Loading" size="medium" variant="brand" if:true={isLoading}></lightning-spinner>
+
+    <lightning-card title="Release Charges">
+        <lightning-button variant="neutral" if:true={actionsNeeded} label="Add/Edit Release Charges" onclick={editAllHandler} title="Add/Modify" slot="actions"></lightning-button>
+        <div class="slds-var-m-around_medium">
+			<table class="slds-table slds-table_cell-buffer slds-table_bordered">
+				<thead>
+					<tr class="slds-line-height_reset">
+						<th scope="col"> Charge Type </th>
+						<th scope="col"> Event Category </th>
+						<th scope="col"> Release Amount </th>
+						<th scope="col"> Tax Amount </th>
+						<th scope="col"> Responsible </th>
+						<th scope="col"> Action </th>
+					</tr>
+				</thead>
+				<tbody>
+					<template if:true={records} for:each={records} for:item="record">
+						<tr class="slds-hint-parent" key={record.Id}>
+							<th scope="row"> 
+								<lightning-input 
+									type="text" 
+									if:false={record.isNew}
+									data-id={record.Id}
+									data-type={record.type}
+									name="Charge_Type__c"
+									value={record.chargeTypeText}
+									data-value={record.chargeTypeText}
+									data-tempid={record.tempId}
+									readonly
+									variant="label-hidden">
+								</lightning-input>
+
+								<lightning-combobox
+									required
+									if:true={record.isNew}
+									data-id={record.Id}
+									data-type={record.type}
+									name="Charge_Type__c"
+									value={record.Charge_Type__c}
+									data-value={record.Charge_Type__c}
+									data-tempid={record.tempId}
+									variant="label-hidden"
+									options={chargeTypeOptions}>
+								</lightning-combobox>	
+							</th>
+							<th scope="row"> 
+								
+								<!-- if:false={record.isNew} -->
+								<lightning-input 
+									readonly
+									data-id={record.Id}
+									data-type={record.type}
+									type="text" 
+									value={record.eventCategoryText}
+									data-value={record.eventCategoryText}
+									data-tempid={record.tempId}
+									name="Event_Category__c" 
+									variant="label-hidden">
+								</lightning-input>
+
+								<!-- <lightning-combobox
+									required
+									if:true={record.isNew}
+									data-id={record.Id}
+									data-type={record.type}
+									name="Event_Category__c"
+									value={record.Event_Category__c}
+									data-value={record.Event_Category__c}
+									data-tempid={record.tempId}
+									variant="label-hidden"
+									options={eventCategoryOptions}>
+								</lightning-combobox>	 -->
+
+							</th>
+							<th scope="row"> 
+								<lightning-input 
+									required
+									readonly={record.readonly}
+									data-id={record.Id}
+									data-type={record.type}
+									value={record.Amount__c}
+									data-value={record.Amount__c}
+									data-tempid={record.tempId}
+									type="decimal" 
+									formatter="currency" 
+									name="Amount__c" 
+									variant="label-hidden"
+									onchange={rowChangeHandler}>
+								</lightning-input>
+							</th>
+							<th scope="row"> 
+								<lightning-input 
+									required
+									readonly={record.readonly}
+									data-id={record.Id}
+									data-type={record.type}
+									value={record.Tax_Amount__c}
+									data-value={record.Tax_Amount__c}
+									data-tempid={record.tempId}
+									type="decimal" 
+									formatter="currency" 
+									name="Tax_Amount__c" 
+									variant="label-hidden"
+									onchange={rowChangeHandler}>
+								</lightning-input>	
+							</th>
+							<th scope="row"> 
+								<lightning-combobox
+									name="Responsible_Party__c"
+									data-id={record.Id}
+									data-type={record.type}
+									value={record.Responsible_Party__c}
+									data-value={record.Responsible_Party__c}
+									data-tempid={record.tempId}
+									options={responsiblePartyOptions}
+									if:true={record.isNew}
+									variant="label-hidden">
+								</lightning-combobox>
+
+								<lightning-input 
+									required
+									if:false={record.isNew}
+									readonly="readonly"
+									data-id={record.Id}
+									data-type={record.type}
+									value={record.responsiblePartyText}
+									data-value={record.responsiblePartyText}
+									data-tempid={record.tempId}
+									type="text" 
+									name="Responsible_Party__c" 
+									variant="label-hidden">
+								</lightning-input>	
+							</th>
+							<th scope="row"> 
+								<lightning-icon 
+									if:true={record.needEdit}
+									style="cursor: pointer;"
+									icon-name="utility:edit" 
+									data-id={record.Id} 
+									size="small" 
+									alternative-text="Edit" 
+									onclick={editHandler}>
+								</lightning-icon>
+								<span class="slds-var-m-horizontal_small"></span>
+								<lightning-icon 
+									if:true={record.needDelete}
+									data-id={record.Id}
+									style="cursor: pointer;"
+									icon-name="utility:delete" 
+									size="small" 
+									ext="Delete" 
+									onclick={deleteHandler}>
+								</lightning-icon>
+							</th>
+						</tr>
+					</template>
+				</tbody>
+			</table>
+			</div>
+
+			<div slot="footer">
+
+				<div class="slds-float_right slds-form-element">
+					<label class="slds-form-element__label">Total Charges</label>
+					<br/>
+					<b>
+						<lightning-formatted-number 
+							value={totalCharge} 
+							format-style="currency" 
+							currency-code="USD">
+						</lightning-formatted-number>
+					</b>
+				</div>
+
+				<template if:true={needFooterActions}>
+					<lightning-button 
+						variant="neutral" 
+						label="Add New Release Charge" 
+						title="Add New Release Charge"
+						onclick={addHandler}>
+					</lightning-button>
+					<span class="slds-var-m-horizontal_small"></span>
+					<lightning-button 
+						variant="neutral" 
+						label="Cancel" 
+						title="Cancel"
+						onclick={cancelHandler}>
+					</lightning-button>
+					<span class="slds-var-m-horizontal_small"></span>
+					<lightning-button 
+						variant="brand" 
+						label="Save" 
+						title="Save"
+						onclick={handleSave}>
+					</lightning-button>
+				</template>
+			</div>
+    </lightning-card>    
+</template>

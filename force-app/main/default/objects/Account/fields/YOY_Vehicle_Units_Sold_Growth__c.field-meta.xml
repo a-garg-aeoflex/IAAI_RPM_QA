@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>YOY_Vehicle_Units_Sold_Growth__c</fullName>
+    <externalId>false</externalId>
+    <formula>If(Total_Vehicles_Sold_PYTD__c = 0, Null,
+If(ISBLANK( Total_Vehicles_Sold_PYTD__c ), Null,
+(Total_Vehicles_Sold_YTD__c - Total_Vehicles_Sold_PYTD__c) /  Total_Vehicles_Sold_PYTD__c)
+)</formula>
+    <inlineHelpText>Rolling number of vehicles sold YOY</inlineHelpText>
+    <label>YOY Vehicle Units Sold Growth</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>1</scale>
+    <trackHistory>false</trackHistory>
+    <type>Percent</type>
+</CustomField>

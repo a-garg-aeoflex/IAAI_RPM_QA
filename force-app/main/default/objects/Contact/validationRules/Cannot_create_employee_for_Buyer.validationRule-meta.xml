@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Cannot_create_employee_for_Buyer</fullName>
+    <active>true</active>
+    <errorConditionFormula>$Profile.Name = &quot;Broker&quot; &amp;&amp;
+ Account.RecordType.DeveloperName = &quot;Buyer_Account&quot;</errorConditionFormula>
+    <errorMessage>You do not have permission to create or update employees for Buyer Account</errorMessage>
+</ValidationRule>

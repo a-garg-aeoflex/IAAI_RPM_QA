@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Sync_Buyer_With_MC__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(AND(Email != NULL, Buyer_Employee_ID__c != NULL, TEXT(Account.Buyer_Status__c) = &apos;ACT&apos;), TRUE,
+IF(AND(Email != NULL, Buyer_Employee_ID__c != NULL, TEXT(Account.Buyer_Status__c ) = &apos;NEW&apos;), TRUE,
+IF(AND(Email != NULL, TEXT(Account.Buyer_Status__c ) = &apos;0&apos;), TRUE,
+FALSE)))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Sync Buyer With MC</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

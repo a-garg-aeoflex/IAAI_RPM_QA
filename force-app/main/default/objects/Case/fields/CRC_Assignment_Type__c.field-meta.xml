@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CRC_Assignment_Type__c</fullName>
+    <externalId>false</externalId>
+    <label>Assignment Type</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>VIC</fullName>
+                <default>false</default>
+                <label>VIC</label>
+            </value>
+            <value>
+                <fullName>Tow Only</fullName>
+                <default>false</default>
+                <label>Tow Only</label>
+            </value>
+            <value>
+                <fullName>CAT</fullName>
+                <default>false</default>
+                <label>CAT</label>
+            </value>
+            <value>
+                <fullName>Title Work Only</fullName>
+                <default>false</default>
+                <label>Title Work Only</label>
+            </value>
+            <value>
+                <fullName>Priority Tow</fullName>
+                <default>false</default>
+                <label>Priority Tow</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>3</visibleLines>
+</CustomField>

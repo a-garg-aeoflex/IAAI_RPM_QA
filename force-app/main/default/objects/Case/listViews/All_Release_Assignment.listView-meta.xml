@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All_Release_Assignment</fullName>
+    <columns>Stock_no__c</columns>
+    <columns>Branch__c</columns>
+    <columns>CRC_Assignment_Type__c</columns>
+    <columns>CRC_Pickup_Location_Type__c</columns>
+    <columns>CRC_Provider_Name__c</columns>
+    <columns>CASES.STATUS</columns>
+    <columns>CRC_Release_Problem_Follow_Up_Datetime__c</columns>
+    <columns>SLA_Indicator__c</columns>
+    <columns>CRC_Priority__c</columns>
+    <columns>CASES.LAST_UPDATE_DATE_ONLY</columns>
+    <columns>CASES.CREATED_DATE_DATE_ONLY</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>CASES.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Case.CRC_Residential,Case.CRC_Storage_Location</value>
+    </filters>
+    <label>All Release Assignments</label>
+    <sharedTo>
+        <group>Release_Supervisors</group>
+    </sharedTo>
+</ListView>

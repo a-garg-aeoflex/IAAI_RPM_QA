@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Stock_Used_Title_Solutions__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Did Stock used Title Solutions?</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Did Stock used Title Solutions?</inlineHelpText>
+    <label>Stock Used Title Solutions</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

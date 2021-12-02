@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Cant_Repoen_case</fullName>
+    <active>true</active>
+    <description>closed case can&apos;t be reopened after 14 days</description>
+    <errorConditionFormula>IF( AND(NOT(OR( ISBLANK(ClosedDate), ISNULL(ClosedDate))), TODAY()- DATEVALUE(ClosedDate) &gt; 14 ), true, false)</errorConditionFormula>
+    <errorMessage>Case has been closed for more than 14 days. Create a new case</errorMessage>
+</ValidationRule>

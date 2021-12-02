@@ -1,0 +1,524 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Case_Subtype__c</fullName>
+    <description>This is exteral case subtype used by IAA Help - Web to case</description>
+    <externalId>false</externalId>
+    <inlineHelpText>External case type used by guest users on IAA Help Page</inlineHelpText>
+    <label>Case Subtype</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>Case_Type__c</controllingField>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Password Reset</fullName>
+                <default>false</default>
+                <label>Password Reset</label>
+            </value>
+            <value>
+                <fullName>IOS (iPhone, ipad)</fullName>
+                <default>false</default>
+                <label>IOS (iPhone, ipad)</label>
+            </value>
+            <value>
+                <fullName>Android / Other device</fullName>
+                <default>false</default>
+                <label>Android / Other device</label>
+            </value>
+            <value>
+                <fullName>Unable to Bid</fullName>
+                <default>false</default>
+                <label>Unable to Bid</label>
+            </value>
+            <value>
+                <fullName>Bid Dispute</fullName>
+                <default>false</default>
+                <label>Bid Dispute</label>
+            </value>
+            <value>
+                <fullName>Auction Feedback</fullName>
+                <default>false</default>
+                <label>Auction Feedback</label>
+            </value>
+            <value>
+                <fullName>IBuy Fast / Buy Now</fullName>
+                <default>false</default>
+                <label>IBuy Fast / Buy Now</label>
+            </value>
+            <value>
+                <fullName>AuctionNow</fullName>
+                <default>false</default>
+                <label>AuctionNow</label>
+            </value>
+            <value>
+                <fullName>General Bidding Inquiries</fullName>
+                <default>false</default>
+                <label>General Bidding Inquiries</label>
+            </value>
+            <value>
+                <fullName>Late and/or Storage Fees</fullName>
+                <default>false</default>
+                <label>Late and/or Storage Fees</label>
+            </value>
+            <value>
+                <fullName>Renege Fee</fullName>
+                <default>false</default>
+                <label>Renege Fee</label>
+            </value>
+            <value>
+                <fullName>Sales Tax</fullName>
+                <default>false</default>
+                <label>Sales Tax</label>
+            </value>
+            <value>
+                <fullName>Registration Fee</fullName>
+                <default>false</default>
+                <label>Registration Fee</label>
+            </value>
+            <value>
+                <fullName>All Other Fees</fullName>
+                <default>false</default>
+                <label>All Other Fees</label>
+            </value>
+            <value>
+                <fullName>Auction Rules</fullName>
+                <default>false</default>
+                <label>Auction Rules</label>
+            </value>
+            <value>
+                <fullName>Branch Locations / Hours of Operation</fullName>
+                <default>false</default>
+                <label>Branch Locations / Hours of Operation</label>
+            </value>
+            <value>
+                <fullName>Sell My Car with IAA</fullName>
+                <default>false</default>
+                <label>Sell My Car with IAA</label>
+            </value>
+            <value>
+                <fullName>Donate My Car</fullName>
+                <default>false</default>
+                <label>Donate My Car</label>
+            </value>
+            <value>
+                <fullName>Use My Account Credit</fullName>
+                <default>false</default>
+                <label>Use My Account Credit</label>
+            </value>
+            <value>
+                <fullName>All Other General Inquiries</fullName>
+                <default>false</default>
+                <label>All Other General Inquiries</label>
+            </value>
+            <value>
+                <fullName>Check Writing Privileges</fullName>
+                <default>false</default>
+                <label>Check Writing Privileges</label>
+            </value>
+            <value>
+                <fullName>NSF (Non-sufficient Funds)</fullName>
+                <default>false</default>
+                <label>NSF (Non-sufficient Funds)</label>
+            </value>
+            <value>
+                <fullName>How Do I Finance a Vehicle?</fullName>
+                <default>false</default>
+                <label>How Do I Finance a Vehicle?</label>
+            </value>
+            <value>
+                <fullName>Receipt and Report Request</fullName>
+                <default>false</default>
+                <label>Receipt and Report Request</label>
+            </value>
+            <value>
+                <fullName>IPAY</fullName>
+                <default>false</default>
+                <label>IPAY</label>
+            </value>
+            <value>
+                <fullName>Credit Cards</fullName>
+                <default>false</default>
+                <label>Credit Cards</label>
+            </value>
+            <value>
+                <fullName>Payment Applied Incorrectly</fullName>
+                <default>false</default>
+                <label>Payment Applied Incorrectly</label>
+            </value>
+            <value>
+                <fullName>Wire Transfer</fullName>
+                <default>false</default>
+                <label>Wire Transfer</label>
+            </value>
+            <value>
+                <fullName>Other Payment Inquiries</fullName>
+                <default>false</default>
+                <label>Other Payment Inquiries</label>
+            </value>
+            <value>
+                <fullName>Account Credit Refund</fullName>
+                <default>false</default>
+                <label>Account Credit Refund</label>
+            </value>
+            <value>
+                <fullName>Sales Tax Refund</fullName>
+                <default>false</default>
+                <label>Sales Tax Refund</label>
+            </value>
+            <value>
+                <fullName>Other Refund Inquiries</fullName>
+                <default>false</default>
+                <label>Other Refund Inquiries</label>
+            </value>
+            <value>
+                <fullName>New Account Inquiry</fullName>
+                <default>false</default>
+                <label>New Account Inquiry</label>
+            </value>
+            <value>
+                <fullName>Status Update on My Account</fullName>
+                <default>false</default>
+                <label>Status Update on My Account</label>
+            </value>
+            <value>
+                <fullName>License Inquiry</fullName>
+                <default>false</default>
+                <label>License Inquiry</label>
+            </value>
+            <value>
+                <fullName>Account Renewal</fullName>
+                <default>false</default>
+                <label>Account Renewal</label>
+            </value>
+            <value>
+                <fullName>Add/Remove Additional Bidders</fullName>
+                <default>false</default>
+                <label>Add/Remove Additional Bidders</label>
+            </value>
+            <value>
+                <fullName>All Other Documents</fullName>
+                <default>false</default>
+                <label>All Other Documents</label>
+            </value>
+            <value>
+                <fullName>Incorrect/Missing Title</fullName>
+                <default>false</default>
+                <label>Incorrect/Missing Title</label>
+            </value>
+            <value>
+                <fullName>Where is My Title?</fullName>
+                <default>false</default>
+                <label>Where is My Title?</label>
+            </value>
+            <value>
+                <fullName>Update Title Handling Instructions</fullName>
+                <default>false</default>
+                <label>Update Title Handling Instructions</label>
+            </value>
+            <value>
+                <fullName>Duplicate Title Request</fullName>
+                <default>false</default>
+                <label>Duplicate Title Request</label>
+            </value>
+            <value>
+                <fullName>What is the Status of My Vehicle</fullName>
+                <default>false</default>
+                <label>What is the Status of My Vehicle</label>
+            </value>
+            <value>
+                <fullName>Reneged Vehicle</fullName>
+                <default>false</default>
+                <label>Reneged Vehicle</label>
+            </value>
+            <value>
+                <fullName>Vehicle Transport Inquiries</fullName>
+                <default>false</default>
+                <label>Vehicle Transport Inquiries</label>
+            </value>
+            <value>
+                <fullName>Images</fullName>
+                <default>false</default>
+                <label>Images</label>
+            </value>
+            <value>
+                <fullName>Damage</fullName>
+                <default>false</default>
+                <label>Damage</label>
+            </value>
+            <value>
+                <fullName>Keys Missing</fullName>
+                <default>false</default>
+                <label>Keys Missing</label>
+            </value>
+            <value>
+                <fullName>Odometer Discrepancy</fullName>
+                <default>false</default>
+                <label>Odometer Discrepancy</label>
+            </value>
+            <value>
+                <fullName>Other Vehicle Inquiries</fullName>
+                <default>false</default>
+                <label>Other Vehicle Inquiries</label>
+            </value>
+            <value>
+                <fullName>PayPal</fullName>
+                <default>false</default>
+                <label>PayPal</label>
+            </value>
+            <value>
+                <fullName>Damage Claim</fullName>
+                <default>false</default>
+                <label>Damage Claim</label>
+            </value>
+            <value>
+                <fullName>Delivery Status</fullName>
+                <default>false</default>
+                <label>Delivery Status</label>
+            </value>
+            <value>
+                <fullName>Cancellation</fullName>
+                <default>false</default>
+                <label>Cancellation</label>
+            </value>
+            <value>
+                <fullName>Paperwork follow up</fullName>
+                <default>false</default>
+                <label>Paperwork follow up</label>
+            </value>
+            <value>
+                <fullName>Help with obtaining quote</fullName>
+                <default>false</default>
+                <label>Help with obtaining quote</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Transport</controllingFieldValue>
+            <valueName>Damage Claim</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Transport</controllingFieldValue>
+            <valueName>Delivery Status</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Transport</controllingFieldValue>
+            <valueName>Cancellation</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Transport</controllingFieldValue>
+            <valueName>Paperwork follow up</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Transport</controllingFieldValue>
+            <valueName>Help with obtaining quote</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Password Reset</controllingFieldValue>
+            <valueName>Password Reset</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>IAA Phone Apps</controllingFieldValue>
+            <valueName>IOS (iPhone, ipad)</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>IAA Phone Apps</controllingFieldValue>
+            <valueName>Android / Other device</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Bidding</controllingFieldValue>
+            <valueName>Unable to Bid</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Bidding</controllingFieldValue>
+            <valueName>Bid Dispute</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Bidding</controllingFieldValue>
+            <valueName>Auction Feedback</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Bidding</controllingFieldValue>
+            <valueName>IBuy Fast / Buy Now</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Bidding</controllingFieldValue>
+            <valueName>AuctionNow</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Bidding</controllingFieldValue>
+            <valueName>General Bidding Inquiries</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Fee Inquiries</controllingFieldValue>
+            <valueName>Late and/or Storage Fees</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Fee Inquiries</controllingFieldValue>
+            <valueName>Renege Fee</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Fee Inquiries</controllingFieldValue>
+            <valueName>Sales Tax</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Fee Inquiries</controllingFieldValue>
+            <valueName>Registration Fee</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Fee Inquiries</controllingFieldValue>
+            <valueName>All Other Fees</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>General Inquiry</controllingFieldValue>
+            <valueName>Auction Rules</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>General Inquiry</controllingFieldValue>
+            <valueName>Branch Locations / Hours of Operation</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>General Inquiry</controllingFieldValue>
+            <valueName>Sell My Car with IAA</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>General Inquiry</controllingFieldValue>
+            <valueName>Donate My Car</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>General Inquiry</controllingFieldValue>
+            <valueName>Use My Account Credit</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>General Inquiry</controllingFieldValue>
+            <valueName>All Other General Inquiries</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Payment Inquiries</controllingFieldValue>
+            <valueName>Check Writing Privileges</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Payment Inquiries</controllingFieldValue>
+            <valueName>NSF (Non-sufficient Funds)</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Payment Inquiries</controllingFieldValue>
+            <valueName>How Do I Finance a Vehicle?</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Payment Inquiries</controllingFieldValue>
+            <valueName>Receipt and Report Request</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Payment Inquiries</controllingFieldValue>
+            <valueName>IPAY</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Payment Inquiries</controllingFieldValue>
+            <valueName>Credit Cards</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Payment Inquiries</controllingFieldValue>
+            <valueName>Payment Applied Incorrectly</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Payment Inquiries</controllingFieldValue>
+            <valueName>Wire Transfer</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Payment Inquiries</controllingFieldValue>
+            <valueName>Other Payment Inquiries</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Payment Inquiries</controllingFieldValue>
+            <valueName>PayPal</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Refund</controllingFieldValue>
+            <valueName>Account Credit Refund</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Refund</controllingFieldValue>
+            <valueName>Sales Tax Refund</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Refund</controllingFieldValue>
+            <valueName>Other Refund Inquiries</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Registration</controllingFieldValue>
+            <valueName>New Account Inquiry</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Registration</controllingFieldValue>
+            <valueName>Status Update on My Account</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Registration</controllingFieldValue>
+            <valueName>License Inquiry</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Registration</controllingFieldValue>
+            <valueName>Account Renewal</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Registration</controllingFieldValue>
+            <valueName>Add/Remove Additional Bidders</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Registration</controllingFieldValue>
+            <valueName>All Other Documents</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Title</controllingFieldValue>
+            <valueName>Incorrect/Missing Title</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Title</controllingFieldValue>
+            <valueName>Where is My Title?</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Title</controllingFieldValue>
+            <valueName>Update Title Handling Instructions</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Title</controllingFieldValue>
+            <valueName>Duplicate Title Request</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Vehicle</controllingFieldValue>
+            <valueName>What is the Status of My Vehicle</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Vehicle</controllingFieldValue>
+            <valueName>Reneged Vehicle</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Vehicle</controllingFieldValue>
+            <valueName>Vehicle Transport Inquiries</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Vehicle</controllingFieldValue>
+            <valueName>Images</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Vehicle</controllingFieldValue>
+            <valueName>Damage</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Vehicle</controllingFieldValue>
+            <valueName>Keys Missing</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Vehicle</controllingFieldValue>
+            <valueName>Odometer Discrepancy</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Vehicle</controllingFieldValue>
+            <valueName>Other Vehicle Inquiries</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

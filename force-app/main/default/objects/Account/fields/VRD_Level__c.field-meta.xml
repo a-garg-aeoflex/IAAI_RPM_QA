@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>VRD_Level__c</fullName>
+    <externalId>false</externalId>
+    <label>VRD Level</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Level 1</fullName>
+                <default>false</default>
+                <label>Level 1</label>
+            </value>
+            <value>
+                <fullName>Level  2</fullName>
+                <default>false</default>
+                <label>Level  2</label>
+            </value>
+            <value>
+                <fullName>Level  3</fullName>
+                <default>false</default>
+                <label>Level  3</label>
+            </value>
+            <value>
+                <fullName>Level  5</fullName>
+                <default>false</default>
+                <label>Level  5</label>
+            </value>
+            <value>
+                <fullName>Level  6</fullName>
+                <default>false</default>
+                <label>Level  6</label>
+            </value>
+            <value>
+                <fullName>Level  7</fullName>
+                <default>false</default>
+                <label>Level  7</label>
+            </value>
+            <value>
+                <fullName>Level  8</fullName>
+                <default>false</default>
+                <label>Level  8</label>
+            </value>
+            <value>
+                <fullName>Level  9</fullName>
+                <default>false</default>
+                <label>Level  9</label>
+            </value>
+            <value>
+                <fullName>Level  10</fullName>
+                <default>false</default>
+                <label>Level  10</label>
+            </value>
+            <value>
+                <fullName>Level  11</fullName>
+                <default>false</default>
+                <label>Level  11</label>
+            </value>
+            <value>
+                <fullName>Level  12</fullName>
+                <default>false</default>
+                <label>Level  12</label>
+            </value>
+            <value>
+                <fullName>Level  13</fullName>
+                <default>false</default>
+                <label>Level  13</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

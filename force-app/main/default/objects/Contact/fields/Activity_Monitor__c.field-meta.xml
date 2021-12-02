@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Activity_Monitor__c</fullName>
+    <description>Green: Completed Activity (Task/Event) &lt; 15 Days 
+Yellow: Completed Activity (Task/Event) &gt; 15 Days 
+Red: Completed Activity (Task/Event) &gt;45 Days</description>
+    <externalId>false</externalId>
+    <formula>IF 
+(ISNULL(LastActivityDate), 
+IMAGE(&apos;/servlet/servlet.FileDownload?file=0151U000000fzlb&apos;, &quot;No Activity&quot;,20,20), 
+IF( Days_Since_Last_Activity__c &lt;15, 
+IMAGE(&apos;/servlet/servlet.FileDownload?file=0151U000000fzla&apos;,&quot;Less than 30&quot;,20,20) , 
+IF( Days_Since_Last_Activity__c &lt; 30, 
+IMAGE(&apos; /servlet/servlet.FileDownload?file=0151U000000fzlc&apos;,&quot;30 to 45&quot;,20,20), 
+IF( Days_Since_Last_Activity__c &gt;29, 
+IMAGE(&apos;/servlet/servlet.FileDownload?file=0151U000000fzlb&apos;,&quot;45 to 60&quot;,20,20) , 
+IMAGE(&apos;/servlet/servlet.FileDownload?file=0151U000000fzlb&apos;,&quot;More than 60 Days&quot;,20,20)))))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>Green: Completed Activity (Task/Event) &lt; 15 Days 
+Yellow: Completed Activity (Task/Event) &gt; 15 Days 
+Red: Completed Activity (Task/Event) &gt;45 Days</inlineHelpText>
+    <label>Activity Monitor</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

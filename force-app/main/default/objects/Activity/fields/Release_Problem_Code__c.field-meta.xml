@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Release_Problem_Code__c</fullName>
+    <externalId>false</externalId>
+    <label>Release Problem Code</label>
+    <required>false</required>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>CNN</fullName>
+                <default>false</default>
+                <label>Charge Negotiation Needed</label>
+            </value>
+            <value>
+                <fullName>CRT</fullName>
+                <default>false</default>
+                <label>Cancel Request</label>
+            </value>
+            <value>
+                <fullName>FUT</fullName>
+                <default>false</default>
+                <label>Future Release Date</label>
+            </value>
+            <value>
+                <fullName>PST</fullName>
+                <default>false</default>
+                <label>Provider Special Team</label>
+            </value>
+            <value>
+                <fullName>SFR</fullName>
+                <default>false</default>
+                <label>Special Form Required</label>
+            </value>
+            <value>
+                <fullName>VCL</fullName>
+                <default>false</default>
+                <label>Vehicle Cannot be Located</label>
+            </value>
+            <value>
+                <fullName>BAR</fullName>
+                <default>false</default>
+                <label>Branch Action Required</label>
+            </value>
+            <value>
+                <fullName>CNA</fullName>
+                <default>false</default>
+                <label>Call Not Answered</label>
+            </value>
+            <value>
+                <fullName>NIM</fullName>
+                <default>false</default>
+                <label>Necessary Information Is Missing</label>
+            </value>
+            <value>
+                <fullName>ORP</fullName>
+                <default>false</default>
+                <label>Owner Requested to Remove Personal Items Prior to Pickup</label>
+            </value>
+            <value>
+                <fullName>OUS</fullName>
+                <default>false</default>
+                <label>Owner Unaware of Total Loss Status</label>
+            </value>
+            <value>
+                <fullName>RQR</fullName>
+                <default>false</default>
+                <label>SL Recovery Quote Requested</label>
+            </value>
+            <value>
+                <fullName>CNR</fullName>
+                <default>false</default>
+                <label>Storage Location Delay - Charges Not Ready</label>
+            </value>
+            <value>
+                <fullName>DOL</fullName>
+                <default>false</default>
+                <label>Storage Location Delay - DOL Conflict</label>
+            </value>
+            <value>
+                <fullName>INC</fullName>
+                <default>false</default>
+                <label>Storage Location Delay - Inspection Not Complete</label>
+            </value>
+            <value>
+                <fullName>ORR</fullName>
+                <default>false</default>
+                <label>Storage Location Delay - Owner Release Required</label>
+            </value>
+            <value>
+                <fullName>PRR</fullName>
+                <default>false</default>
+                <label>Storage Location Delay - Provider Release Required</label>
+            </value>
+            <value>
+                <fullName>WOS</fullName>
+                <default>false</default>
+                <label>Storage Location Delay - Waiting On Settlement Check</label>
+            </value>
+            <value>
+                <fullName>TCA</fullName>
+                <default>false</default>
+                <label>Tear Down Charge Needs Approval</label>
+            </value>
+            <value>
+                <fullName>TAA</fullName>
+                <default>false</default>
+                <label>Total Advance Charges Need Approval</label>
+            </value>
+            <value>
+                <fullName>VEI</fullName>
+                <default>false</default>
+                <label>Vehicle Inaccessible</label>
+            </value>
+            <value>
+                <fullName>SIP</fullName>
+                <default>false</default>
+                <label>SL Scouting In Progress</label>
+            </value>
+            <value>
+                <fullName>RQA</fullName>
+                <default>false</default>
+                <label>SL Wait Recovery Quote Approval</label>
+            </value>
+            <value>
+                <fullName>SLL</fullName>
+                <default>false</default>
+                <label>Special Lines</label>
+            </value>
+            <value>
+                <fullName>AA</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>AA</label>
+            </value>
+            <value>
+                <fullName>LDE</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>LDE</label>
+            </value>
+            <value>
+                <fullName>OAR</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>OAR</label>
+            </value>
+            <value>
+                <fullName>ODE</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>ODE</label>
+            </value>
+            <value>
+                <fullName>OTH</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>OTH</label>
+            </value>
+            <value>
+                <fullName>PCR</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>PCR</label>
+            </value>
+            <value>
+                <fullName>PDE</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>PDE</label>
+            </value>
+            <value>
+                <fullName>PNA</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>PNA</label>
+            </value>
+            <value>
+                <fullName>PNI</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>PNI</label>
+            </value>
+            <value>
+                <fullName>SDE</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>SDE</label>
+            </value>
+            <value>
+                <fullName>SLI</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>SLI</label>
+            </value>
+            <value>
+                <fullName>SPC</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>SPC</label>
+            </value>
+            <value>
+                <fullName>SPL</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>SPL</label>
+            </value>
+            <value>
+                <fullName>SQA</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>SQA</label>
+            </value>
+            <value>
+                <fullName>SQR</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>SQR</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

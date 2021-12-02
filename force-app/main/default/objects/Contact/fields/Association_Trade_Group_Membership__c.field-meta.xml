@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Association_Trade_Group_Membership__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Association of trade group affiliation</inlineHelpText>
+    <label>Association/Trade Group Membership</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>ARA</fullName>
+                <default>false</default>
+                <label>ARA</label>
+            </value>
+            <value>
+                <fullName>URG</fullName>
+                <default>false</default>
+                <label>URG</label>
+            </value>
+            <value>
+                <fullName>State Association</fullName>
+                <default>false</default>
+                <label>State Association</label>
+            </value>
+            <value>
+                <fullName>Team PRP</fullName>
+                <default>false</default>
+                <label>Team PRP</label>
+            </value>
+            <value>
+                <fullName>NADA</fullName>
+                <default>false</default>
+                <label>NADA</label>
+            </value>
+            <value>
+                <fullName>NIADA</fullName>
+                <default>false</default>
+                <label>NIADA</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

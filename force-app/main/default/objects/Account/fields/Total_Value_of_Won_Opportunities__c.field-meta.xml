@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Total_Value_of_Won_Opportunities__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Want to know how much business this Account has done with your company?  This field will tell you in a flash.  It’ll sum up the total amount of won Opportunities which will aid in identifying top Accounts.</inlineHelpText>
+    <label>Total Value of Won Opportunities</label>
+    <summarizedField>Opportunity.Amount</summarizedField>
+    <summaryFilterItems>
+        <field>Opportunity.IsWon</field>
+        <operation>equals</operation>
+        <value>True</value>
+    </summaryFilterItems>
+    <summaryForeignKey>Opportunity.AccountId</summaryForeignKey>
+    <summaryOperation>sum</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <type>Summary</type>
+</CustomField>

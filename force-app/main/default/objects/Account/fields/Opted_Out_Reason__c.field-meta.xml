@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Opted_Out_Reason__c</fullName>
+    <description>The field displays why the buyer chose to opt out of the auto-renewal program.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>The field displays why the buyer chose to opt out of the auto-renewal program.</inlineHelpText>
+    <label>Opted Out Reason</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>TextArea</type>
+</CustomField>

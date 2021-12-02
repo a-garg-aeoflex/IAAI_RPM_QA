@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CompactLayout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Help_Broker_Community_Case</fullName>
+    <fields>CaseNumber</fields>
+    <fields>Reason_for_Case__c</fields>
+    <fields>Origin</fields>
+    <fields>Priority</fields>
+    <label>Help Broker Community Case</label>
+</CompactLayout>

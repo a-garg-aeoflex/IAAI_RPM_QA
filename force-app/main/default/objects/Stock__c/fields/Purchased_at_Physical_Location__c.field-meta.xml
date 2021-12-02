@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Purchased_at_Physical_Location__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Indicates if the stock sold in person at a physical Branch location.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Indicates if the stock sold in person at a physical Branch location.</inlineHelpText>
+    <label>Purchased at Physical Location</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

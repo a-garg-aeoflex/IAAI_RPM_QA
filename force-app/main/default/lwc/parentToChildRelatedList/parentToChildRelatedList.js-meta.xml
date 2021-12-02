@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata" fqn="RelatedList"> 
+    <apiVersion>48.0</apiVersion> 
+    <isExposed>true</isExposed> 
+    <targets> 
+        <target>lightning__RecordPage</target> 
+    </targets> 
+    <targetConfigs> 
+        <targetConfig targets="lightning__RecordPage"> 
+            <property name="fieldsList" type="String" label="Fields to Display" description="Enter the field API names separated by coma. Do not enter more than 4 fields"/> 
+        </targetConfig> 
+    </targetConfigs> 
+</LightningComponentBundle>

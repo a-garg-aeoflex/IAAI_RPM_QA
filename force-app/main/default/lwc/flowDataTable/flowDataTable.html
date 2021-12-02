@@ -1,0 +1,28 @@
+<template>
+    <lightning-layout multiple-rows="false"  horizontal-align="end" vertical-align="center" >
+        <lightning-layout-item  padding="around-small">
+            <span onkeyup={filter}>
+                <lightning-input type="search" label="Search" name="search"  data-id="Search" ></lightning-input>
+            </span>
+        </lightning-layout-item>
+       
+    </lightning-layout>
+
+    <template if:true={inputAccounts}>
+        <c-custom-types-data-table   
+            key-field="id"
+            data={data}
+            columns={columns}
+            is-loading={tableLoadingState}
+            onsort={updateColumnSorting} 
+            sorted-by={sortedBy} 
+            sorted-direction={sortedDirection}
+            hide-checkbox-column={hideCheckboxColumn}  
+            hide-default-actions={hideDefaultActions}
+        >
+        </c-custom-types-data-table>
+
+  
+          
+    </template>
+</template>

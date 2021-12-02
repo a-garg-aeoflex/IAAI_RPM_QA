@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Rerun_Fee__c</fullName>
+    <description>Displays the total amount of re-run fees applied to a Provider&apos;s account.(YTD)</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Displays the total amount of re-run fees applied to a Provider&apos;s account.(YTD)</inlineHelpText>
+    <label>Rerun Fee</label>
+    <precision>12</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Currency</type>
+</CustomField>

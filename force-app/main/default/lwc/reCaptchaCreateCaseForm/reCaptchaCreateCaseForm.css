@@ -1,0 +1,33 @@
+iframe {
+    height:500px;
+    width: 100%;
+    overflow:hidden;
+    overflow-y: hidden; 
+    overflow-x: hidden; 
+    border: 0px; 
+    top:0;
+}
+iframe::-webkit-scrollbar {  
+    display: none;
+}
+.hide {
+   display: none;
+
+}
+.show {
+    display: show;
+}
+.my-icon {
+    padding: 0.1rem;
+    margin-left: 15%;
+}
+.successDesc{
+    margin-left: 20%;
+}
+h1 {
+    font-weight: bold !important;
+}
+.slds-page-header__title{
+    
+        font-weight: bold !important;
+}

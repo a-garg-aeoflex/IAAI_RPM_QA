@@ -1,0 +1,520 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Location_for_Skill_Mapping__c</fullName>
+    <externalId>false</externalId>
+    <label>Location for Skill Mapping</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Not Defined</fullName>
+                <default>true</default>
+                <label>Not Defined</label>
+            </value>
+            <value>
+                <fullName>Bahamas</fullName>
+                <default>false</default>
+                <label>Bahamas</label>
+            </value>
+            <value>
+                <fullName>Costa Rica</fullName>
+                <default>false</default>
+                <label>Costa Rica</label>
+            </value>
+            <value>
+                <fullName>Curacao</fullName>
+                <default>false</default>
+                <label>Curacao</label>
+            </value>
+            <value>
+                <fullName>Dominican Republic</fullName>
+                <default>false</default>
+                <label>Dominican Republic</label>
+            </value>
+            <value>
+                <fullName>El Salvador</fullName>
+                <default>false</default>
+                <label>El Salvador</label>
+            </value>
+            <value>
+                <fullName>Germany</fullName>
+                <default>false</default>
+                <label>Germany</label>
+            </value>
+            <value>
+                <fullName>Ghana</fullName>
+                <default>false</default>
+                <label>Ghana</label>
+            </value>
+            <value>
+                <fullName>Great Britain</fullName>
+                <default>false</default>
+                <label>Great Britain</label>
+            </value>
+            <value>
+                <fullName>Guatemala</fullName>
+                <default>false</default>
+                <label>Guatemala</label>
+            </value>
+            <value>
+                <fullName>Honduras</fullName>
+                <default>false</default>
+                <label>Honduras</label>
+            </value>
+            <value>
+                <fullName>Jordan</fullName>
+                <default>false</default>
+                <label>Jordan</label>
+            </value>
+            <value>
+                <fullName>Libyan Jamahiriya</fullName>
+                <default>false</default>
+                <label>Libyan Jamahiriya</label>
+            </value>
+            <value>
+                <fullName>Lithuania</fullName>
+                <default>false</default>
+                <label>Lithuania</label>
+            </value>
+            <value>
+                <fullName>Mexico</fullName>
+                <default>false</default>
+                <label>Mexico</label>
+            </value>
+            <value>
+                <fullName>Nigeria</fullName>
+                <default>false</default>
+                <label>Nigeria</label>
+            </value>
+            <value>
+                <fullName>Oman</fullName>
+                <default>false</default>
+                <label>Oman</label>
+            </value>
+            <value>
+                <fullName>Panama Rep</fullName>
+                <default>false</default>
+                <label>Panama Rep</label>
+            </value>
+            <value>
+                <fullName>Poland</fullName>
+                <default>false</default>
+                <label>Poland</label>
+            </value>
+            <value>
+                <fullName>Puerto Rico</fullName>
+                <default>false</default>
+                <label>Puerto Rico</label>
+            </value>
+            <value>
+                <fullName>Senegal</fullName>
+                <default>false</default>
+                <label>Senegal</label>
+            </value>
+            <value>
+                <fullName>Ukraine</fullName>
+                <default>false</default>
+                <label>Ukraine</label>
+            </value>
+            <value>
+                <fullName>United Arab Emirates</fullName>
+                <default>false</default>
+                <label>United Arab Emirates</label>
+            </value>
+            <value>
+                <fullName>Virgin Islands</fullName>
+                <default>false</default>
+                <label>Virgin Islands</label>
+            </value>
+            <value>
+                <fullName>Yemen</fullName>
+                <default>false</default>
+                <label>Yemen</label>
+            </value>
+            <value>
+                <fullName>CA - AB</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>CA - AB</label>
+            </value>
+            <value>
+                <fullName>CA - BC</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>CA - BC</label>
+            </value>
+            <value>
+                <fullName>CA - MB</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>CA - MB</label>
+            </value>
+            <value>
+                <fullName>CA - NB</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>CA - NB</label>
+            </value>
+            <value>
+                <fullName>CA - NS</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>CA - NS</label>
+            </value>
+            <value>
+                <fullName>CA - ON</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>CA - ON</label>
+            </value>
+            <value>
+                <fullName>CA - PE</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>CA - PE</label>
+            </value>
+            <value>
+                <fullName>CA - QC</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>CA - QC</label>
+            </value>
+            <value>
+                <fullName>CA - SK</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>CA - SK</label>
+            </value>
+            <value>
+                <fullName>Curaçao</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Curaçao</label>
+            </value>
+            <value>
+                <fullName>Not Found</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Not Found</label>
+            </value>
+            <value>
+                <fullName>US - AK</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>US - AK</label>
+            </value>
+            <value>
+                <fullName>US - AL</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>US - AL</label>
+            </value>
+            <value>
+                <fullName>US - AR</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>US - AR</label>
+            </value>
+            <value>
+                <fullName>US - AZ</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>US - AZ</label>
+            </value>
+            <value>
+                <fullName>US - CA</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>US - CA</label>
+            </value>
+            <value>
+                <fullName>US - CO</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>US - CO</label>
+            </value>
+            <value>
+                <fullName>US - CT</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>US - CT</label>
+            </value>
+            <value>
+                <fullName>US - DC</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>US - DC</label>
+            </value>
+            <value>
+                <fullName>US - DE</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>US - DE</label>
+            </value>
+            <value>
+                <fullName>US - FL</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>US - FL</label>
+            </value>
+            <value>
+                <fullName>US - GA</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>US - GA</label>
+            </value>
+            <value>
+                <fullName>US - HI</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>US - HI</label>
+            </value>
+            <value>
+                <fullName>US - IA</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>US - IA</label>
+            </value>
+            <value>
+                <fullName>US - ID</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>US - ID</label>
+            </value>
+            <value>
+                <fullName>US - IL</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>US - IL</label>
+            </value>
+            <value>
+                <fullName>US - IN</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>US - IN</label>
+            </value>
+            <value>
+                <fullName>US - KS</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>US - KS</label>
+            </value>
+            <value>
+                <fullName>US - KY</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>US - KY</label>
+            </value>
+            <value>
+                <fullName>US - LA</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>US - LA</label>
+            </value>
+            <value>
+                <fullName>US - MA</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>US - MA</label>
+            </value>
+            <value>
+                <fullName>US - MD</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>US - MD</label>
+            </value>
+            <value>
+                <fullName>US - ME</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>US - ME</label>
+            </value>
+            <value>
+                <fullName>US - MI</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>US - MI</label>
+            </value>
+            <value>
+                <fullName>US - MN</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>US - MN</label>
+            </value>
+            <value>
+                <fullName>US - MO</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>US - MO</label>
+            </value>
+            <value>
+                <fullName>US - MS</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>US - MS</label>
+            </value>
+            <value>
+                <fullName>US - MT</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>US - MT</label>
+            </value>
+            <value>
+                <fullName>US - NC</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>US - NC</label>
+            </value>
+            <value>
+                <fullName>US - ND</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>US - ND</label>
+            </value>
+            <value>
+                <fullName>US - NE</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>US - NE</label>
+            </value>
+            <value>
+                <fullName>US - NH</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>US - NH</label>
+            </value>
+            <value>
+                <fullName>US - NJ</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>US - NJ</label>
+            </value>
+            <value>
+                <fullName>US - NM</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>US - NM</label>
+            </value>
+            <value>
+                <fullName>US - NV</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>US - NV</label>
+            </value>
+            <value>
+                <fullName>US - NY</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>US - NY</label>
+            </value>
+            <value>
+                <fullName>US - OH</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>US - OH</label>
+            </value>
+            <value>
+                <fullName>US - OK</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>US - OK</label>
+            </value>
+            <value>
+                <fullName>US - OR</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>US - OR</label>
+            </value>
+            <value>
+                <fullName>US - PA</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>US - PA</label>
+            </value>
+            <value>
+                <fullName>US - RI</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>US - RI</label>
+            </value>
+            <value>
+                <fullName>US - SC</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>US - SC</label>
+            </value>
+            <value>
+                <fullName>US - SD</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>US - SD</label>
+            </value>
+            <value>
+                <fullName>US - TN</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>US - TN</label>
+            </value>
+            <value>
+                <fullName>US - TX</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>US - TX</label>
+            </value>
+            <value>
+                <fullName>US - UT</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>US - UT</label>
+            </value>
+            <value>
+                <fullName>US - VA</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>US - VA</label>
+            </value>
+            <value>
+                <fullName>US - VI</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>US - VI</label>
+            </value>
+            <value>
+                <fullName>US - VT</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>US - VT</label>
+            </value>
+            <value>
+                <fullName>US - WA</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>US - WA</label>
+            </value>
+            <value>
+                <fullName>US - WI</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>US - WI</label>
+            </value>
+            <value>
+                <fullName>US - WV</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>US - WV</label>
+            </value>
+            <value>
+                <fullName>US - WY</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>US - WY</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

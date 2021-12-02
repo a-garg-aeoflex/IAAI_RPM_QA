@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Birthdate_cannot_be_less_18</fullName>
+    <active>false</active>
+    <description>Employees must be 18 years old to do businses with IAA</description>
+    <errorConditionFormula>ADDMONTHS(Birthdate, 216) &gt; TODAY()
+&amp;&amp;
+RecordType.Name = &quot;Buyer Employees&quot;</errorConditionFormula>
+    <errorDisplayField>Birthdate</errorDisplayField>
+    <errorMessage>Employees must be 18 years old to do businses with IAA</errorMessage>
+</ValidationRule>

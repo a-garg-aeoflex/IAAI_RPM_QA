@@ -1,0 +1,12 @@
+.THIS .slds-table tr th:first-child{
+    width: 0px !important;
+}
+
+.THIS .btnColor{
+    background-color: #C90107;
+}
+
+
+.THIS .slds-scope .slds-button--brand{
+    background-color: #C90107 !important;
+}

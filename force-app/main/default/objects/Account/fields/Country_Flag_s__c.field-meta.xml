@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Country_Flag_s__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>URLs of the images uploaded. Separate multiple URLs with semicolon. 
+Format is: /servlet/servlet.ImageServer?id={ImageID}&amp;oid={OrgID}</inlineHelpText>
+    <label>Country Flag(s)</label>
+    <length>500</length>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>LongTextArea</type>
+    <visibleLines>2</visibleLines>
+</CustomField>

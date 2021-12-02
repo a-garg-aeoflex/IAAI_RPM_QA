@@ -1,0 +1,61 @@
+<template>
+   <div style="margin: 3%;" >
+      <div class="mdp-container mdpAndSuccessContainer successPanel"   >
+         <div class ="hide" style="background:#f9f9fa;height: 500px !important;" data-id = "back">
+            <div class="successPanel"  >
+               <div class="successMsg"  >
+                  <div style="padding-top: 45%; font-weight:bold !important;">
+                     <lightning-icon icon-name="utility:success" alternative-text="Success!" style="margin-left: 2.5em; margin-right:.5em; font-weight:bold;" variant="success"
+                        title="success variant xx-small" size="xx-small"></lightning-icon>
+                        <span class="successTitle" translate="Yes" style="font-weight:bolder;">{label.SuccessMsg}</span>
+                  </div> 
+                              <br/>   
+                  <lightning-button  variant="neutral" style="margin-left: 35%;" data-id = "backbtn" 
+                     onclick ={navigateToWebPage}  
+                     label={label.Back} >
+                  </lightning-button>
+                  <div style="padding-bottom:45%; margin-bottom:45%;"></div>
+               </div>
+            </div>
+         </div>
+         <div data-id="createcase" class=" slds-col  slds-m-around_medium">
+            <lightning-record-edit-form object-api-name="Case" onsuccess={handleSuccess}>
+               <lightning-input-field data-id="SuppliedName" field-name='SuppliedName' required ="true" onchange = "{handleSuppliedNameChange}"></lightning-input-field>
+               <lightning-input-field data-id="SuppliedEmail" field-name='SuppliedEmail' required ="true" onchange = "{handleSuppliedEmailChange}"></lightning-input-field>
+               <lightning-input-field data-id="SuppliedPhone" field-name='SuppliedPhone' required ="true" onchange = "{handleSuppliedPhoneChange}"></lightning-input-field>
+               <lightning-input-field data-id="Description"   field-name='Description' required ="true" onchange={handleChange}>                           
+               </lightning-input-field>
+               <lightning-input-field data-id="CaseTypec" field-name='Case_Type__c' required ="true" onchange = "{handlecaseTypeChange}"></lightning-input-field>
+               <lightning-input-field data-id="CaseSubtypec" field-name='Case_Subtype__c' required ="true" onchange = "{handlecaseSubTypeChange}"></lightning-input-field>
+               <lightning-input-field field-name='Buyer_ID__c' data-id="buyerId"  onchange = "{handlecaseBuyerIdChange}"></lightning-input-field>
+               <div  >
+                  <lightning-input type="file"
+                     label={label.Attachment}
+                     onchange={handleFileUploaded}
+                     multiple>
+                  </lightning-input>
+                  <template for:each={filesUploaded} for:item="file">
+                     <div key={file.Title} class="slds-text-body_small">{file.Title}</div>
+                  </template>
+                  <template if:true={showLoadingSpinner}>
+                     <lightning-spinner alternative-text="Uploading......" size="medium"></lightning-spinner>
+                  </template>
+                  <br/>                           
+                  <br/><br/>                           
+               </div>
+               <div class="submitButtonContainer" >
+                  <lightning-button  variant="destructive" data-id = "submitcase" 
+                     class="hide slds-button slds-button_destructive" 
+                     style ="width:100%" onclick ={onSubmitHandler}  
+                     onsubmit ={onSubmitHandler} 
+                     label={label.Submit}>
+                  </lightning-button>
+               </div>
+               <br />
+               <iframe   width="100%" src="/apex/googleRecaptcha"></iframe> 
+            </lightning-record-edit-form>
+         </div>
+         <!--render facet: 38:2;a-->
+      </div>
+   </div>
+</template>

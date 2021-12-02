@@ -1,0 +1,118 @@
+<template>
+
+    <lightning-spinner alternative-text="Loading" size="medium" if:true={isLoading}></lightning-spinner>
+    
+    <div class="slds-theme_default">
+        <lightning-tabset variant="standard" if:false={isLoading} class="bgcolor">
+            <lightning-tab label={storageInformationLabel} class="bgcolor">
+                <c-crc_storage-information 
+                    case-information={caseData}
+                    actions-needed={actionsNeeded} 
+                    storage-information={storageInformation}
+                    storage-location-contact={storageLocationContact}>
+                </c-crc_storage-information>
+            </lightning-tab>
+            <lightning-tab label="Vehicle Information" class="bgcolor">
+                <c-crc_vehicle-information 
+                    keys-options={keysOptions}
+                    assignment-type-options={assignmentTypeOptions}
+                    vehicle-location-options={vehicleLocationOptions}
+                    exterior-color-options={exteriorColorOptions}
+                    actions-needed={actionsNeeded} 
+                    vehicle-information={caseData}
+                    primary-damage-options={primaryDamageOptions}
+                    title-indicator-options={titleIndicatorOptions}
+                    secondary-damage-options={secondaryDamageOptions}
+                    drive-options={driveOptions}
+                    fuel-type-options={fuelTypeOptions}
+                    loss-type-options={lossTypeOptions}>
+                </c-crc_vehicle-information>
+            </lightning-tab>
+            <lightning-tab label="Charges &amp; Payment" class="bgcolor" if:false={isResidentialStorage}>
+                <div class="slds-grid slds-wrap">
+                    <div class="slds-size_1-of-1">
+                        <c-crc_storage-charges 
+                            actions-needed={actionsNeeded} 
+                            storage-charges={storageCharges}
+                            rate-type-options={rateTypeOptions}
+                            case-information={caseData}>
+                        </c-crc_storage-charges>  
+                    </div>
+
+                    <div class="slds-size_1-of-1">
+                        <c-crc_release-charges 
+                            case-information={caseData}
+                            release-charges={releaseCharges}
+                            actions-needed={actionsNeeded}>
+                        </c-crc_release-charges>  
+                    </div>
+
+                    <!-- <div class="slds-size_1-of-1">
+                        <c-crc_payment actions-needed={actionsNeeded}></c-crc_payment>
+                    </div> -->
+                </div>
+            </lightning-tab>
+            <lightning-tab label="Release Problem">
+                <c-crc_release-problems 
+                    actions-needed={actionsNeeded} 
+                    release-problems={releaseProblems}
+                    case-information={caseData}>
+                </c-crc_release-problems>
+            </lightning-tab>
+
+            
+            <lightning-tab label="All Detail" style="background-color: #ffffff;">
+                <lightning-accordion allow-multiple-sections-open>
+                    <lightning-accordion-section name="Storage Information" label="Storage Information" style="background-color: #ffffff;">
+                        <c-crc_storage-information 
+                            case-information={caseData}
+                            actions-needed={actionsNeeded} 
+                            storage-information={storageInformation}
+                            storage-location-contact={storageLocationContact}>
+                        </c-crc_storage-information>
+                    </lightning-accordion-section>
+
+                    <lightning-accordion-section name="Vehicle Information" label="Vehicle Information" style="background-color: #ffffff;">
+                        <c-crc_vehicle-information 
+                            keys-options={keysOptions}
+                            vehicle-location-options={vehicleLocationOptions}
+                            exterior-color-options={exteriorColorOptions}
+                            primary-damage-options={primaryDamageOptions}
+                            title-indicator-options={titleIndicatorOptions}
+                            secondary-damage-options={secondaryDamageOptions}
+                            drive-options={driveOptions}
+                            fuel-type-options={fuelTypeOptions}
+                            loss-type-options={lossTypeOptions}
+                            actions-needed={actionsNeeded} 
+                            vehicle-information={caseData} 
+                            assignment-type-options={assignmentTypeOptions} 
+                            if:true={exteriorColorOptions}>
+                        </c-crc_vehicle-information>
+                    </lightning-accordion-section>
+
+                    <lightning-accordion-section name="Storage Charges" label="Storage Charges" style="background-color: #ffffff;">
+                        <c-crc_storage-charges 
+                            actions-needed={actionsNeeded} 
+                            storage-charges={storageCharges} 
+                            rate-type-options={rateTypeOptions}
+                            if:true={rateTypeOptions}
+                            case-information={caseData}>
+                        </c-crc_storage-charges> 
+                    </lightning-accordion-section>
+
+                    <lightning-accordion-section name="Release Charges" label="Release Charges" style="background-color: #ffffff;">
+                        <c-crc_release-charges 
+                            case-information={caseData}
+                            release-charges={releaseCharges}
+                            actions-needed={actionsNeeded}>
+                        </c-crc_release-charges>
+                    </lightning-accordion-section>
+
+                    <lightning-accordion-section name="Payment" label="Payment" style="background-color: #ffffff;">
+                        <c-crc_payment actions-needed={actionsNeeded}></c-crc_payment>
+                    </lightning-accordion-section>
+                </lightning-accordion>
+            </lightning-tab>
+        </lightning-tabset>
+    </div>
+</template>

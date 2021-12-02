@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>CPNT</fullName>
+        <default>false</default>
+        <label>Cell Phone</label>
+    </customValue>
+    <customValue>
+        <fullName>CPWT</fullName>
+        <default>false</default>
+        <label>Cell Phone with Text</label>
+    </customValue>
+    <customValue>
+        <fullName>HMPN</fullName>
+        <default>false</default>
+        <label>Home Phone</label>
+    </customValue>
+    <customValue>
+        <fullName>WKPN</fullName>
+        <default>false</default>
+        <label>Work Phone</label>
+    </customValue>
+    <masterLabel>CRC Phone Type</masterLabel>
+    <sorted>true</sorted>
+</GlobalValueSet>

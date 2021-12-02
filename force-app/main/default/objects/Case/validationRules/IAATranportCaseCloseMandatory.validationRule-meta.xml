@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>IAATranportCaseCloseMandatory</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND( ISPICKVAL(Status , &apos;Closed&apos;)  , OR(ISBLANK(ContactId), ISBLANK(AccountId)),  RecordType.DeveloperName = &apos;IAA_Local_Tow&apos;)</errorConditionFormula>
+    <errorMessage>Stock, Account, Contact is mandatory fields while closing the case.</errorMessage>
+</ValidationRule>

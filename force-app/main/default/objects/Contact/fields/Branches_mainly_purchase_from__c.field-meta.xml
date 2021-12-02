@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Branches_mainly_purchase_from__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>What Branch(es) does the contact purchase from the most.</inlineHelpText>
+    <label>Branch(es) mainly purchase from</label>
+    <length>255</length>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

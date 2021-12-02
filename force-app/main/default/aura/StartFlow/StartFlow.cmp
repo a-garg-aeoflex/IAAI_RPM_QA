@@ -1,0 +1,15 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes" access="global" controller="Utils">
+
+    <aura:attribute name="flow_name" type="String"/>
+    <aura:attribute name="flow_var01" type="String"/>
+    <aura:attribute name="flow_var02" type="String"/>
+    <aura:attribute name="flow_var03" type="String"/>
+    <aura:attribute name="flow_var04" type="String"/>
+    <aura:attribute name="flow_var05" type="String"/>
+    <aura:attribute name="flow_fromURL01" type="String"/>
+    <aura:attribute name="flow_fromURL02" type="String"/>
+    <aura:attribute name="retVal" type="String[]" />
+    <aura:handler name="init" value="{!this}" action="{!c.init}" />
+    <lightning:flow aura:id="flowData" onstatuschange="{!c.handleStatusChange}"/>
+
+</aura:component>

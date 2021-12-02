@@ -1,0 +1,109 @@
+<template>
+    <lightning-spinner alternative-text="Loading" size="medium" if:true={showSpinner}></lightning-spinner>
+    <div class="table-container">
+       <table class="data-table">
+            <thead>
+                <tr class="data-table-headers">
+                    <th class="data-table-headers-cell" data-type="left" scope="col-sm-8">
+                        VIN
+                    </th>
+                    <th class="data-table-headers-cell" data-type="right" scope="col">
+                        Make
+                    </th>
+                    <th class="data-table-headers-cell" data-type="right" scope="col">
+                        Model
+                    </th>
+                    <th class="data-table-headers-cell" data-type="right" scope="col">
+                        Year
+                    </th>
+                    <th class="data-table-headers-cell" data-type="right" scope="col">
+                        Status
+                    </th>
+                    <th class="data-table-headers-cell" data-type="right" scope="col">
+                        Quoted Release Date/Time
+                    </th>
+                    <th class="data-table-headers-cell" data-type="right" scope="col">
+                        Dispatch Date
+                    </th>
+                    <th class="data-table-headers-cell" data-type="right" scope="col">
+                        Pickup Date
+                    </th>
+                </tr>
+            </thead>
+            <tbody class="data-table-body" if:true={records}>
+                <template for:each={records} for:item="record">
+                    <tr class="data-table-row" key={record.Id}>
+                        <th class="data-table-row-cell hide-on-mobile" data-type="name" scope="row">
+                            <div class="data-table-row-cell__link-block" data-type="abbreviation">
+                                {record.VIN__c}
+                            </div>
+                            <div class="data-table-row-cell__link-block" data-type="full">
+                               {record.Model_Year__c} - {record.Model__c} 
+                            </div>
+                        </th>
+                        <td class="data-table-row-cell" data-type="value" aria-label="value">
+                            <span class="data-table-row-cell__value">
+                                {record.Make__c}
+                            </span>
+                        </td>
+                        <td class="data-table-row-cell" data-type="value" aria-label="value">
+                            <span class="data-table-row-cell__value">
+                                {record.Model_Year__c} - {record.Model__c} 
+                            </span>
+                        </td>
+                        <td class="data-table-row-cell hide-on-mobile" data-type="value" aria-label="value">
+                            <span class="data-table-row-cell__value">
+                                {record.Model_Year__c}
+                            </span>
+                        </td>
+                        <td class="data-table-row-cell" data-type="value" aria-label="value">
+                            <span class="data-table-row-cell__value">
+                                {record.Status_of_Listing__c}
+                            </span>
+                        </td>
+                        <td class="data-table-row-cell hide-on-mobile" data-type="value" aria-label="value">
+                            <span class="data-table-row-cell__value">
+                                <lightning-formatted-date-time 
+                                    if:true={record.Stock_Lookup__r.isQuotedAvailable}
+                                    value={record.Stock_Lookup__r.QUOTED_RELEASE_DATE__c}>
+                                </lightning-formatted-date-time>
+
+                                <template if:false={record.Stock_Lookup__r.isQuotedAvailable}>
+                                    {record.Stock_Lookup__r.QUOTED_RELEASE_DATE__c}
+                                </template>
+</span>
+</td>
+<td class="data-table-row-cell" data-type="value" aria-label="value">
+    <span class="data-table-row-cell__value">
+
+                                <lightning-formatted-date-time 
+                                    if:true={record.Stock_Lookup__r.isDispatchAvailable}
+                                    value={record.Stock_Lookup__r.DISPATCH_DATETIME__c}>
+                                </lightning-formatted-date-time>
+
+                                <template if:false={record.Stock_Lookup__r.isDispatchAvailable}>
+                                    {record.Stock_Lookup__r.DISPATCH_DATETIME__c}
+                                </template>
+                            </span>
+</td>
+<td class="data-table-row-cell" data-type="value" aria-label="value" style="cursor: pointer;">
+    <span class="data-table-row-cell__value">
+
+                                <lightning-formatted-date-time 
+                                    if:true={record.Stock_Lookup__r.isPickupAvailable}
+                                    value={record.Stock_Lookup__r.PICKUP_DATETIME__c}>
+                                </lightning-formatted-date-time>
+
+                                <template if:false={record.Stock_Lookup__r.isPickupAvailable}>
+                                    {record.Stock_Lookup__r.PICKUP_DATETIME__c}
+                                </template>
+
+                                <lightning-formatted-date-time value={record.Stock_Lookup__r.PICKUP_DATETIME__c}></lightning-formatted-date-time>
+                            </span>
+</td>
+</tr>
+</template>
+</tbody>
+</table>
+</div>
+</template>

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Self_Identified_Segmentation__c</fullName>
+    <externalId>false</externalId>
+    <label>Self-Identified Segmentation</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>1</fullName>
+                <default>false</default>
+                <label>Public</label>
+            </value>
+            <value>
+                <fullName>2</fullName>
+                <default>false</default>
+                <label>Dealer</label>
+            </value>
+            <value>
+                <fullName>3</fullName>
+                <default>false</default>
+                <label>Rebuilder</label>
+            </value>
+            <value>
+                <fullName>4</fullName>
+                <default>false</default>
+                <label>Recycler</label>
+            </value>
+            <value>
+                <fullName>5</fullName>
+                <default>false</default>
+                <label>Broker</label>
+            </value>
+            <value>
+                <fullName>6</fullName>
+                <default>false</default>
+                <label>Specialty</label>
+            </value>
+            <value>
+                <fullName>7</fullName>
+                <default>false</default>
+                <label>Exporter</label>
+            </value>
+            <value>
+                <fullName>BROKER: I help other buyers purchase vehicles through my account</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>BROKER: I help other buyers purchase vehicles through my account</label>
+            </value>
+            <value>
+                <fullName>DEALER: I sell new and used vehicles and boats</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>DEALER: I sell new and used vehicles and boats</label>
+            </value>
+            <value>
+                <fullName>EXPORTER: I export vehicles out of the United States</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>EXPORTER: I export vehicles out of the United States</label>
+            </value>
+            <value>
+                <fullName>PUBLIC: I buy for personal use or private resale</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>PUBLIC: I buy for personal use or private resale</label>
+            </value>
+            <value>
+                <fullName>REBUILDER: I sell reconditioned/repaired vehicles</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>REBUILDER: I sell reconditioned/repaired vehicles</label>
+            </value>
+            <value>
+                <fullName>RECYCLER: I sell used parts and scrap</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>RECYCLER: I sell used parts and scrap</label>
+            </value>
+            <value>
+                <fullName>SPECIALTY: I purchase heavy trucks, equipment and/or Specialty vehicle</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>SPECIALTY: I purchase heavy trucks, equipment and/or Specialty vehicle</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

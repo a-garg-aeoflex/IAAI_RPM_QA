@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Provider_Specific_Publications__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Publications to “subscribe” to.</inlineHelpText>
+    <label>Provider Specific Publications</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>SEMA</fullName>
+                <default>false</default>
+                <label>SEMA</label>
+            </value>
+            <value>
+                <fullName>ILS</fullName>
+                <default>false</default>
+                <label>ILS</label>
+            </value>
+            <value>
+                <fullName>Catastrophe Updates</fullName>
+                <default>false</default>
+                <label>Catastrophe Updates</label>
+            </value>
+            <value>
+                <fullName>Legislative Updates</fullName>
+                <default>false</default>
+                <label>Legislative Updates</label>
+            </value>
+            <value>
+                <fullName>Industry Reports, Articles &amp; Newsletters</fullName>
+                <default>false</default>
+                <label>Industry Reports, Articles &amp; Newsletters</label>
+            </value>
+            <value>
+                <fullName>Commercial-Specific Publications</fullName>
+                <default>false</default>
+                <label>Commercial-Specific Publications</label>
+            </value>
+            <value>
+                <fullName>Dealer-Specific Publications</fullName>
+                <default>false</default>
+                <label>Dealer-Specific Publications</label>
+            </value>
+            <value>
+                <fullName>Specialty-Specific Publications</fullName>
+                <default>false</default>
+                <label>Specialty-Specific Publications</label>
+            </value>
+            <value>
+                <fullName>Insurance-Specific Publications</fullName>
+                <default>false</default>
+                <label>Insurance-Specific Publications</label>
+            </value>
+            <value>
+                <fullName>VPS/Cash for Cars-Specific Publications</fullName>
+                <default>false</default>
+                <label>VPS/Cash for Cars-Specific Publications</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Video</fullName>
+    <active>true</active>
+    <compactLayoutAssignment>Help_Community_Compact_Layout</compactLayoutAssignment>
+    <description>For videos</description>
+    <label>Video</label>
+</RecordType>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Cannot_edit_Name_for_Prospect</fullName>
+    <active>true</active>
+    <description>Cannot edit Contact for a buyer with pending registration</description>
+    <errorConditionFormula>RecordType.Name = &quot;Prospect Buyer&quot;
+&amp;&amp;
+$Profile.Name &lt;&gt; &quot;Integration User&quot;
+&amp;&amp;
+$Profile.Name &lt;&gt; &quot;System Administrator&quot;</errorConditionFormula>
+    <errorMessage>You cannot edit a contact for a buyer with pending registration</errorMessage>
+</ValidationRule>

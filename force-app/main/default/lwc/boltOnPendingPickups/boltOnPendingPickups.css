@@ -1,0 +1,371 @@
+.slds-truncate {
+    white-space: normal !important;
+}
+
+.slds-button_destructive {
+    color: white !important;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0
+}
+
+td,
+th {
+    padding: 0
+}
+
+.table-container .data-table {
+    width: 100%
+}
+
+.table-container .data-table-headers {
+    border-bottom: .0625rem #ccc solid;
+    text-transform: uppercase;
+    font-family: BWHaasGrotesk-55Roman-Web, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #555;
+    font-size: .6875rem
+}
+
+.table-container .data-table-headers-cell {
+    padding: 1.25rem 0 .625rem;
+    vertical-align: bottom
+}
+
+.table-container .data-table-headers-cell[data-type*=left] {
+    text-align: left
+}
+
+.table-container .data-table-headers-cell[data-type*=right] {
+    padding-left: .625rem;
+    text-align: right
+}
+
+.table-container .data-table__time {
+    display: inline-block;
+    padding: 10px 10px 0 0
+}
+
+.table-container .data-table__date {
+    display: inline-block;
+    padding: 10px 10px 0 0
+}
+
+.table-container .data-table-row {
+    border-bottom: .0625rem #999 dotted
+}
+
+.table-container .data-table-row-cell {
+    padding: .5rem 0;
+    font-size: .75rem;
+    vertical-align: top
+}
+
+.table-container .data-table-row-cell__link-block[data-type*=abbreviation] {
+    color: #767676;
+    font-family: BWHaasGrotesk-55Roman-Web, "Helvetica Neue", Helvetica, Arial, sans-serif
+}
+
+.table-container .data-table-row-cell__link-block[data-type*=full] {
+    color: #262626;
+    font-size: .8125rem
+}
+
+.table-container .data-table-row-cell__link-block[data-type*=full]:lang(ja) {
+    font-weight: 700
+}
+
+.table-container .data-table-row-cell__link:hover div {
+    color: #262626
+}
+
+.table-container .data-table-row-cell[data-type*=better],
+.table-container .data-table-row-cell[data-type*=date],
+.table-container .data-table-row-cell[data-type*=month-year],
+.table-container .data-table-row-cell[data-type*=not-available],
+.table-container .data-table-row-cell[data-type*=percent],
+.table-container .data-table-row-cell[data-type*=plain-text],
+.table-container .data-table-row-cell[data-type*=time],
+.table-container .data-table-row-cell[data-type*=value],
+.table-container .data-table-row-cell[data-type*=worse] {
+    font-family: BWHaasGrotesk-55Roman-Web, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    padding-left: .625rem;
+    text-align: right
+}
+
+.table-container .data-table-row-cell[data-type*=spark-line] {
+    width: 5rem;
+    max-height: 3.125rem;
+    min-height: 1.25rem
+}
+
+.table-container .data-table-row-cell[data-type*=spark-line] object {
+    width: 5rem;
+    margin-left: 2.5rem;
+    max-height: 1.5625rem;
+    min-height: 1.25rem
+}
+
+.table-container .data-table-row-cell[data-type*=name] {
+    text-align: left
+}
+
+.table-container .data-table-row-cell[data-type*=date],
+.table-container .data-table-row-cell[data-type*=month-year],
+.table-container .data-table-row-cell[data-type*=not-available],
+.table-container .data-table-row-cell[data-type*=percent],
+.table-container .data-table-row-cell[data-type*=plain-text],
+.table-container .data-table-row-cell[data-type*=time],
+.table-container .data-table-row-cell[data-type*=value] {
+    color: #767676
+}
+
+.table-container .data-table-row-cell[data-type*=better] .data-table-row-cell__value {
+    padding: 3px;
+    background-color: #9cf4dc
+}
+
+.table-container .data-table-row-cell[data-type*=worse] .data-table-row-cell__value {
+    padding: 3px;
+    background-color: #ffe1e1
+}
+
+@media screen and (min-width:0) and (max-width:47.4375em) {
+    .table-container .data-table-row-cell:after {
+        content: attr(next-value);
+        display: block
+    }
+    .table-container .data-table-row-cell__next-value_up:after {
+        background-color: #9cf4dc
+    }
+    .table-container .data-table-row-cell__next-value_down:after {
+        background-color: #ffe1e1
+    }
+}
+
+.table-container .data-table-row.default-hidden {
+    display: none
+}
+
+.table-container .data-table-row.open {
+    display: table-row
+}
+
+@media screen and (min-width:63.75em) and (max-width:79.9375em) {
+    .table-container .data-table-row-cell .table-container .data-table[data-type*=spark-line] {
+        text-align: right;
+        width: 3.875rem
+    }
+    .table-container .data-table-row-cell .table-container .data-table[data-type*=spark-line] .sparkline {
+        width: 3rem;
+        margin-left: .625rem
+    }
+}
+
+@media screen and (min-width:0) and (max-width:47.4375em) {
+    .table-container .data-table-headers {
+        display: none
+    }
+    .table-container .data-table .hide-on-mobile {
+        display: none
+    }
+    .table-container .data-table .show-on-mobile {
+        display: block
+    }
+}
+
+@media screen and (min-width:47.5em) {
+    .table-container .data-table {
+        width: 100%
+    }
+    .table-container .data-table .hide-on-mobile {
+        display: table-cell
+    }
+    .table-container .data-table .show-on-mobile {
+        display: none
+    }
+}
+
+.table-container__header {
+    border-bottom: solid 1px #ccc
+}
+
+.table-container__title:lang(ja) {
+    font-weight: 700
+}
+
+.table-container .table-title {
+    border-bottom: .0625rem #ccc solid;
+    padding: 1.25rem 0
+}
+
+.table-container__title {
+    color: #000
+}
+
+.table-container__subtitle {
+    display: inline;
+    padding-left: 1.25rem;
+    color: #767676;
+    font-size: .9375rem
+}
+
+.table-container__subtitle:lang(ja) {
+    font-weight: 700
+}
+
+.table-container__annotation {
+    margin-top: .9375rem;
+    font-size: .75rem;
+    color: #767676
+}
+
+.table-container__annotation:before {
+    content: "*"
+}
+
+.data-tables .data-tables {
+    margin-bottom: 0
+}
+
+.cross-rates .data-table {
+    empty-cells: show
+}
+
+.cross-rates .data-table__headers {
+    color: #000;
+    font-size: .75rem;
+    font-family: BWHaasGrotesk-75Bold-Web, "Helvetica Neue", Helvetica, Arial, sans-serif
+}
+
+@media screen and (min-width:0) and (max-width:47.4375em) {
+    .cross-rates .data-table__headers {
+        display: table-row
+    }
+    .cross-rates .data-table .hide-on-mobile {
+        display: none
+    }
+    .cross-rates .data-table .hide-row-on-mobile {
+        display: none
+    }
+}
+
+@media screen and (min-width:47.5em) {
+    .cross-rates .data-table {
+        width: 100%
+    }
+    .cross-rates .data-table .hide-row-on-mobile {
+        display: table-row
+    }
+    .cross-rates .data-table .hide-on-mobile {
+        display: table-cell
+    }
+}
+
+.section-tabs {
+    position: relative;
+    margin-bottom: .5rem
+}
+
+.section-tabs__nav .group {
+    list-style-position: outside;
+    list-style-type: none;
+    text-align: justify;
+    min-width: 38.75rem;
+    height: 1.5625rem
+}
+
+.section-tabs__nav .group .tab {
+    display: inline-block;
+    font-size: 1rem;
+    padding: 0 .0625rem .375rem
+}
+
+.section-tabs__nav .group .tab__link:lang(ja) {
+    font-weight: 700
+}
+
+@media screen and (min-width:47.5em) and (max-width:63.6875em) {
+    .section-tabs__nav .group .tab {
+        font-size: .9375rem
+    }
+}
+
+@media screen and (min-width:63.75em) and (max-width:79.9375em) {
+    .section-tabs__nav .group .tab {
+        font-size: .875rem
+    }
+}
+
+.section-tabs__nav .group .active {
+    text-decoration: underline
+}
+
+.section-tabs__nav .group:after {
+    content: "";
+    display: inline-block;
+    width: 100%
+}
+
+.section-tabs__nav .group:focus,
+.section-tabs__nav .group:hover {
+    color: #262626
+}
+
+.section-tabs__menu {
+    display: none
+}
+
+.tab .selected {
+    text-decoration: underline
+}
+
+@media screen and (min-width:0) and (max-width:47.4375em) {
+    .section-tabs__menu {
+        display: inline;
+        position: absolute;
+        top: 0;
+        right: 1.25rem;
+        z-index: 2;
+        color: #fb8b1e;
+        cursor: pointer
+    }
+    .section-tabs__menu:after {
+        content: "5";
+        font-family: Bloomberg;
+        font-style: normal
+    }
+    .section-tabs__menu_open:after {
+        content: "6";
+        font-family: Bloomberg;
+        font-style: normal
+    }
+    .section-tabs__nav .group {
+        overflow: hidden;
+        position: relative;
+        background: #fff;
+        height: auto;
+        min-width: 20rem
+    }
+    .section-tabs__nav .group .tab {
+        display: block;
+        margin-left: 0;
+        border: 0
+    }
+    .section-tabs__nav .group .hover-link {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 100%
+    }
+    .section-tabs__nav .group .hover-link_open {
+        position: relative;
+        display: block
+    }
+    .tab .selected {
+        border: 0;
+        z-index: 1;
+        background: #fff
+    }
+}

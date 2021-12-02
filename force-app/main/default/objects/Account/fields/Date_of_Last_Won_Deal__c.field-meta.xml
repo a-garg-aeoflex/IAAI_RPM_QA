@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Date_of_Last_Won_Deal__c</fullName>
+    <description>This value can come in handy when evaluating repeat customers (i.e. if date of last won deal is six months ago, time to follow up).&lt;br&gt;&lt;br&gt;</description>
+    <externalId>false</externalId>
+    <inlineHelpText>This value can come in handy when evaluating repeat customers (i.e. if date of last won deal is six months ago, time to follow up).&lt;br&gt;&lt;br&gt;</inlineHelpText>
+    <label>Date of Last Won Deal</label>
+    <summarizedField>Opportunity.CloseDate</summarizedField>
+    <summaryFilterItems>
+        <field>Opportunity.IsWon</field>
+        <operation>equals</operation>
+        <value>True</value>
+    </summaryFilterItems>
+    <summaryForeignKey>Opportunity.AccountId</summaryForeignKey>
+    <summaryOperation>max</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <type>Summary</type>
+</CustomField>

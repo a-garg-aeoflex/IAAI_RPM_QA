@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Total_Pipeline__c</fullName>
+    <description>Summarizes total amount of all open opportunities</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Summarizes total amount of all open opportunities</inlineHelpText>
+    <label>Total Pipeline</label>
+    <summarizedField>Opportunity.Amount</summarizedField>
+    <summaryFilterItems>
+        <field>Opportunity.StageName</field>
+        <operation>equals</operation>
+        <value>0. Qualifying, 1. Discovering, 2. Validating, 3. Proposing, 4. Closing</value>
+    </summaryFilterItems>
+    <summaryForeignKey>Opportunity.AccountId</summaryForeignKey>
+    <summaryOperation>sum</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <type>Summary</type>
+</CustomField>

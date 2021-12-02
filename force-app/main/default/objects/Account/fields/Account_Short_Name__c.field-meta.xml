@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Account_Short_Name__c</fullName>
+    <description>Used in Opportunity Naming Convention as well as aiding in searches for Accounts&apos; with &quot;commonly referred to&quot; names. For Example: International Business Machines and IBM</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Used in Opportunity Naming Convention as well as aiding in searches for Accounts&apos; with &quot;commonly referred to&quot; names. For Example: International Business Machines and IBM</inlineHelpText>
+    <label>Account Short Name</label>
+    <length>20</length>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

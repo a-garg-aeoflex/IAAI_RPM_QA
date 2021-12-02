@@ -1,0 +1,12 @@
+.THIS .slds-modal__container{
+     max-width: 70rem !important;
+   
+    width:70% !important;
+    height:80% !important;
+ }
+.THIS.LightningSpinnerCss{
+    position: relative;
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+}

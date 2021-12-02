@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Tower_Check__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>SL_TOWER_CHECK</description>
+    <externalId>false</externalId>
+    <label>Tower Check</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

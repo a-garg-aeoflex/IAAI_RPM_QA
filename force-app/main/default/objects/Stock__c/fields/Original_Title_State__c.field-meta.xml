@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Original_Title_State__c</fullName>
+    <description>State original title was obtained in.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>State original title was obtained in.</inlineHelpText>
+    <label>Original Title State</label>
+    <length>50</length>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

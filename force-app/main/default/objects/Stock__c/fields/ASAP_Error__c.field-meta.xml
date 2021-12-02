@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ASAP_Error__c</fullName>
+    <description>Needed to support getting the ASAP error code listed on the VPE Listing object.  PLEASE DON&apos;T DELETE</description>
+    <externalId>false</externalId>
+    <label>ASAP Error</label>
+    <length>255</length>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

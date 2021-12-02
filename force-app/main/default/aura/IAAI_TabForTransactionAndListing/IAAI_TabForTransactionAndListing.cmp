@@ -1,0 +1,108 @@
+<aura:component controller="IAAI_BoltOnController" implements="forceCommunity:availableForAllPageTypes" access="global">
+    <aura:attribute name="username" type="String" />
+    <aura:attribute name="userid" type="String" />
+    <aura:attribute name="uname" type="String" />
+    <aura:attribute name="submitbid" type="boolean" default="false" />
+    <aura:attribute name="showVideo" type="boolean" default="false" />
+    <aura:handler name="init" value="{!this}" action="{!c.onInit}" />
+
+    <div class="slds-grid slds-wrap">
+        <div class="slds-var-p-bottom_small slds-size--1-of-1 slds-medium-size--1-of-8 slds-large-size--1-of-8" align="center">
+            <img src="{!$Resource.iaai_logo}" height="80px" style="width: 80px;" alt="Iaai Logo" />
+        </div>
+        <div class="slds-var-p-bottom_small slds-size--1-of-1 slds-medium-size--5-of-8 slds-large-size--5-of-8">
+            <div id="vehicleFont" style="text-align: center;font-size: 31px;letter-spacing: 1.2px;word-spacing: 1.2px;color: #000000;font-weight: 700;">Vehicle Offers</div>
+        </div>
+        <div class="slds-var-p-bottom_small slds-size--1-of-1 slds-medium-size--1-of-8 slds-large-size--1-of-8" align="center">
+            <span class="slds-badge">Welcome {!v.uname}</span>&nbsp;&nbsp;&nbsp;
+        </div>
+        <div class="slds-var-p-bottom_small slds-size--1-of-1 slds-medium-size--1-of-8 slds-large-size--1-of-8" align="center">
+            <lightning:button variant="destructive" label="Log Out" title="Log Out" onclick="{! c.handleLogOut }" />
+        </div>
+    </div>
+    <br></br>
+    <div class="slds-grid slds-wrap" align="center" style="text-align: center;">
+        <div class="slds-size--1-of-1  slds-large-size--1-of-1"> Hello! From this page you can see your transaction history and upload vehicles that you would like to list for sale to IAAI.<br/><br/>
+            <hr/>
+        </div>
+
+    </div>
+
+    <div class="slds-grid slds-wrap">
+        <div class="slds-size--1-of-1 slds-medium-size--1-of-6 slds-large-size--2-of-6">
+
+        </div>
+        <div class="slds-size--1-of-1 slds-medium-size--3-of-6 slds-large-size--2-of-6" style="text-align: center;">
+            What would you like to do? Please select from the tabs below.
+        </div><br/>
+        <div class="slds-size--1-of-1 slds-medium-size--2-of-6 slds-large-size--2-of-6" align="center">
+            <a href="javascript:void(0)" onclick="{!c.downloadCSVTemplate}" target="_blank">Click here to download csv template</a><br/>
+            <!--<a href="#" onclick="{!c.openVideo}">Watch a video tutorial</a><br/>
+            <a href="#">Download the "How To" document</a>-->
+            <a href="{!$Label.c.Vehicle_Condition_Grade_PDF}" target="_block">Vehicle Condition Grade Matrix</a>
+
+        </div>
+    </div>
+
+
+    <br/>
+
+    <lightning:tabset variant="scoped" class="tabset">
+        <lightning:tab label="Transaction History">
+            <c:IAAI_BoltOnTransactionHistoryPage userid="{!v.userid}" />
+        </lightning:tab>
+        <lightning:tab label="Create Listing">
+            <div style="padding:20px;">
+                Bulk upload vehicle via a CSV file:
+                <div id="uploadCSV">
+                </div>
+                <c:readCSV onlistingcreated="{!c.refreshListing}" />
+            </div>
+        </lightning:tab>
+        <lightning:tab label="Pending Pickup">
+            <c:boltOnPendingPickups />
+        </lightning:tab>
+    </lightning:tabset>
+
+    <aura:if isTrue="{!v.submitbid}">
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+                <header class="slds-modal__header">
+
+                    <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">Terms and Conditions</h2>
+                </header>
+                <!--###### MODAL BOX BODY Part Start######-->
+                <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                    <lightning:formattedRichText aura:id="consent">
+                    </lightning:formattedRichText>
+                    <br/><br/>
+                    <ui:inputCheckbox aura:id="checkbox" label="Please accept terms and conditions" change="{!c.onCheck}" />
+                </div>
+                <!--###### MODAL BOX FOOTER Part Start ######-->
+                <footer class="slds-modal__footer">
+                    <lightning:button variant="Neutral" label="Decline" title="Cancel" onclick="{!c.handleLogOut}" />
+                    <lightning:button aura:id="saveButton" variant="destructive" disabled="true" label="Accept" title="Accept" onclick="{!c.onSave}" />
+                </footer>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+        <!--###### MODAL BOX Part END Here ######-->
+    </aura:if>
+
+    <aura:if isTrue="{!v.showVideo}">
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+                <header class="slds-modal__header">
+                    <lightning:buttonIcon iconName="utility:close" onclick="{!c.closeModel}" alternativeText="close" variant="bare-inverse" class="slds-modal__close" />
+                </header>
+                <!--###### MODAL BOX BODY Part Start######-->
+                <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                    <iframe width="610" height="315" src="https://www.youtube.com/embed/NMrAic_FqYU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; "></iframe>
+                </div>
+
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+        <!--###### MODAL BOX Part END Here ######-->
+    </aura:if>
+</aura:component>

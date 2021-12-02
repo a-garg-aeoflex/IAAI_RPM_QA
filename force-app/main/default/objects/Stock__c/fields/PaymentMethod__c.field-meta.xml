@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PaymentMethod__c</fullName>
+    <externalId>false</externalId>
+    <label>PaymentMethod</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Cash</fullName>
+                <default>false</default>
+                <label>Cash</label>
+            </value>
+            <value>
+                <fullName>Certified Check</fullName>
+                <default>false</default>
+                <label>Certified Check</label>
+            </value>
+            <value>
+                <fullName>Money Order</fullName>
+                <default>false</default>
+                <label>Money Order</label>
+            </value>
+            <value>
+                <fullName>Account Credit</fullName>
+                <default>false</default>
+                <label>Account Credit</label>
+            </value>
+            <value>
+                <fullName>Buyer Credit Card</fullName>
+                <default>false</default>
+                <label>Buyer Credit Card</label>
+            </value>
+            <value>
+                <fullName>Company Check</fullName>
+                <default>false</default>
+                <label>Company Check</label>
+            </value>
+            <value>
+                <fullName>AFC Finance</fullName>
+                <default>false</default>
+                <label>AFC Finance</label>
+            </value>
+            <value>
+                <fullName>Certified/Cashier’s Check</fullName>
+                <default>false</default>
+                <label>Certified/Cashier’s Check</label>
+            </value>
+            <value>
+                <fullName>Credit Card</fullName>
+                <default>false</default>
+                <label>Credit Card</label>
+            </value>
+            <value>
+                <fullName>Currency</fullName>
+                <default>false</default>
+                <label>Currency</label>
+            </value>
+            <value>
+                <fullName>GreatPlains Payment</fullName>
+                <default>false</default>
+                <label>GreatPlains Payment</label>
+            </value>
+            <value>
+                <fullName>I-Payment</fullName>
+                <default>false</default>
+                <label>I-Payment</label>
+            </value>
+            <value>
+                <fullName>Marketing Promo</fullName>
+                <default>false</default>
+                <label>Marketing Promo</label>
+            </value>
+            <value>
+                <fullName>Online Credit Card</fullName>
+                <default>false</default>
+                <label>Online Credit Card</label>
+            </value>
+            <value>
+                <fullName>Non-AFC Financed</fullName>
+                <default>false</default>
+                <label>Non-AFC Financed</label>
+            </value>
+            <value>
+                <fullName>Online PayPal</fullName>
+                <default>false</default>
+                <label>Online PayPal</label>
+            </value>
+            <value>
+                <fullName>PayPal</fullName>
+                <default>false</default>
+                <label>PayPal</label>
+            </value>
+            <value>
+                <fullName>Traveler’s Check(s)</fullName>
+                <default>false</default>
+                <label>Traveler’s Check(s)</label>
+            </value>
+            <value>
+                <fullName>Wire Transfer</fullName>
+                <default>false</default>
+                <label>Wire Transfer</label>
+            </value>
+            <value>
+                <fullName>DSC</fullName>
+                <default>false</default>
+                <label>DSC</label>
+            </value>
+            <value>
+                <fullName>AFC Buy&amp;Go</fullName>
+                <default>false</default>
+                <label>AFC Buy&amp;Go</label>
+            </value>
+            <value>
+                <fullName>KCS</fullName>
+                <default>false</default>
+                <label>KCS</label>
+            </value>
+            <value>
+                <fullName>First Business</fullName>
+                <default>false</default>
+                <label>First Business</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

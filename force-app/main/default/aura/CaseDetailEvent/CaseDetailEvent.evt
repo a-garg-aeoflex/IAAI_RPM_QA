@@ -1,0 +1,5 @@
+<!-- CaseDetailEvent -->
+<aura:event type="COMPONENT" description="Event template" >
+    <aura:attribute name="selsObjRec" type="Object" />
+    <aura:attribute name="selectedCaseId" type="String" />
+</aura:event>

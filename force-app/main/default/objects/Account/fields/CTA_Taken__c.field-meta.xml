@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CTA_Taken__c</fullName>
+    <externalId>false</externalId>
+    <label>Call To Action Taken</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>0</fullName>
+                <default>false</default>
+                <label>NA</label>
+            </value>
+            <value>
+                <fullName>1</fullName>
+                <default>false</default>
+                <label>Guest</label>
+            </value>
+            <value>
+                <fullName>2</fullName>
+                <default>false</default>
+                <label>Public Buyer</label>
+            </value>
+            <value>
+                <fullName>3</fullName>
+                <default>false</default>
+                <label>Licensed Business Buyer</label>
+            </value>
+            <value>
+                <fullName>4</fullName>
+                <default>false</default>
+                <label>Upgrade To Public Buyer</label>
+            </value>
+            <value>
+                <fullName>5</fullName>
+                <default>false</default>
+                <label>Upgrade To Licensed BusinessBuyer</label>
+            </value>
+            <value>
+                <fullName>LicensedBusinessBuyer</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>LicensedBusinessBuyer</label>
+            </value>
+            <value>
+                <fullName>PublicBuyer</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>PublicBuyer</label>
+            </value>
+            <value>
+                <fullName>UpgradeToBuyer</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>UpgradeToBuyer</label>
+            </value>
+            <value>
+                <fullName>UpgradeToLicensedBusinessBuyer</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>UpgradeToLicensedBusinessBuyer</label>
+            </value>
+            <value>
+                <fullName>UpgradeToPublicBuyer</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>UpgradeToPublicBuyer</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

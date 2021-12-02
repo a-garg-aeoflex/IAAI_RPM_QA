@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Three_Way_Call_Occured__c</fullName>
+    <externalId>false</externalId>
+    <label>Three Way Call Occured</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>CWR</fullName>
+                <default>false</default>
+                <label>3Way Call Occurred With Release</label>
+            </value>
+            <value>
+                <fullName>CWO</fullName>
+                <default>false</default>
+                <label>3Way Call Occurred Without Release</label>
+            </value>
+            <value>
+                <fullName>CDO</fullName>
+                <default>false</default>
+                <label>3Way Call Did Not Occur</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

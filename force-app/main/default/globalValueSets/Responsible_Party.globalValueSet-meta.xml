@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>IAA</fullName>
+        <default>false</default>
+        <label>IAA</label>
+    </customValue>
+    <customValue>
+        <fullName>SPR</fullName>
+        <default>false</default>
+        <label>Salvage Provider</label>
+    </customValue>
+    <masterLabel>Responsible Party</masterLabel>
+    <sorted>true</sorted>
+</GlobalValueSet>

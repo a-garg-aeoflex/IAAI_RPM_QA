@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CompactLayout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Stock_Compact_Layout</fullName>
+    <fields>Name</fields>
+    <fields>Branch_Name__c</fields>
+    <fields>Buyer_Name__c</fields>
+    <fields>Number_of_Bids__c</fields>
+    <fields>ACV__c</fields>
+    <label>Stock Compact Layout</label>
+</CompactLayout>

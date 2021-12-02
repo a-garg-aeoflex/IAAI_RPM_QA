@@ -1,0 +1,33 @@
+<template>
+    <lightning-card  variant="Narrow" title="New Note" icon-name="standard:note">
+        <div class="slds-var-p-horizontal_small">
+            <p>
+                <lightning-combobox
+                    name="CRC_Note_Category__c"
+                    label="Note Category"
+                    value={notes.notecategory}
+                    options={notesCategoryOptions}
+                    onchange={handleInputChange}>
+                </lightning-combobox>
+            </p>
+            <p>
+                <lightning-textarea 
+                    max-length="7000"
+                    name="Description"
+                    value={notes.description}
+                    onchange={handleInputChange}
+                    label="Description">
+                </lightning-textarea>
+            </p>
+        </div>
+        <div slot="footer">
+            <lightning-button 
+                disabled={disabled} 
+                variant="brand" 
+                label="Add Note" 
+                title="Add Note" 
+                onclick={handleSave}>
+            </lightning-button>
+        </div>
+    </lightning-card>
+</template>

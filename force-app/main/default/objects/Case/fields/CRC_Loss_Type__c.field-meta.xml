@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CRC_Loss_Type__c</fullName>
+    <externalId>false</externalId>
+    <label>Loss Type</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>CLS</fullName>
+                <default>false</default>
+                <label>Collision</label>
+            </value>
+            <value>
+                <fullName>FIR</fullName>
+                <default>false</default>
+                <label>Fire</label>
+            </value>
+            <value>
+                <fullName>FLD</fullName>
+                <default>false</default>
+                <label>Flood/Water</label>
+            </value>
+            <value>
+                <fullName>OTH</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+            <value>
+                <fullName>THF</fullName>
+                <default>false</default>
+                <label>Theft</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

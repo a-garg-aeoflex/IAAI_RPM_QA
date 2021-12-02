@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Loyalty__c</fullName>
+    <externalId>false</externalId>
+    <label>Loyalty</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Accessible</fullName>
+                <default>false</default>
+                <label>Accessible</label>
+            </value>
+            <value>
+                <fullName>Truly Loyal</fullName>
+                <default>false</default>
+                <label>Truly Loyal</label>
+            </value>
+            <value>
+                <fullName>High Risk</fullName>
+                <default>false</default>
+                <label>High Risk</label>
+            </value>
+            <value>
+                <fullName>Trapped</fullName>
+                <default>false</default>
+                <label>Trapped</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

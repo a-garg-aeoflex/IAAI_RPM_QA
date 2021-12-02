@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Region__c</fullName>
+    <externalId>false</externalId>
+    <label>Region</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>1 - West</fullName>
+                <default>false</default>
+                <label>1 - West</label>
+            </value>
+            <value>
+                <fullName>2 - South Central</fullName>
+                <default>false</default>
+                <label>2 - South Central</label>
+            </value>
+            <value>
+                <fullName>3 - Midwest</fullName>
+                <default>false</default>
+                <label>3 - Midwest</label>
+            </value>
+            <value>
+                <fullName>4 - Northeast</fullName>
+                <default>false</default>
+                <label>4 - Northeast</label>
+            </value>
+            <value>
+                <fullName>5 - Southeast</fullName>
+                <default>false</default>
+                <label>5 - Southeast</label>
+            </value>
+            <value>
+                <fullName>6 - Canada</fullName>
+                <default>false</default>
+                <label>6 - Canada</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

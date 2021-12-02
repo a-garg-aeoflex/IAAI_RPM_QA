@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Broker_Listing_Info_Required</fullName>
+    <active>true</active>
+    <description>This validation rule checks if the broker should be displayed on Broker Listing (Help Community) and requires additional information.</description>
+    <errorConditionFormula>Display_on_Broker_Listing__c = TRUE
+&amp;&amp;
+(
+ISBLANK(Listing_Sort_Order__c) ||
+ISBLANK(TEXT(Listing_Type__c)) ||
+ISBLANK( Country_or_Countries_Served__c ) ||
+LEN(Broker_Information__c)=0 ||
+ISBLANK(Availability__c) ||
+ISBLANK(Fees__c) ||
+ISBLANK(Forms_of_Payment_Accepted__c) ||
+ISBLANK(Additional_Services__c) ||
+LEN(Terms_and_Conditions__c )=0 ||
+ISBLANK(Email__c) ||
+ISBLANK (Broker_Phone__c) ||
+ISBLANK (Main_Contact__c) ||
+ISBLANK (Website) 
+)</errorConditionFormula>
+    <errorMessage>All fields under Broker Listing Information section are required if &quot;Display on Broker Listing&quot; is checked</errorMessage>
+</ValidationRule>

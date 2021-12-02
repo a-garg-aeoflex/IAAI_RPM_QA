@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>No_Contact_edit_for_AuctionAccess_Buyer</fullName>
+    <active>true</active>
+    <description>Prevent users from editing info if buyer is AuctionAccess</description>
+    <errorConditionFormula>$Profile.Name &lt;&gt; &quot;Integration User&quot;
+&amp;&amp;
+!ISBLANK( Account.AuctionAccess_Company_Id__c )
+&amp;&amp;
+!ISBLANK( AuctionAccess_Membership_Number__c )
+&amp;&amp;
+(
+ISCHANGED( FirstName )||
+ISCHANGED( LastName )||
+ISCHANGED(Middle_Initial__c ) ||
+ISCHANGED(  AuctionAccess_ID_Type__c  )||
+ISCHANGED( AuctionAccess_ID_State_Issued__c )||
+ISCHANGED(  AuctionAccess_ID_Number__c )||
+ISCHANGED( AuctionAccess_ID_Expiration_Date__c )||
+ISCHANGED(  AuctionAccess_ID_Country_Issued__c )
+
+)</errorConditionFormula>
+    <errorMessage>You cannot edit Name and AuctionAccess ID information for an AuctionAccess buyer</errorMessage>
+</ValidationRule>

@@ -1,0 +1,9 @@
+.THIS HR{
+    margin: 0rem 0;
+}
+
+.THIS .tabset {font-weight: 600;}
+
+.THIS .slds-tabs_default__link{
+    font-weight: 600 !important; 
+}

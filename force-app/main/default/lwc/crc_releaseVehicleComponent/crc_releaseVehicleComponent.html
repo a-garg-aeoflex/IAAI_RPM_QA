@@ -1,0 +1,37 @@
+<template>
+  
+
+    <div class="custom-modal" if:true={visibleModal}>
+        <section role="dialog" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+                <header class="slds-modal__header">
+                    <span class="slds-modal__close">
+                        <lightning-icon icon-name="utility:close" variant="inverse" alternative-text="close"></lightning-icon>
+                    </span>
+                    <h2 class="slds-text-heading_medium slds-hyphenate">Release Vehicle</h2>
+                </header>
+                <div class="slds-modal__content slds-p-around_medium">
+                   <lightning-layout multiple-rows>
+                       <!-- <lightning-layout-item size="6" padding="around-small">
+                            <lightning-input type="checkbox" variant="standard" name="VR_CHARGES_CLEARED" label="Charges Cleared" required="true"></lightning-input>
+                       </lightning-layout-item>
+                       <lightning-layout-item size="6" padding="around-small">
+                           <lightning-input type="datetime" variant="standard" name="VR_EARLIEST_AVAILABLE_PICKUP_START_DATETIME" label="Earliest Available Pickup" required="true"></lightning-input>
+                       </lightning-layout-item>-->
+                       <lightning-layout-item size="6" padding="around-small">
+                          <lightning-input type="datetime" timezone={timeZone} variant="standard" name="VR_ANTICIPATED_PICKUP_DATETIME" value ={Anticipated_Release_Date_Time} label="Anticipated Pickup Date/Time" required="true"></lightning-input>
+                       </lightning-layout-item> 
+                       <lightning-layout-item size="12" padding="around-small">
+                        <lightning-textarea name="VR_NOTE_DESCRIPTION" label="Note Description" placeholder="Note Description.." required="true"></lightning-textarea>
+                       </lightning-layout-item>
+                   </lightning-layout>
+                </div>
+                <footer class="slds-modal__footer">
+                    <lightning-button label="Cancel" title="Cancel" onclick={onCancel} class="slds-m-right_small"></lightning-button>
+                    <lightning-button variant="brand" label="Save" title="Save"  onclick={onSave}></lightning-button>
+                </footer>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </div>
+</template>

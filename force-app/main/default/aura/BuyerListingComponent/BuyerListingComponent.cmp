@@ -1,0 +1,342 @@
+<aura:component controller="BuyerListingController" implements="flexipage:availableForAllPageTypes,force:hasRecordId">
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:attribute name="BuyerPortalList" type="VPE_Listings__c[]"/>
+    <aura:attribute name="PageNumber" type="integer" default="1"/>
+    <aura:attribute name="TotalPages" type="integer" default="0"/>
+    <aura:attribute name="TotalRecords" type="integer" default="0"/>
+    <aura:attribute name="RecordStart" type="integer" default="0"/>
+    <aura:attribute name="RecordEnd" type="integer" default="0"/>
+    <aura:attribute name="MSCheckBoxCount" type="integer" default="0"/>
+    <aura:attribute name="svalues" type="String"/>
+    <aura:attribute name ="listingID" type="String"/>
+    <aura:attribute name ="ImgSrc" type="String"/>
+    <aura:attribute name="vpePartners" type="VPE_Listing_Partner__c[]"/>
+    <aura:attribute name="dynamicpages" type="String[]" />
+    <lightning:notificationsLibrary aura:id="notificationsLibrary"/>
+    <aura:handler event="c:IAAI_PicklistEvent" action="{!c.handleMyApplicationEvent}"/>
+    <aura:handler event="aura:waiting" action="{!c.showSpinner}"/>
+    <aura:handler event="aura:doneWaiting" action="{!c.hideSpinner}"/>
+    <aura:handler event="c:MSCountEvent" action="{!c.handleMSComponentEvent}"/>
+    <aura:handler event="c:BidRefresh" action="{!c.bidRefreshEvent}"/>
+    <aura:attribute name="isModalOpen" type="boolean" default="false"/>
+    <aura:attribute name="bidOfferInputValue" type="decimal" />
+    <!--create a component attributs -->
+    <aura:attribute name="Spinner" type="boolean" default="false"/>
+    <aura:attribute name="selectedplvalues" type="string[]"/>
+    
+    <!--Pagination atributes Start--> 
+    <!--<aura:attribute name="pageNumber" type="String" default="1" />
+    <aura:attribute name="currentPagesCount" type="String" default="10" />
+    <aura:attribute name="pgncurrentPagesCount" type="String" default="1" />-->
+    <aura:attribute name="startId" type="String" default ="nan"/>
+    <aura:attribute name="endId" type="String" default ="nan"/>
+    <aura:attribute name="accounts" type="Account[]" />
+    <aura:attribute name="PageCounter" type="integer[]" default="0"/>
+    <!--Pagination atributes Ends-->  
+    
+    <aura:if isTrue="{!v.Spinner}">
+        <div aura:id="spinnerId" class="slds-spinner_container">
+            <div class="slds-spinner--brand  slds-spinner slds-spinner--large slds-is-relative" role="alert">
+                <span class="slds-assistive-text">Loading</span>
+                <div class="slds-spinner__dot-a"></div>
+                <div class="slds-spinner__dot-b"></div>
+            </div>
+        </div>
+    </aura:if>
+    
+    
+    
+    <!--Use aura:if tag to display/hide popup based on isModalOpen value-->  
+    <aura:if isTrue="{!v.isModalOpen}">
+        <!-- Modal/Popup Box starts here-->
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+                <!-- Modal/Popup Box Header Starts here-->
+                <header class="slds-modal__header">
+                    <lightning:buttonIcon iconName="utility:close"
+                                          onclick="{! c.closeModel }"
+                                          alternativeText="close"
+                                          variant="bare-inverse"
+                                          class="slds-modal__close"/>
+                    <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">Warning!</h2>
+                </header>
+                <!--Modal/Popup Box Body Starts here-->
+                <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                    <p><b>You can not select more than 10 records in mass update!
+                        </b>
+                    </p>
+                </div>
+                <!--Modal/Popup Box Footer Starts here-->
+                <footer class="slds-modal__footer">
+                    
+                    <lightning:button variant="brand"
+                                      label="OK"
+                                      title="OK"
+                                      onclick="{!c.closeModel}"/>
+                </footer>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </aura:if>
+    
+    
+    <table border="0" style="">
+        <tr>
+            <td style="vertical-align: top; padding:10px;background-color:#F3F2F2;border-radius: 5px;">
+                <div style="background-color:#F3F2F2;">
+                    <table border="0">
+                        <tr>
+                            <td width="25%" style="text-align: left;padding-right: 30px;padding-left: 30px;">
+                                
+                                
+                                <lightning:select label="Listing Partner: " name="vpepartner" aura:id="vpepartnerdd" onchange="{!c.onPartnerChange}">
+                                    <option value="All">All</option>
+                                    <aura:iteration items="{!v.vpePartners}" var="vpe">
+                                        <option value="{!vpe.Id}">{!vpe.Name}</option>
+                                    </aura:iteration>
+                                </lightning:select>
+                            </td>
+                            
+                            <td width="30%" style="text-align: left;padding-right: 30px;padding-left: 30px;">
+                                <label  for="combobox-unique-id-3">Listing Status:</label>
+                                <c:MultiPicklist aura:id="multipicklistcomp"/>
+                            </td>
+                            
+                            <td width="25%" style="text-align: left;padding-right: 30px;padding-left: 30px;">
+                                <ui:inputSelect aura:id="pageSize" label="Records: " change="{!c.onSelectChange}">
+                                    <ui:inputSelectOption text="10" label="10" value="true"/>
+                                    <ui:inputSelectOption text="25" label="25"/>
+                                    <ui:inputSelectOption text="50" label="50"/>
+                                </ui:inputSelect>
+                            </td>
+                            
+                            
+                        </tr>
+                    </table> 
+                    <br/>
+                    <div>
+                        <table class="slds-table slds-table_bordered slds-table_cell-buffer">
+                            
+                            <div class="slds-scrollable" style="height:900px;" id="scrollbar">
+                                <aura:iteration items="{!v.BuyerPortalList}" var="bpl">
+                                    <lightning:card>
+                                        <div class="slds-grid slds-gutters slds-clearfix" style="margin-top:5px;">
+                                            
+                                            <div class="slds-col slds-size_8-of-12">
+                                                <span class="slds-p-left_small"><img aura:id="partnerlogo" src="{!bpl.VPE_Listing_Partner__r.Logo_URL__c}" style="height: 25px;"/></span>
+                                            </div>
+                                            
+                                            <div class="slds-col slds-size_2-of-12">
+                                                <!-- <lightning:button class="slds-m-bottom_small" name="{!bpl.Id}" label="Get Market Value" value="Market Value" onclick="{!c.getMarketValue}"/>-->
+                                                <lightning:button class="slds-m-bottom_small" name="{!bpl.Id}" label="Get Predictive Price" onclick="{!c.getPredictiveValue}" />   
+                                            </div>
+                                            
+                                            <div class="slds-col slds-size_2-of-12">
+                                                <lightning:button  class="slds-m-bottom_small" name="{!bpl.Id}" label="View Details" value="{!bpl.Vehicle_Image__c}" onclick="{!c.viewDetail}"/>
+                                            </div>
+                                            
+                                        </div>
+                                        <table>
+                                            <tr>
+                                                
+                                                <td style="width : 40%;">
+                                                    <span  style="font-weight: bolder;font-size:large;"> {!bpl.Model_Year__c}&nbsp;&nbsp;{!bpl.Make__c}&nbsp;&nbsp;{!bpl.Model__c} 
+                                                    </span> <lightning:helptext content="{!bpl.Notes__c}"/>
+                                                    <br/>
+                                                    <dl class="">
+                                                        <dd class="slds-tile__meta">
+                                                            <p class="slds-truncate"><b>Name:</b>&nbsp;&nbsp; {!bpl.Name}</p>
+                                                        </dd>    
+                                                        <dd class="">
+                                                            <p class="slds-truncate"><b>Mileage:</b>&nbsp;&nbsp; {!bpl.Mileage__c}</p>
+                                                        </dd>
+                                                        <dd class="slds-tile__meta">
+                                                            <p class="slds-truncate"><b>VIN:</b>&nbsp;&nbsp; {!bpl.VIN__c}</p>
+                                                        </dd>
+                                                        
+                                                        <dd class="slds-tile__meta">
+                                                            <p class="slds-truncate"><b>Provider Name:</b>&nbsp;&nbsp; {!bpl.Provider_Name_Formula__c}</p>
+                                                        </dd>
+                                                        
+                                                        <dd class="slds-tile__meta">
+                                                            <p class="slds-truncate"><b>Pickup State:</b>&nbsp;&nbsp;{!bpl.Pickup_State__c}</p>
+                                                        </dd>
+                                                        <dd class="slds-tile__meta">
+                                                            <p class="slds-truncate"><b>Predicted Price:</b>&nbsp;&nbsp;<lightning:formattedNumber value="{!bpl.Predicted_Price__c}" style="currency" currencyCode="USD"/></p>
+                                                        </dd>
+                                                        <dd class="slds-tile__meta">
+                                                            <aura:if isTrue="{!bpl.VPE_Listing_Partner__r.Listing_Partner_Type__c == 'Auction'}">
+                                                                <p class="slds-truncate"><b>Auction Expiry:</b>&nbsp;&nbsp; {!bpl.Scheduled_Time_for_Auction__c}</p>    
+                                                            </aura:if>
+                                                        </dd>
+                                                        
+                                                    </dl>
+                                                </td>
+                                                <td style="width : 40%;">
+                                                    <br/>
+                                                    <dl  style="vertical-align: baseline;">
+                                                      <!--  <dd class="slds-tile__meta">
+                                                            <p class="slds-truncate"><b>Wholesale ACV:</b>&nbsp;&nbsp;<lightning:formattedNumber value="{!bpl.Wholesale_ACV__c}" style="currency" currencyCode="USD"/></p>
+                                                        </dd>    
+                                                        <dd class="slds-tile__meta">
+                                                            <p class="slds-truncate"><b>Retail ACV:</b>&nbsp;&nbsp;<lightning:formattedNumber value="{!bpl.Retail_ACV__c}" style="currency" currencyCode="USD"/></p>
+                                                        </dd>    
+                                                        <dd class="slds-tile__meta">
+                                                            <p class="slds-truncate"><b>Average Sale Price:</b>&nbsp;&nbsp;<lightning:formattedNumber value="{!bpl.Average_Sale_Price__c}" style="currency" currencyCode="USD"/></p>
+                                                        </dd>    
+                                                        <dd class="">
+                                                            <p class="slds-truncate"><b>Highest Sale Price:</b>&nbsp;&nbsp;<lightning:formattedNumber value="{!bpl.Highest_Sale_Price__c}" style="currency" currencyCode="USD"/></p>
+                                                        </dd>
+                                                        <dd class="slds-tile__meta">
+                                                            <p class="slds-truncate"><b>Lowest Sale Price:</b>&nbsp;&nbsp;<lightning:formattedNumber value="{!bpl.Lowest_Sale_Price__c}" style="currency" currencyCode="USD"/></p>
+                                                        </dd>
+                                                        <dd class="slds-tile__meta">
+                                                            <p class="slds-truncate"><b>Most Recent Sale Date:</b>&nbsp;&nbsp;<lightning:formattedDateTime  value="{!bpl.Most_Recent_Sale_Date__c}" style="Date"/></p>
+                                                        </dd>
+                                                        <dd class="slds-tile__meta">
+                                                            <p class="slds-truncate"><b>Status Of Listing:</b>&nbsp;&nbsp;{!bpl.Status_of_Listing__c} </p>
+                                                        </dd> -->
+                                                        <dd class="slds-tile__meta">
+                                                            <p class="slds-truncate"><b>Vehicle Conditional Grade:</b>&nbsp;&nbsp;{!bpl.Vehicle_Condition_Grade__c} </p>
+                                                        </dd> 
+                                                        <dd class="slds-tile__meta">
+                                                            <p class="slds-truncate"><b>Primary Damage:</b>&nbsp;&nbsp;{!bpl.Primary_Damage__c} </p>
+                                                        </dd> 
+                                                        
+                                                        
+                                                    </dl>
+                                                </td>
+                                                <!--Content -->
+                                                
+                                                <td style="width :20%;" align="right">
+                                                    <br />
+                                                    <aura:if isTrue ="{!bpl.VPE_Listing_Partner__r.Listing_Partner_Type__c == 'Auction'}">
+                                                        <div class="slds-grid slds-gutters">
+                                                            <div class="slds-col">       
+                                                                <lightning:input style =" width : 110px" label="Starting Bid" type="number" formatter="currency" disabled= "true" value="{!(bpl.Top_Bid__c>bpl.Starting_Bid__c)?bpl.Top_Bid__c:bpl.Starting_Bid__c}" ></lightning:input> 
+                                                            </div>
+                                                            <div class="slds-col">
+                                                                <!--  Popover -->  
+                                                                
+                                                                <div class="slds-form-element" align="right">
+                                                                    <div class="slds-form-element__icon slds-align-middle" >
+                                                                        <button class="slds-button slds-button slds-button--icon" aria-describedby="help" title="Help" >
+                                                                            Proxy Bid &nbsp;&nbsp; <lightning:icon iconName="utility:info" size="xx-small" alternativeText="Help" onmouseover="{!c.display}" onmouseout="{!c.displayOut}"/>
+                                                                            <span class="slds-assistive-text">Help</span>
+                                                                        </button>
+                                                                    </div>
+                                                                </div>
+                                                                <div style="display:none;" class=" tooltip1"  id="help" aura:id="tooltip">
+                                                                    <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+                                                                        <div class="slds-modal__container">
+                                                                            <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                                                                                <p class="slds-text-longform tile__title red-txt slds-cell-wrap">
+                                                                                    <aura:iteration items="{!v.vpePartners}" var="vpe">
+                                                                                        <aura:if isTrue ="{!vpe.Name == 'TRADEREV'}"> 
+                                                                                            <aura:unescapedHtml value="{!vpe.Rules__c}"/>
+                                                                                        </aura:if>
+                                                                                    </aura:iteration>
+                                                                                </p>  
+                                                                            </div>
+                                                                        </div>
+                                                                    </section>
+                                                                    <div class="slds-backdrop slds-backdrop_open"></div>
+                                                                </div>
+                                                                
+                                                                
+                                                                <lightning:input style =" width : 110px" label="Proxy Bid" class="label-hidden" type="number" formatter="currency" disabled="{!bpl.Bid_Offer_Submitted__c}" onchange="{!c.inputChangeHandler}"  value="{!bpl.Original_Bid_Offer_Amount__c}" ></lightning:input>
+                                                            </div>
+                                                        </div> 
+                                                    </aura:if>                                                                             
+                                                    <aura:if isTrue ="{!bpl.VPE_Listing_Partner__r.Listing_Partner_Type__c == 'Purchase'}">    
+                                                        <div class="slds-form-element" align="right">
+                                                            <div class="slds-form-element__icon slds-align-middle" onmouseenter="{!c.display}" onmouseleave="{!c.displayOut}" >
+                                                                <button class="slds-button slds-button slds-button--icon"  title="Help" >
+                                                                    Offer &nbsp;&nbsp; <lightning:icon iconName="utility:info" size="xx-small" alternativeText="Help" />
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                        <div style="display:none;" class=" tooltip1"  id="help" aura:id="tooltip">
+                                                            <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+                                                                <div class="slds-modal__container">
+                                                                    <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                                                                        <p class="slds-text-longform tile__title red-txt slds-cell-wrap">
+                                                                            <aura:iteration items="{!v.vpePartners}" var="vpe">
+                                                                                <aura:if isTrue ="{!vpe.Name == 'CARVIO'}"> 
+                                                                                    <aura:unescapedHtml value="{!vpe.Rules__c}"/>
+                                                                                </aura:if>
+                                                                            </aura:iteration>
+                                                                        </p>  
+                                                                    </div>
+                                                                </div>
+                                                            </section>
+                                                            <div class="slds-backdrop slds-backdrop_open"></div>
+                                                        </div>
+                                                        
+                                                        <lightning:input label="Offer" type="number" formatter="currency" class="label-hidden" disabled="{!bpl.Bid_Offer_Submitted__c}" onchange="{!c.inputChangeHandler}"  value="{!bpl.Original_Bid_Offer_Amount__c}"></lightning:input>
+                                                    </aura:if>   
+                                                    <br />
+                                                    <div class="slds-grid slds-gutters">
+                                                        <div class="slds-col">
+                                                            <button class="slds-button slds-button_destructive slds-float_right" data-status="{!bpl.Status_of_Listing__c}" data-partner="{!bpl.VPE_Listing_Partner__r.Name}" data-auctionid="{!bpl.Auction_Id__c}" data-auctionexpirytime="{!bpl.Scheduled_Time_for_Auction__c}" data-topbid="{!bpl.Top_Bid__c}" data-startingbid="{!bpl.Starting_Bid__c}" data-amount="{!(v.bidOfferInputValue==null)?bpl.Original_Bid_Offer_Amount__c:v.bidOfferInputValue}" disabled="{!bpl.Bid_Offer_Submitted__c}" data-sfdcid="{!bpl.Id}" data-listingid="{!bpl.Listing_Id__c}" onclick="{!c.bidOfferSubmitHandler}">Bid/Offer Submit</button>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                    <div id="divforcb" class="slds-grid slds-gutters slds-clearfix" style="margin-top:5px;">
+                                                        <div class="slds-col slds-float_right">
+                                                            <p>Bid/Offer Submitted:</p>
+                                                        </div>
+                                                        <div class="slds-col">
+                                                            <lightning:input label="Bid/Offer Submitted" type="checkbox" disabled="true" variant="label-hidden" checked="{!bpl.Bid_Offer_Submitted__c}"/> 
+                                                        </div>
+                                                    </div>
+                                                </td><!-- Bid button -->
+                                            </tr>
+                                        </table> 
+                                    </lightning:card>   
+                                </aura:iteration>    
+                                
+                            </div>
+                            
+                        </table>
+                    </div>  
+                    
+                    <div class="slds-clearfix">
+                        <div class="slds-page-footer" role="banner">
+                            <footer class="pageFooter">
+                                <div class="slds-global-header slds-grid slds-grid_align-spread">
+                                    <div class="slds-global-header__item">
+                                        <legend class="slds-form-element__label slds-text-title_caps">{!v.RecordStart}-{!v.RecordEnd} of {!v.TotalRecords} | Page {!v.PageNumber} of {!v.TotalPages}</legend>
+                                    </div>
+                                    <div class="slds-button-group" role="group" style="margin-right:5px;">
+                                        <!-- Previous button, it will be disabled if current page is the first page -->
+                                        <lightning:buttonIcon iconName="utility:left" disabled="{!v.PageNumber == 1}" variant="border" alternativeText="Left" iconClass="dark" onclick="{!c.goPreviousPage}" />
+                                        
+                                        <!-- Total of 5 page counts with last one is last page number -->
+                                        <aura:iteration items="{!v.PageCounter}" var="pgn">
+                                            <lightning:button variant="{!pgn == v.PageNumber ? 'destructive' : 'neutral' }" label="{!pgn}" onclick="{!c.pageChangebtn}" disabled="{!pgn > v.TotalPages}" />
+                                        </aura:iteration>
+                                        
+                                        <!-- Next button, it will be disabled if current page is the last page -->
+                                        <lightning:buttonIcon iconName="utility:right" variant="border" alternativeText="Right" iconClass="dark" onclick="{!c.goNextPage}" disabled="{!v.PageNumber == v.TotalPages}" />
+                                    </div>
+                                </div>
+                            </footer>  
+                        </div>
+                    </div>
+                    
+                </div>
+            </td>
+            <td style="width: 2%;"></td>
+            <td style="width: 38%; padding:15px;background-color:#F3F2F2;border-radius: 5px;" align="center">
+                <div><br/>
+                    <Span style="font-weight: 400; font-size:20px;" >Car Details</Span>
+                    
+                    <br/><br/>
+                    <c:BuyerListingCarDetail listingID="{!v.listingID}" ImgSrc="{!v.ImgSrc}"/>
+                </div>
+            </td>
+        </tr>
+    </table>
+    
+</aura:component>

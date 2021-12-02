@@ -1,0 +1,73 @@
+<aura:component implements="force:appHostable" controller="IAAI_BoltOnController">
+
+    <aura:attribute name="userid" type="String" />
+    <aura:attribute name="PageNumber" type="Integer" default="1" />
+    <aura:attribute name="PageSize" type="Integer" default="20" />
+    <aura:attribute name="isLastPage" type="Boolean" default="true" />
+
+    <aura:attribute name="dataSize" type="integer" default="0" />
+    <aura:attribute name="TotalPages" type="integer" default="0" />
+    <aura:attribute name="TotalRecords" type="integer" default="0" />
+    <aura:attribute name="RecordStart" type="integer" default="0" />
+    <aura:attribute name="RecordEnd" type="integer" default="0" />
+
+    <aura:attribute name="submitbid" type="boolean" default="false" />
+
+    <aura:attribute type="object[]" name="vpeList" />
+    <aura:attribute type="VPE_Listings__c" name="rows" />
+    <aura:attribute name="mycolumns" type="List" />
+
+    <aura:handler name="init" value="{!this}" action="{!c.onInit}" />
+
+    <div class="slds-m-horizontal_xxx-small">
+
+
+
+        <c:boltOnListings records="{!v.vpeList}"></c:boltOnListings>
+
+
+        <!--<lightning:datatable aura:id="vpeTable"  
+                         data="{!v.vpeList}"     
+                         columns="{!v.mycolumns}"     
+                         keyField="Id"    
+                         hideCheckboxColumn="true"  showRowNumberColumn="false"
+                         onrowaction="{!c.onSubmitClick}"/>    -->
+
+        <div class="slds-clearfix">
+            <div class="slds-page-header" role="banner">
+                <div class="slds-float_right slds-var-p-left_medium">
+
+                    <lightning:button disabled="{!v.PageNumber == 1}" variant="destructive" aura:id="prevPage" label="Prev" class="btnColor" onclick="{!c.handlePrev}" />
+                    <lightning:button disabled="{!v.PageNumber == v.TotalPages}" aura:id="nextPage" variant="destructive" class="btnColor" label="Next" onclick="{!c.handleNext}" />
+                </div>
+                <p class="">{!v.RecordStart}-{!v.RecordEnd} of {!v.TotalRecords} | Page {!v.PageNumber} of {!v.TotalPages}</p>
+            </div>
+        </div>
+
+    </div>
+
+
+    <aura:if isTrue="{!v.submitbid}">
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+                <header class="slds-modal__header">
+                    <lightning:buttonIcon iconName="utility:close" onclick="{!c.closeModel}" alternativeText="close" variant="bare-inverse" class="slds-modal__close" />
+                    <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">Confirmation</h2>
+                </header>
+                <!--###### MODAL BOX BODY Part Start######-->
+                <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has
+                    survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged
+                    <br/>
+                </div>
+                <!--###### MODAL BOX FOOTER Part Start ######-->
+                <footer class="slds-modal__footer">
+                    <lightning:button variant="Neutral" label="Cancel" title="Cancel" onclick="{!c.closeModel}" />
+                    <lightning:button variant="destructive" label="Accept" title="Accept" onclick="{!c.onSave}" />
+                </footer>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+        <!--###### MODAL BOX Part END Here ######-->
+    </aura:if>
+</aura:component>

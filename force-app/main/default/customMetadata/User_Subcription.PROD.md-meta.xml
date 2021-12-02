@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>PROD</label>
+    <protected>false</protected>
+    <values>
+        <field>Accept__c</field>
+        <value xsi:type="xsd:string">application/json</value>
+    </values>
+    <values>
+        <field>Tenant__c</field>
+        <value xsi:type="xsd:string">93ef69a0-13a1-4bb9-bbbb-1e072daccbeb</value>
+    </values>
+    <values>
+        <field>endPoint__c</field>
+        <value xsi:type="xsd:string">https://bpwebapi.iaai.com/UserSubscription/GetUserSubscriptions?buyerId=</value>
+    </values>
+</CustomMetadata>

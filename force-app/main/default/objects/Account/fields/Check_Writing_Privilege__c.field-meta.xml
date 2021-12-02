@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Check_Writing_Privilege__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Informs if an account has check writing privilege.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Informs if an account has check writing privilege.</inlineHelpText>
+    <label>Check Writing Privilege</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

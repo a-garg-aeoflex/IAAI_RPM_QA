@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>lco1__Account</fullName>
+    <active>true</active>
+    <description>Snapshot Definition for Accounts</description>
+    <label>Account</label>
+</RecordType>

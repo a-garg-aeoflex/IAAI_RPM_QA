@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CompactLayout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>medallia_xm__MedAccountInsights</fullName>
+    <fields>Name</fields>
+    <fields>AnnualRevenue</fields>
+    <fields>medallia_xm__Open_Support_Tickets__c</fields>
+    <fields>medallia_xm__NPS__c</fields>
+    <label>MedAccountInsights</label>
+</CompactLayout>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>No_edit_for_AuctionAccess_Buyer</fullName>
+    <active>true</active>
+    <description>Prevent users from editing info if buyer is AuctionAccess</description>
+    <errorConditionFormula>$Profile.Name &lt;&gt; &quot;Integration User&quot;
+&amp;&amp;
+!ISBLANK( AuctionAccess_Company_Id__c )
+&amp;&amp;
+(ISCHANGED( Name )
+||
+ISCHANGED ( FEIN__c)
+)</errorConditionFormula>
+    <errorMessage>You cannot edit Name and FEIN for an AuctionAccess Buyer</errorMessage>
+</ValidationRule>

@@ -1,0 +1,10 @@
+<design:component >
+    <design:attribute name="flow_name" label="flow_name"/>
+    <design:attribute name="flow_var01" label="flow_var01"/>
+    <design:attribute name="flow_var02" label="flow_var02"/>
+    <design:attribute name="flow_var03" label="flow_var03"/>
+    <design:attribute name="flow_var04" label="flow_var04"/>
+    <design:attribute name="flow_var05" label="flow_var05"/>
+    <design:attribute name="flow_fromURL01" label="flow_fromURL01"/>
+    <design:attribute name="flow_fromURL02" label="flow_fromURL02"/>
+</design:component>

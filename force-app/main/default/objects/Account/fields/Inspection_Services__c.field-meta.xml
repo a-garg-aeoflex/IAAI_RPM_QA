@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Inspection_Services__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Indicates if an Account opted in to use IAA&apos;s Inspection Service.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Indicates if an Account opted in to use IAA&apos;s Inspection Service.</inlineHelpText>
+    <label>Inspection Services</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

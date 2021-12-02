@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Cannot_Update_Buyer_Status</fullName>
+    <active>false</active>
+    <description>Prevent user from updating the buyer status to anything other than Pending Activation</description>
+    <errorConditionFormula>($Profile.Name &lt;&gt; &quot;System Administrator&quot; 
+&amp;&amp;
+$Profile.Name &lt;&gt; &quot;Integration User&quot;)
+&amp;&amp;
+RecordType.Name = &quot;Buyer Account&quot;
+&amp;&amp;
+ISCHANGED(Buyer_Status__c)
+&amp;&amp;
+TEXT(Buyer_Status__c) &lt;&gt; &quot;ACT&quot;</errorConditionFormula>
+    <errorMessage>You can only set status to Active</errorMessage>
+</ValidationRule>

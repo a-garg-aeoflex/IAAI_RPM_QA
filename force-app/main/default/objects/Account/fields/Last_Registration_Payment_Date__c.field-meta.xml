@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Last_Registration_Payment_Date__c</fullName>
+    <description>Displays the date when the buyer last registered.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Displays the date when the buyer last registered.</inlineHelpText>
+    <label>Last Registration Payment Date</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>DateTime</type>
+</CustomField>

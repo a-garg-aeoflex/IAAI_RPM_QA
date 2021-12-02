@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>of_Actual_vs_Goal__c</fullName>
+    <externalId>false</externalId>
+    <formula>If( YTD_Vehicles_Sold_Goal_Form__c  = 0, Null,
+If(ISBLANK(  YTD_Vehicles_Sold_Goal_Form__c  ), Null,
+( Total_Vehicles_Sold_YTD__c  -  YTD_Vehicles_Sold_Goal_Form__c ) /   YTD_Vehicles_Sold_Goal_Form__c )+1
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>Vehicles sold divided by vehicle goals YTD for current year</inlineHelpText>
+    <label>% of YTD Vehicles Sold Actual vs Goal</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>1</scale>
+    <trackHistory>false</trackHistory>
+    <type>Percent</type>
+</CustomField>

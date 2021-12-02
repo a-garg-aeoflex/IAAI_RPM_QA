@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SLA_Indicator__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(
+	AND( Release_Due_Datetime__c&lt; NOW(),  Is_Activity_Captured__c = false ), IMAGE(&apos;/resource/red&apos;, &apos;Red&apos;, 15, 15), 
+
+	IF(
+		AND((( Release_Due_Datetime__c-  NOW() )*24*60) &gt; 0, (( Release_Due_Datetime__c-  NOW() )*24*60) &lt; 30, Is_Activity_Captured__c = false), IMAGE(&apos;/resource/amber&apos;, &apos;Amber&apos;, 15, 15), IMAGE(&apos;/resource/green &apos;, &apos;Green&apos;, 15, 15)))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>SLA Indicator</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

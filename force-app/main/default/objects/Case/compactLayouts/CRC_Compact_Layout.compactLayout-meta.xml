@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CompactLayout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CRC_Compact_Layout</fullName>
+    <fields>CRC_Stock_Number__c</fields>
+    <fields>CRC_Provider_Name__c</fields>
+    <fields>Year_Make_Model__c</fields>
+    <fields>CRC_VIN__c</fields>
+    <fields>CRC_Storage_Location_Name__c</fields>
+    <fields>OwnerId</fields>
+    <label>CRC Compact Layout</label>
+</CompactLayout>

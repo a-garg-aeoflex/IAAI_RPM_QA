@@ -1,0 +1,13 @@
+<template>
+    <template if:true={url} >
+        <!--<div class="slds-var-p-around_x-small">
+            <img src={url} alt={altText} class="image "/>
+        </div>-->
+        <div class="inline">
+            <template for:each={url} for:item='item'>
+             <!--<template for:each={valueSplit} for:item='item'>-->
+                <img src={item} alt={altText} class="image slds-var-p-around_xx-small" key={item}/>
+            </template>
+        </div>
+    </template>
+</template>

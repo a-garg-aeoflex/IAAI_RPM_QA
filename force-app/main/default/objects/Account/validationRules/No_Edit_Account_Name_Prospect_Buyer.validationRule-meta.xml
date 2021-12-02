@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>No_Edit_Account_Name_Prospect_Buyer</fullName>
+    <active>false</active>
+    <errorConditionFormula>RecordType.Name = &quot;Prospect Buyer&quot; &amp;&amp; ISCHANGED(Name)</errorConditionFormula>
+    <errorMessage>Cannot edit Account Name  for a guest with pending registration</errorMessage>
+</ValidationRule>

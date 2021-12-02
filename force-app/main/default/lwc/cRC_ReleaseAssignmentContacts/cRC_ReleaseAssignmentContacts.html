@@ -1,0 +1,379 @@
+<template>
+
+    <lightning-spinner alternative-text="Loading" size="medium" variant="brand" if:true={isLoading}></lightning-spinner>
+
+    <lightning-card variant="Narrow" title="Contact" icon-name="standard:contact">
+        <lightning-button label="View All/Edit Contacts" slot="actions" if:true={actionsNeeded} onclick={showModal} ></lightning-button>
+         <div class="slds-border_top" style="padding-left:10px;">
+            <lightning-layout  pull-to-boundary="medium"  if:true={caseContactData}>
+                <lightning-layout-item  flexibility="auto" padding="horizontal-medium">
+                    <div class="custom-box">Adjuster Name</div>
+                </lightning-layout-item>
+                <lightning-layout-item   flexibility="auto" padding="horizontal-medium">
+                    <div class="custom-box">
+                        {adjuster.Name}
+                    </div>
+                </lightning-layout-item>
+            </lightning-layout>
+
+            <lightning-layout pull-to-boundary="medium"  if:true={caseContactData}>
+                <lightning-layout-item flexibility="auto" padding="horizontal-medium">
+                    <div class="custom-box">Claim #</div>
+                </lightning-layout-item>
+                <lightning-layout-item flexibility="auto" padding="horizontal-medium">
+                    <div class="custom-box">
+                        <template if:true={caseContactData.CRC_Claim__c}>
+                            {caseContactData.CRC_Claim__c}
+                        </template>
+                    </div>
+                </lightning-layout-item>
+            </lightning-layout>
+            <lightning-layout pull-to-boundary="medium"  if:true={caseContactData}>
+                <lightning-layout-item flexibility="auto" padding="horizontal-medium">
+                    <div class="custom-box">Policy #</div>
+                </lightning-layout-item>
+                <lightning-layout-item flexibility="auto" padding="horizontal-medium">
+                    <div class="custom-box">
+                        <template if:true={caseContactData.CRC_Policy__c}>
+                            {caseContactData.CRC_Policy__c}
+                        </template>
+                    </div>
+                </lightning-layout-item>
+            </lightning-layout>
+            <lightning-layout pull-to-boundary="medium"  if:true={caseContactData}>
+                <lightning-layout-item flexibility="auto" padding="horizontal-medium">
+                    <div class="custom-box"> Date of Loss</div>
+                </lightning-layout-item>
+                <lightning-layout-item flexibility="auto" padding="horizontal-medium">
+                    <div class="custom-box">
+                        <template if:true={caseContactData.CRC_Date_of_Loss__c}>
+                            {caseContactData.CRC_Date_of_Loss__c}
+                        </template>
+                    </div>
+                </lightning-layout-item>
+            </lightning-layout>
+            <lightning-layout pull-to-boundary="medium"  if:true={caseContactData}>
+                <lightning-layout-item flexibility="auto" padding="horizontal-medium">
+                    <div class="custom-box">Phone</div>
+                </lightning-layout-item>
+                <lightning-layout-item flexibility="auto" padding="horizontal-medium">
+                    <div class="custom-box">
+                        <template if:true={adjuster.Phone}>
+                            {adjuster.Phone}
+                        </template>
+                    </div>
+                </lightning-layout-item>
+            </lightning-layout>
+            <lightning-layout pull-to-boundary="medium"  if:true={caseContactData}>
+                <lightning-layout-item flexibility="auto" padding="horizontal-medium">
+                    <div class="custom-box">Notification Email</div>
+                </lightning-layout-item>
+                <lightning-layout-item flexibility="auto" padding="horizontal-medium">
+                    <div class="custom-box">
+                        {caseContactData.CRC_Release_Problem_Email__c}
+                    </div>
+                </lightning-layout-item>
+            </lightning-layout>
+
+            <div class="slds-border_top">
+                <lightning-layout  pull-to-boundary="medium"  if:true={caseContactData}>
+                    <lightning-layout-item  flexibility="auto" padding="horizontal-medium">
+                        <div class="custom-box">Owner Name</div>
+                    </lightning-layout-item>
+                    <lightning-layout-item   flexibility="auto" padding="horizontal-medium">
+                        <div class="custom-box">
+                            {caseContactData.CRC_VO_First_Name__c} {caseContactData.CRC_VO_Last_Name__c}
+                        </div>
+                    </lightning-layout-item>
+                </lightning-layout>
+               
+                <lightning-layout  pull-to-boundary="medium"  if:true={caseContactData}>
+                    <lightning-layout-item  flexibility="auto" padding="horizontal-medium">
+                        <div class="custom-box">Phone</div>
+                    </lightning-layout-item>
+                    <lightning-layout-item   flexibility="auto" padding="horizontal-medium">
+                        <div class="custom-box">
+                            {caseContactData.CRC_VO_Primary_Phone_Number__c}
+                        </div>
+                    </lightning-layout-item>
+                </lightning-layout>
+                <lightning-layout  pull-to-boundary="medium"  if:true={caseContactData}>
+                    <lightning-layout-item  flexibility="auto" padding="horizontal-medium">
+                        <div class="custom-box">Other Phone</div>
+                    </lightning-layout-item>
+                    <lightning-layout-item   flexibility="auto" padding="horizontal-medium">
+                        <div class="custom-box">
+                            {caseContactData.CRC_VO_Secondary_Phone_Number__c}
+                        </div>
+                    </lightning-layout-item>
+                </lightning-layout>
+                <lightning-layout  pull-to-boundary="medium"  if:true={caseContactData}>
+                    <lightning-layout-item  flexibility="auto" padding="horizontal-medium">
+                        <div class="custom-box">Owner Email</div>
+                    </lightning-layout-item>
+                    <lightning-layout-item   flexibility="auto" padding="horizontal-medium">
+                        <div class="custom-box">
+                            {caseContactData.CRC_VO_Email__c}
+                        </div>
+                    </lightning-layout-item>
+                </lightning-layout>
+            </div>
+
+            <div  class="slds-border_top">
+                <lightning-layout  pull-to-boundary="medium"  if:true={caseContactData}>
+                    <lightning-layout-item  flexibility="auto" padding="horizontal-medium">
+                        <div class="custom-box">IAAI Branch</div>
+                    </lightning-layout-item>
+                    <lightning-layout-item   flexibility="auto" padding="horizontal-medium">
+                        <div class="custom-box">
+                            <template if:true={caseContactData.Branch__r}>
+                                {caseContactData.Branch__r.Name}
+                            </template>
+                        </div>
+                    </lightning-layout-item>
+                </lightning-layout>
+                <lightning-layout  pull-to-boundary="medium"  if:true={caseContactData}>
+                    <lightning-layout-item  flexibility="auto" padding="horizontal-medium">
+                        <div class="custom-box"> Account Manager</div>
+                    </lightning-layout-item>
+                    <lightning-layout-item   flexibility="auto" padding="horizontal-medium">
+                        <div class="custom-box">
+                            <template if:true={caseContactData.CRC_Branch_Manager__r}>
+                                {branchManager.Name}
+                            </template>
+                        </div>
+                    </lightning-layout-item>
+                </lightning-layout>
+                
+            </div>
+        </div>
+    </lightning-card>
+
+    <div class="custom-modal" if:true={openModal}>
+        <section role="dialog" class="slds-modal slds-fade-in-open slds-modal_medium">
+            <div class="slds-modal__container">
+                <header class="slds-modal__header">
+                    <span class="slds-modal__close">
+                        <lightning-icon icon-name="utility:close" variant="inverse" onclick={closeModel} alternative-text="close"></lightning-icon>
+                    </span>
+                    <h2 class="slds-text-heading_medium slds-hyphenate">Contacts Information</h2>
+                </header>
+                <div class="slds-modal__content slds-p-around_medium">
+                    <lightning-layout multiple-rows="false">
+                            <lightning-layout-item padding="horizontal-small" size="12">
+                                <lightning-card>
+                                    <h3 slot="title">
+                                        Adjuster Information
+                                    </h3>
+                                        <lightning-layout multiple-rows="true" > 
+                                            <lightning-layout-item padding="around-small" size="3">
+                                                <div class="header-column">
+                                                    <p class="field-title" title="Location Ids">Name</p>
+                                                    <p>
+                                                        {adjuster.Name}
+                                                    </p>
+                                                </div>
+                                            </lightning-layout-item>
+                                            <lightning-layout-item padding="around-small" size="3">
+                                                <div class="header-column">
+                                                    <p class="field-title" title="Contact Name">Email</p>
+                                                    <p>
+                                                        {adjuster.Email}
+                                                    </p>
+                                                </div>
+                                            </lightning-layout-item>
+                                            <lightning-layout-item padding="around-small" size="3">
+                                                <div class="header-column">
+                                                    <p class="field-title" title="Type">Phone</p>
+                                                    <p>
+                                                        {adjuster.Phone}
+                                                    </p>
+                                                </div>
+                                            </lightning-layout-item>
+                                            <lightning-layout-item padding="around-small" size="3">
+                                                <div class="header-column">
+                                                    <p class="field-title" title="Status">Other Phone</p>
+                                                    <p>
+                                                        {adjuster.OtherPhone}
+                                                    </p>
+                                                </div>
+                                            </lightning-layout-item>
+                                            <lightning-layout-item padding="around-small" size="3">
+                                                <div class="header-column">
+                                                    <p class="field-title" title="Storage Address">Fax</p>
+                                                    <p>
+                                                        {adjuster.Fax}
+                                                    </p>
+                                                </div>
+                                            </lightning-layout-item>
+                                            <lightning-layout-item padding="around-small" size="3">
+                                                <div class="header-column">
+                                                    <p class="field-title" title="Mailing Address">Address</p>
+                                                    <p>
+                                                        <lightning-formatted-address
+                                                            street={adjuster.MailingStreet}
+                                                            city={adjuster.MailingCity}
+                                                            country={adjuster.MailingCountry}
+                                                            province={adjuster.MailingState}
+                                                            postal-code={adjuster.MailingPostalCode}
+                                                            disabled>
+                                                        </lightning-formatted-address>
+                                                    </p>
+                                                </div>
+                                            </lightning-layout-item>
+                                        </lightning-layout>  
+                                </lightning-card>
+
+                                <!-- Vehicle Owner Information Section -->
+
+                                <lightning-card if:false={isResidential} variant="Narrow" title="Vehicle Owner Information" icon-name="standard:contact">
+                                    <lightning-button label="Edit" title="Edit" if:true={openEdit} slot="actions" onclick={openEditForm}></lightning-button>
+                                    <div class="slds-var-p-horizontal_small">
+                                        <lightning-layout multiple-rows>
+                                            <lightning-layout-item size="12" padding="around-small" small-device-size="3" medium-device-size="6" large-device-size="3" >
+                                                <div class="custom-box">
+                                                    <lightning-input readonly={openEdit} type="text" name="PROVIDER.OWNER.CONTACT.FIRST_NAME" max-length="50" label="First Name" value={caseContactData.CRC_VO_First_Name__c}></lightning-input>
+                                                </div>
+                                            </lightning-layout-item>
+                                            <lightning-layout-item size="12" padding="around-small" small-device-size="3" medium-device-size="6" large-device-size="3" >
+                                                <div class="custom-box">
+                                                    <lightning-input readonly={openEdit} type="text" name="PROVIDER.OWNER.CONTACT.LAST_NAME" max-length="50" label="Last Name" value={caseContactData.CRC_VO_Last_Name__c}></lightning-input>
+                                                </div>
+                                            </lightning-layout-item>
+                                            
+                                            <lightning-layout-item size="12" padding="around-small" small-device-size="3" medium-device-size="6" large-device-size="3" >
+                                                <div class="custom-box">
+                                                    <lightning-input onkeypress={checkAlphabets} readonly={openEdit} min-length="10" max-length="10" type="text" name="PROVIDER.OWNER.CONTACT.PHONE_NUMBER1" label="Primary Phone Number" value={caseContactData.CRC_VO_Primary_Phone_Number__c}></lightning-input>
+                                                </div>
+                                            </lightning-layout-item>
+                                            <lightning-layout-item size="12" padding="around-small" small-device-size="3" medium-device-size="6" large-device-size="3" >
+                                                <div class="custom-box">
+                                                    <lightning-input max-length="5" readonly={openEdit} type="text" name="PROVIDER.OWNER.CONTACT.PHONE_NUMBER1_EXT" onkeypress={checkAlphabets} label="Primary Phone Extension" value={caseContactData.CRC_VO_Primary_Extension__c}></lightning-input>
+                                                </div>
+                                            </lightning-layout-item>
+                                            <lightning-layout-item size="12" padding="around-small" small-device-size="3" medium-device-size="6" large-device-size="3" >
+                                                <div class="custom-box">
+                                                    <lightning-input readonly if:true={openEdit} type="text" name="PROVIDER.OWNER.CONTACT.PHONE_TYPE1" label="Phone Type" value={caseContactData.CRC_VO_Primary_Phone_Type__c}></lightning-input>
+                                                    <lightning-combobox
+                                                        if:false={openEdit}
+                                                        required
+                                                        name="PROVIDER.OWNER.CONTACT.PHONE_TYPE1"
+                                                        label="Primary Phone Type"
+                                                        value={caseContactData.CRC_VO_Primary_Phone_Type__c}
+                                                        options={phoneTypeOptions}>
+                                                    </lightning-combobox>
+                                                </div>
+                                            </lightning-layout-item>
+                                            <lightning-layout-item size="12" padding="around-small" small-device-size="3" medium-device-size="6" large-device-size="3" >
+                                                <div class="custom-box">
+                                                    <lightning-input readonly={openEdit} type="text" max-length="10" onkeypress={checkAlphabets} name="PROVIDER.OWNER.CONTACT.PHONE_NUMBER2" label="Secondary Phone Number" value={caseContactData.CRC_VO_Secondary_Phone_Number__c}></lightning-input>
+                                                </div>
+                                            </lightning-layout-item>
+                                            <lightning-layout-item size="12" padding="around-small" small-device-size="3" medium-device-size="6" large-device-size="3" >
+                                                <div class="custom-box">
+                                                    <lightning-input readonly={openEdit} onkeypress={checkAlphabets} type="text" max-length="5" name="PROVIDER.OWNER.CONTACT.PHONE_NUMBER2_EXT" label="Secondary Phone Extension" value={caseContactData.CRC_VO_Secondary_Phone_Type__c}></lightning-input>
+                                                </div>
+                                            </lightning-layout-item>
+                                            <lightning-layout-item size="12" padding="around-small" small-device-size="3" medium-device-size="6" large-device-size="3" >
+                                                <div class="custom-box">
+                                                    <lightning-input readonly={openEdit} type="text" name="PROVIDER.OWNER.CONTACT.PHONE_NUMBER2" label="Secondary Phone Number" value={caseContactData.CRC_VO_Secondary_Phone_Number__c}></lightning-input>
+                                                </div>
+                                            </lightning-layout-item>
+                                            
+                                            <!-- <lightning-layout-item size="12" padding="around-small" small-device-size="3" medium-device-size="6" large-device-size="3" >
+                                                <div class="custom-box">
+                                                    <lightning-input readonly={openEdit} type="text" name="PROVIDER.OWNER.CONTACT.FAX_NUMBER" label="Fax" value={caseContactData.CRC_VO_Fax__c}></lightning-input>
+                                                </div>
+                                            </lightning-layout-item> -->
+                                            <lightning-layout-item size="12" padding="around-small" small-device-size="3" medium-device-size="6" large-device-size="3" >
+                                                <div class="custom-box">
+                                                    <lightning-input readonly if:true={openEdit} type="text" name="PROVIDER.OWNER.CONTACT.PHONE_TYPE2" label="Email" value={caseContactData.CRC_VO_Secondary_Phone_Type__c}></lightning-input>
+                                                    <lightning-combobox
+                                                        if:false={openEdit}
+                                                        name="PROVIDER.OWNER.CONTACT.PHONE_TYPE2"
+                                                        label="Secondary Phone Type"
+                                                        required
+                                                        value={caseContactData.CRC_VO_Secondary_Phone_Type__c}
+                                                        options={phoneTypeOptions}>
+                                                    </lightning-combobox>
+                                                </div>
+                                            </lightning-layout-item>
+                                        </lightning-layout>
+                                    </div>
+                                </lightning-card>
+
+                                <lightning-card>
+                                    <h3 slot="title">
+                                        Branch Manager
+                                    </h3>
+                                    <lightning-layout multiple-rows="true" > 
+                                        <lightning-layout-item padding="around-small" size="3">
+                                            <div class="header-column">
+                                                <p class="field-title" title="Location Ids">Name</p>
+                                                <p>
+                                                    {branchManager.Name}
+                                                </p>
+                                            </div>
+                                        </lightning-layout-item>
+                                        <lightning-layout-item padding="around-small" size="3">
+                                            <div class="header-column">
+                                                <p class="field-title" title="Contact Name">Email</p>
+                                                <p>
+                                                    {branchManager.Email}
+                                                </p>
+                                            </div>
+                                        </lightning-layout-item>
+                                        <lightning-layout-item padding="around-small" size="3">
+                                            <div class="header-column">
+                                                <p class="field-title" title="Type">Phone</p>
+                                                <p>
+                                                    {branchManager.Phone}
+                                                </p>
+                                            </div>
+                                        </lightning-layout-item>
+                                        <lightning-layout-item padding="around-small" size="3">
+                                            <div class="header-column">
+                                                <p class="field-title" title="Status">Other Phone</p>
+                                                <p>
+                                                    {branchManager.OtherPhone}
+                                                </p>
+                                            </div>
+                                        </lightning-layout-item>
+                                        <lightning-layout-item padding="around-small" size="3">
+                                            <div class="header-column">
+                                                <p class="field-title" title="Storage Address">Fax</p>
+                                                <p>
+                                                    {branchManager.Fax}
+                                                </p>
+                                            </div>
+                                        </lightning-layout-item>
+                                        <lightning-layout-item padding="around-small" size="3">
+                                            <div class="header-column">
+                                                <p class="field-title" title="Mailing Address">Address</p>
+                                                <p>
+                                                    <lightning-formatted-address
+                                                        street={branchManager.MailingStreet}
+                                                        city={branchManager.MailingCity}
+                                                        country={branchManager.MailingCountry}
+                                                        province={branchManager.MailingState}
+                                                        postal-code={branchManager.MailingPostalCode}
+                                                        disabled>
+                                                    </lightning-formatted-address>
+                                                </p>
+                                            </div>
+                                        </lightning-layout-item>
+                                    </lightning-layout> 
+                                    
+                                </lightning-card>
+                        </lightning-layout-item>
+                    </lightning-layout>
+                </div>
+                <footer class="slds-modal__footer">
+                    <lightning-button label="Close" title="Close" onclick={closeModel} class="slds-m-right_small"></lightning-button>
+                    <lightning-button variant="brand" if:false={openEdit} label="Save Vehicle Information" title="Save" onclick={handleSave} class="slds-var-m-right_small"></lightning-button>
+                </footer>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </div>
+</template>

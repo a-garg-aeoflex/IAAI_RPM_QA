@@ -1,0 +1,5 @@
+<!-- CaseIdEvent -->
+<aura:event type="COMPONENT" description="Event template" >
+    <aura:attribute name="caseNumber" type="string" />
+    <aura:attribute name="caseId" type="String" />
+</aura:event>

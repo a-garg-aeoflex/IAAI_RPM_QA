@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Available</fullName>
+        <default>true</default>
+        <label>Available</label>
+    </customValue>
+    <customValue>
+        <fullName>Request</fullName>
+        <default>false</default>
+        <label>Request</label>
+    </customValue>
+    <customValue>
+        <fullName>Pending - Refresh to view</fullName>
+        <default>false</default>
+        <label>Pending - Refresh to view</label>
+    </customValue>
+    <masterLabel>API Request</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Job_Title_Code__c</fullName>
+    <externalId>false</externalId>
+    <label>Job Title Code</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>BRKR</fullName>
+                <default>false</default>
+                <label>BRKR</label>
+            </value>
+            <value>
+                <fullName>EMPL</fullName>
+                <default>false</default>
+                <label>EMPL</label>
+            </value>
+            <value>
+                <fullName>OWNR</fullName>
+                <default>false</default>
+                <label>OWNR</label>
+            </value>
+            <value>
+                <fullName>PTNR</fullName>
+                <default>false</default>
+                <label>PTNR</label>
+            </value>
+            <value>
+                <fullName>TOWR</fullName>
+                <default>false</default>
+                <label>TOWR</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

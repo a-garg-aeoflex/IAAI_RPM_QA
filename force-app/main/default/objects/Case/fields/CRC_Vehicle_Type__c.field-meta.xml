@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CRC_Vehicle_Type__c</fullName>
+    <externalId>false</externalId>
+    <label>Vehicle Type</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>AUTOMOBILE</fullName>
+                <default>false</default>
+                <label>AUTOMOBILE</label>
+            </value>
+            <value>
+                <fullName>BOAT</fullName>
+                <default>false</default>
+                <label>BOAT</label>
+            </value>
+            <value>
+                <fullName>Motorcycle</fullName>
+                <default>false</default>
+                <label>Motorcycle</label>
+            </value>
+            <value>
+                <fullName>Truck</fullName>
+                <default>false</default>
+                <label>Truck</label>
+            </value>
+            <value>
+                <fullName>Trailer</fullName>
+                <default>false</default>
+                <label>Trailer</label>
+            </value>
+            <value>
+                <fullName>Bus</fullName>
+                <default>false</default>
+                <label>Bus</label>
+            </value>
+            <value>
+                <fullName>Crane</fullName>
+                <default>false</default>
+                <label>Crane</label>
+            </value>
+            <value>
+                <fullName>Farm Equipment</fullName>
+                <default>false</default>
+                <label>Farm Equipment</label>
+            </value>
+            <value>
+                <fullName>Emergency Equipment</fullName>
+                <default>false</default>
+                <label>Emergency Equipment</label>
+            </value>
+            <value>
+                <fullName>Forestry Equipment</fullName>
+                <default>false</default>
+                <label>Forestry Equipment</label>
+            </value>
+            <value>
+                <fullName>Snowmobile</fullName>
+                <default>false</default>
+                <label>Snowmobile</label>
+            </value>
+            <value>
+                <fullName>Motor Home</fullName>
+                <default>false</default>
+                <label>Motor Home</label>
+            </value>
+            <value>
+                <fullName>Travel Trailer</fullName>
+                <default>false</default>
+                <label>Travel Trailer</label>
+            </value>
+            <value>
+                <fullName>Heavy Equipment</fullName>
+                <default>false</default>
+                <label>Heavy Equipment</label>
+            </value>
+            <value>
+                <fullName>Personal Watercraft</fullName>
+                <default>false</default>
+                <label>Personal Watercraft</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+            <value>
+                <fullName>B</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>B</label>
+            </value>
+            <value>
+                <fullName>C</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>C</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

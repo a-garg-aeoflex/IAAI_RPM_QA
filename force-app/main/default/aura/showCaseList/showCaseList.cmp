@@ -1,0 +1,54 @@
+<!-- showCaseList -->
+<aura:component controller="CallScriptCaseBuyerServiceClass" >
+    <!-- attributes -->
+    <aura:attribute name="selectedRows" type="object"/> 
+    <aura:attribute name="columns" type="List"/>
+    <aura:attribute name="AccountId" type="String"/> 
+    <aura:attribute name="ContactId" type="String"/>
+    <aura:attribute name="maxRowSelection" type="Integer" default="1"/>
+    <aura:attribute name="rawData" type="Object" access="PRIVATE" />
+    <aura:attribute name="activeFilter" type="string" default="all" access="PRIVATE" />
+    <aura:attribute name="caseList" type="Case[]" />
+    <aura:attribute name="errors" type="String" default="No items to display."/> 
+    
+    
+    
+    <aura:registerEvent name="CaseDetailRec" type="c:CaseDetailEvent"/> 
+    <!-- handlers-->
+    <aura:handler name="init" value="{! this }" action="{! c.init }"/>
+    <lightning:spinner aura:id="mySpinner" alternativeText="Processing.." title="Processing.." variant="brand" size="large" class="slds-hide" />
+    <!-- the container element determine the height of the datatable -->
+    <div >
+        <div aura:id="datatable" class="slds-hide" style="height: 300px">
+            <lightning:datatable
+                                 columns="{! v.columns }"
+                                 data="{! v.caseList }"
+                                 keyField="id"
+                                 maxRowSelection="{! v.maxRowSelection }"
+                                 showRowNumberColumn="true"
+                                 onrowselection="{!c.handleSelect}"
+                                 onrowaction="{! c.handleRowAction }"
+                                 />
+            			
+        </div>
+        <div aura:id="Nodatatable" class="slds-hide" style="height: 300px">
+            
+            <lightning:datatable
+                                 columns="{! v.columns }"
+                                 data="{! v.caseList }"
+                                 keyField="id"
+                                 maxRowSelection="{! v.maxRowSelection }"
+                                 showRowNumberColumn="true" />
+           
+                
+                <div class="emptyContent" >
+                    <div class="emptyContentInner" >
+                        <p >{!v.errors}</p>
+                    </div>
+            </div>
+            		
+        </div>
+    </div>
+    
+    
+</aura:component>

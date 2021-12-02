@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Queue xmlns="http://soap.sforce.com/2006/04/metadata">
+    <doesSendEmailToMembers>false</doesSendEmailToMembers>
+    <name>Buyer Feedback</name>
+    <queueMembers>
+        <users>
+            <user>chris.jensen1@iaai.com</user>
+            <user>dsalgado1@iaai.com</user>
+            <user>dee.mcdonald1@iaai.com</user>
+            <user>jennifer.spagnola1@iaai.com</user>
+            <user>ted.salek1@iaai.com</user>
+        </users>
+    </queueMembers>
+    <queueSobject>
+        <sobjectType>Case</sobjectType>
+    </queueSobject>
+    <queueSobject>
+        <sobjectType>Task</sobjectType>
+    </queueSobject>
+</Queue>

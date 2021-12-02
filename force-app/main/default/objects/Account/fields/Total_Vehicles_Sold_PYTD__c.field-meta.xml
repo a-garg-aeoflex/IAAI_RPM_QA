@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Total_Vehicles_Sold_PYTD__c</fullName>
+    <defaultValue>0</defaultValue>
+    <description>Total # Vehicles Sold Last Year same Timeframe</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Number of vehicles sold by a provider YTD for prior year.</inlineHelpText>
+    <label>Total # Vehicles Sold (PYTD)</label>
+    <precision>10</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

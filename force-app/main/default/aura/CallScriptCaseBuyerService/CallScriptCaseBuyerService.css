@@ -1,0 +1,20 @@
+.THIS .LeftFloat{
+    float:right;
+   margin-left:1%;
+}
+.THIS .WhiteBackground{
+    background-color:white;
+   
+}
+.THIS .TopMargin{
+    margin-top:2%;
+   
+}
+.THIS .show{
+    display: block;
+   
+}
+.THIS .hide{
+    display: none;
+   
+}

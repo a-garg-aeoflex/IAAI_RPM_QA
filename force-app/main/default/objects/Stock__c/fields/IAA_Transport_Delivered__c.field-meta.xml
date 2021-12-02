@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>IAA_Transport_Delivered__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>This field identifies if IAA Transport was delivered for this stock.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>This field identifies if IAA Transport was delivered for this stock.</inlineHelpText>
+    <label>IAA Transport Delivered</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

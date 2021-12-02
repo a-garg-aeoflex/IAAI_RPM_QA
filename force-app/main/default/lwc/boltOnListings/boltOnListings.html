@@ -1,0 +1,305 @@
+<template>
+    <lightning-spinner alternative-text="Loading" size="medium" if:true={showSpinner}></lightning-spinner>
+    <div class="table-container">
+       <table class="data-table">
+            <thead>
+                <tr class="data-table-headers">
+                    <th class="data-table-headers-cell" data-type="left" scope="col">
+                        VIN
+                    </th>
+                    <th class="data-table-headers-cell" data-type="right" scope="col">
+                        Make
+                    </th>
+                    <th class="data-table-headers-cell" data-type="right" scope="col">
+                        Model
+                    </th>
+                    <th class="data-table-headers-cell" data-type="right" scope="col">
+                        Year
+                    </th>
+                    <th class="data-table-headers-cell" data-type="right" scope="col">
+                        Status
+                    </th>
+                    <th class="data-table-headers-cell" data-type="right" scope="col">
+                        Created By
+                    </th>
+                    <th class="data-table-headers-cell" data-type="right" scope="col">
+                        Offer
+                    </th>
+                    <th class="data-table-headers-cell" data-type="right" scope="col">
+                        Action
+                    </th>
+                </tr>
+            </thead>
+            <tbody class="data-table-body" if:true={records}>
+                <template for:each={records} for:item="record">
+                    <tr class="data-table-row" key={record.Id}>
+                        <th class="data-table-row-cell hide-on-mobile" data-type="name" scope="row">
+                            <div class="data-table-row-cell__link-block" data-type="abbreviation">
+                                {record.VIN__c}
+                            </div>
+                            <div class="data-table-row-cell__link-block" data-type="full">
+                               {record.Model_Year__c} - {record.Model__c} 
+                            </div>
+                        </th>
+                        <td class="data-table-row-cell hide-on-mobile" data-type="value" aria-label="value">
+                            <span class="data-table-row-cell__value">
+                                {record.Make__c}
+                            </span>
+                        </td>
+                        <td class="data-table-row-cell" data-type="value" aria-label="value">
+                            <span class="data-table-row-cell__value">
+                                {record.Model_Year__c} - {record.Model__c} 
+                            </span>
+                        </td>
+                        <td class="data-table-row-cell hide-on-mobile" data-type="value" aria-label="value">
+                            <span class="data-table-row-cell__value">
+                                {record.Model_Year__c}
+                            </span>
+                        </td>
+                        <td class="data-table-row-cell" data-type="value" aria-label="value">
+                            <span class="data-table-row-cell__value">
+                                {record.Status_of_Listing__c}
+                            </span>
+                        </td>
+                        <td class="data-table-row-cell hide-on-mobile" data-type="value" aria-label="value">
+                            <span class="data-table-row-cell__value">
+                                {record.CreatedBy.Name}
+                            </span>
+                        </td>
+                        <td class="data-table-row-cell" data-type="value" aria-label="value">
+                            <span class="data-table-row-cell__value">
+                                <lightning-formatted-number 
+                                    value={record.Original_Bid_Offer_Amount__c} 
+                                    format-style="currency" 
+                                    currency-code="USD">
+                                </lightning-formatted-number>
+                            </span>
+                        </td>
+                        <td class="data-table-row-cell" data-type="value" aria-label="value" style="cursor: pointer;">
+                            <span class="data-table-row-cell__value">
+                                <lightning-icon
+                                    icon-name={record.iconName}
+                                    size="xx_small"
+                                    variant="error"
+                                    data-id={record.Id}
+                                    onclick={showMoreDetail}
+                                    alternative-text={record.acceptStatus}>
+                                </lightning-icon>
+                            </span>
+                        </td>
+                    </tr>
+                </template>
+</tbody>
+</table>
+</div>
+
+<template if:true={recordDetail}>
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+            <header class="slds-modal__header">
+                <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close"  onclick={hideModal}>
+                <lightning-icon
+                    icon-name="utility:close"
+                    size="medium"
+                    alternative-text="Close">
+                </lightning-icon>
+                <span class="slds-assistive-text">Close</span>
+                </button>
+                <h2 id="modal-heading-01" class="slds-modal__title slds-hyphenate">{recordDetail.Name}</h2>
+            </header>
+            <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1" style="overflow: initial;">
+
+                <table if:false={isMobile} class="slds-table slds-table_cell-buffer slds-table_bordered slds-table_col-bordered">
+                    <tbody>
+                        <tr class="slds-hint-parent">
+                            <td data-label="VIN">
+                                <div class="slds-truncate slds-var-p-around_small" title="VIN">VIN</div>
+                            </td>
+                            <td data-label="Close Date" class="slds-align_absolute_center">
+                                <div class="slds-truncate slds-var-p-around_small" title={recordDetail.VIN__c}>
+                                    {recordDetail.VIN__c}
+                                </div>
+                            </td>
+                        </tr>
+                        
+                        <tr class="slds-hint-parent">
+                            <td data-label="Make">
+                            <div class="slds-truncate slds-var-p-around_small" title="Make">Make</div>
+                            </td>
+                            <td data-label={recordDetail.Make__c} class="slds-align_absolute_center">
+                                <div class="slds-truncate slds-var-p-around_small" title={recordDetail.Make__c}>
+                                    {recordDetail.Make__c}
+                                </div>
+                            </td>
+                        </tr>
+                
+                        <tr class="slds-hint-parent">
+                            <td data-label="Year">
+                            <div class="slds-truncate slds-var-p-around_small" title="Year">Year</div>
+                            </td>
+                            <td data-label={recordDetail.Model_Year__c} class="slds-align_absolute_center">
+                                <div class="slds-truncate slds-var-p-around_small" title={recordDetail.Model_Year__c}>
+                                    {recordDetail.Model_Year__c}
+                                </div>
+                            </td>
+                        </tr>
+                
+                        <tr class="slds-hint-parent">
+                            <td data-label="Created Date">
+                            <div class="slds-truncate slds-var-p-around_small" title="Created Date">Created Date</div>
+                            </td>
+                            <td data-label={recordDetail.CreatedDate} class="slds-align_absolute_center">
+                                <div class="slds-truncate slds-var-p-around_small" title={recordDetail.CreatedDate}>
+                                    {recordDetail.CreatedDate}
+                                </div>
+                            </td>
+                        </tr>
+                
+                        <tr class="slds-hint-parent">
+                            <td data-label="Created By">
+                            <div class="slds-truncate slds-var-p-around_small" title="Created By">Created By</div>
+                            </td>
+                            <td data-label={recordDetail.CreatedBy.Name} class="slds-align_absolute_center">
+                                <div class="slds-truncate slds-var-p-around_small" title={recordDetail.CreatedBy.Name}>
+                                    {recordDetail.CreatedBy.Name}
+                                </div>
+                            </td>
+                        </tr>
+                
+                        <tr class="slds-hint-parent">
+                            <td data-label="Offer Amount">
+                            <div class="slds-truncate slds-var-p-around_small" title="Offer Amount">Offer Amount</div>
+                            </td>
+                            <td data-label={recordDetail.Original_Bid_Offer_Amount__c} class="slds-align_absolute_center">
+                                <div class="slds-truncate slds-var-p-around_small" title={recordDetail.Original_Bid_Offer_Amount__c}>
+                                    <lightning-formatted-number 
+                                        value={recordDetail.Original_Bid_Offer_Amount__c} 
+                                        format-style="currency" 
+                                        currency-code="USD">
+                                    </lightning-formatted-number>
+                                </div>
+                            </td>
+                        </tr>
+                
+                        <tr class="slds-hint-parent">
+                            <td data-label="Model">
+                            <div class="slds-truncate slds-var-p-around_small" title="Model">Model</div>
+                            </td>
+                            <td data-label={recordDetail.Model__c} class="slds-align_absolute_center">
+                                <div class="slds-truncate slds-var-p-around_small" title={recordDetail.Model__c}>
+                                    {recordDetail.Model__c}
+                                </div>
+                            </td>
+                        </tr>
+                
+                        <tr class="slds-hint-parent">
+                            <td colspan="2">
+                                <div class="slds-var-m-around_medium">
+                                    <lightning-combobox
+                                        name="Decline_Reason__c"
+                                        variant="label-hidden"
+                                        value={recordDetail.Decline_Reason__c}
+                                        placeholder="Please select a reason for declining"
+                                        options={reasonOfRejection.data.values}
+                                        required>
+                                    </lightning-combobox>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="slds-grid slds-wrap" if:true={isMobile}>
+                    <div class="slds-col slds-size_4-of-12">
+                        <span>VIN</span>
+                    </div>
+                    <div class="slds-col slds-size_8-of-12">
+                        <span>{recordDetail.VIN__c}</span>
+                    </div>
+
+                    <div class="slds-col slds-size_4-of-12">
+                        <span>Make</span>
+                    </div>
+                    <div class="slds-col slds-size_8-of-12">
+                        <span>{recordDetail.Make__c}</span>
+                    </div>
+
+                    <div class="slds-col slds-size_4-of-12">
+                        <span>Year</span>
+                    </div>
+                    <div class="slds-col slds-size_8-of-12">
+                        <span>{recordDetail.Model_Year__c}</span>
+                    </div>
+
+                    <div class="slds-col slds-size_4-of-12">
+                        <span>Created Date</span>
+                    </div>
+                    <div class="slds-col slds-size_8-of-12">
+                        <span>{recordDetail.CreatedDate}</span>
+                    </div>
+
+                    <div class="slds-col slds-size_4-of-12">
+                        <span>Created By</span>
+                    </div>
+                    <div class="slds-col slds-size_8-of-12">
+                        <span>{recordDetail.CreatedBy.Name}</span>
+                    </div>
+
+                    <div class="slds-col slds-size_4-of-12">
+                        <span>Offer Amount</span>
+                    </div>
+                    <div class="slds-col slds-size_8-of-12">
+                        <span>
+                            <lightning-formatted-number 
+                                value={recordDetail.Original_Bid_Offer_Amount__c} 
+                                format-style="currency" 
+                                currency-code="USD">
+                            </lightning-formatted-number>
+                        </span>
+                    </div>
+
+                    <div class="slds-col slds-size_4-of-12">
+                        <span>Model</span>
+                    </div>
+                    <div class="slds-col slds-size_8-of-12">
+                        <span>{recordDetail.Modal__c}</span>
+                    </div>
+
+                    <div class="slds-col slds-size_4-of-12">
+                        <span>Reason to Reject</span>
+                    </div>
+                    <div class="slds-col slds-size_8-of-12">
+                        <span>
+                            <lightning-combobox
+                                name="Decline_Reason__c"
+                                variant="label-hidden"
+                                value={recordDetail.Decline_Reason__c}
+                                placeholder="Please select a reason for declining"
+                                options={reasonOfRejection.data.values}
+                                required>
+                            </lightning-combobox>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <footer class="slds-modal__footer">
+                <button class="slds-button slds-button_neutral slds-float_left" onclick={hideModal}>Cancel</button>
+                <button class="slds-button slds-button_brand" 
+                    data-name="reject" 
+                    disabled={recordDetail.disabled}
+                    onclick={doAcceptOffer}>
+                    Decline Offer
+                </button>
+                <button class="slds-button slds-button_brand" 
+                    data-name={recordDetail.buttonLabel} 
+                    disabled={recordDetail.disabled}
+                    onclick={doAcceptOffer}>
+                    {recordDetail.buttonLabel}
+                </button>
+            </footer>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </template>
+
+</template>

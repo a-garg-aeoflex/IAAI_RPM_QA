@@ -1,0 +1,42 @@
+<!-- contact Us -->
+<aura:component implements="forceCommunity:availableForAllPageTypes" access="global" >
+    <br /> 
+   <p data-aura-rendered-by="46:245;a" style="box-sizing: border-box; margin: 0px; padding: 0px;">Buyer Services is a dedicated team of customer service specialists who provide assistance to buyers in English, Spanish, Arabic, Russian, French, German, Polish and Chinese. They help with all aspects of a buyer&rsquo;s experience.</p>
+   <p data-aura-rendered-by="46:245;a" style="box-sizing: border-box; margin: 0px; padding: 0px;"><br style="box-sizing: border-box;" /></p>
+   <p data-aura-rendered-by="46:245;a" style="box-sizing: border-box; margin: 0px; padding: 0px;">Buyer Services has provided answers to the most commonly asked questions.</p>
+   <p data-aura-rendered-by="46:245;a" style="box-sizing: border-box; margin: 0px; padding: 0px;"><br style="box-sizing: border-box;" /></p>
+   <p data-aura-rendered-by="46:245;a" style="box-sizing: border-box; margin: 0px; padding: 0px;">If you still need assistance, contact Buyer Services by Phone,&nbsp;<a href="https://help.iaai.com/s/get-help" rel="noopener" style="box-sizing: border-box; background-color: transparent; color: rgb(34, 34, 34); text-decoration: underline; transition: all 0.3s ease 0s; cursor: pointer; display: inline-block;" target="_self">case</a> or&nbsp;<a href="https://www.iaai.com/Support/Default" rel="noopener" style="box-sizing: border-box; background-color: transparent; color: rgb(34, 34, 34); text-decoration: underline; transition: all 0.3s ease 0s; cursor: pointer; display: inline-block;" target="_blank">Live Chat</a>.</p>
+   <p data-aura-rendered-by="46:245;a" style="box-sizing: border-box; margin: 0px; padding: 0px;"><br style="box-sizing: border-box;" /></p>
+   <h2 data-aura-rendered-by="46:245;a" style="box-sizing: border-box; margin: 0px; padding: 0px; font-weight: 700; font-size: 1.125rem; font-family: Roboto;">Phone</h2>
+   <p data-aura-rendered-by="46:245;a" style="box-sizing: border-box; margin: 0px; padding: 0px;"><br style="box-sizing: border-box;" /></p>
+   <h4 data-aura-rendered-by="46:245;a" style="box-sizing: border-box; margin: 0px; padding: 0px; font-weight: 700; font-size: 0.875rem; font-family: Roboto;">USA Toll Free &amp; Canada:</h4>
+   <p data-aura-rendered-by="46:245;a" style="box-sizing: border-box; margin: 0px; padding: 0px;"><a href="tel:877-937-4243">877-937-4243</a></p>
+   <p data-aura-rendered-by="46:245;a" style="box-sizing: border-box; margin: 0px; padding: 0px;"><br style="box-sizing: border-box;" /></p>
+   <h4 data-aura-rendered-by="46:245;a" style="box-sizing: border-box; margin: 0px; padding: 0px; font-weight: 700; font-size: 0.875rem; font-family: Roboto;">International</h4>
+   <p data-aura-rendered-by="46:245;a" style="box-sizing: border-box; margin: 0px; padding: 0px;">Phone <a href="tel:+1-630-686-4097">+1-630-686-4097</a></p>
+   <p data-aura-rendered-by="46:245;a" style="box-sizing: border-box; margin: 0px; padding: 0px;">Fax +1-630-382-5628</p>
+   <p data-aura-rendered-by="46:245;a" style="box-sizing: border-box; margin: 0px; padding: 0px;"><br style="box-sizing: border-box;" /></p>
+   <h4 data-aura-rendered-by="46:245;a" style="box-sizing: border-box; margin: 0px; padding: 0px; font-weight: 700; font-size: 0.875rem; font-family: Roboto;">M&eacute;xico - (Tel&eacute;fono gratuito)</h4>
+   <p data-aura-rendered-by="46:245;a" style="box-sizing: border-box; margin: 0px; padding: 0px;"><a href="tel:001-855-615-9401">001-855-615-9401</a></p>
+   <p data-aura-rendered-by="46:245;a" style="box-sizing: border-box; margin: 0px; padding: 0px;"><br style="box-sizing: border-box;" /></p>
+   <h4 data-aura-rendered-by="46:245;a" style="box-sizing: border-box; margin: 0px; padding: 0px; font-weight: 700; font-size: 0.875rem; font-family: Roboto;">Polska &ndash; (Bezpłatny)</h4>
+   <p data-aura-rendered-by="46:245;a" style="box-sizing: border-box; margin: 0px; padding: 0px;"><a href="tel:0-0-800-121-4897">0-0-800-121-4897</a></p>
+   <p data-aura-rendered-by="46:245;a" style="box-sizing: border-box; margin: 0px; padding: 0px;"><br style="box-sizing: border-box;" /></p>
+   <h4 data-aura-rendered-by="46:245;a" style="box-sizing: border-box; margin: 0px; padding: 0px; font-weight: 700; font-size: 0.875rem; font-family: Roboto;">(الإمارات العربية المتحدة - (الرقم المجاني</h4>
+   <p data-aura-rendered-by="46:245;a" style="box-sizing: border-box; margin: 0px; padding: 0px;"><a href="tel:8000-3-570-3114">8000-3-570-3114</a></p>
+   <p data-aura-rendered-by="46:245;a" style="box-sizing: border-box; margin: 0px; padding: 0px;"><br style="box-sizing: border-box;" /></p>
+   <h2 data-aura-rendered-by="46:245;a" style="box-sizing: border-box; margin: 0px; padding: 0px; font-weight: 700; font-size: 1.125rem; font-family: Roboto;">Email</h2>
+   <p data-aura-rendered-by="46:245;a" style="box-sizing: border-box; margin: 0px; padding: 0px;"><a href="mailto:cservice@iaai.com" rel="noopener" style="box-sizing: border-box; background-color: transparent; color: rgb(34, 34, 34); text-decoration: underline; transition: all 0.3s ease 0s; cursor: pointer; display: inline-block;" target="_blank">cservice@iaai.com</a></p>
+   <p data-aura-rendered-by="46:245;a" style="box-sizing: border-box; margin: 0px; padding: 0px;"><br style="box-sizing: border-box;" /></p>
+   <h2 data-aura-rendered-by="46:245;a" style="box-sizing: border-box; margin: 0px; padding: 0px; font-weight: 700; font-size: 1.125rem; font-family: Roboto;">Hours</h2>
+   <p data-aura-rendered-by="46:245;a" style="box-sizing: border-box; margin: 0px; padding: 0px;">Mon-Fri 6:30am - 7pm (CT)</p>
+   <p data-aura-rendered-by="46:245;a" style="box-sizing: border-box; margin: 0px; padding: 0px;">Sat 8am - 5pm (CT)</p>
+   <p data-aura-rendered-by="46:245;a" style="box-sizing: border-box; margin: 0px; padding: 0px;">Sun Closed</p>
+   <p data-aura-rendered-by="46:245;a" style="box-sizing: border-box; margin: 0px; padding: 0px;"><br style="box-sizing: border-box;" /></p>
+   <h2 data-aura-rendered-by="46:245;a" style="box-sizing: border-box; margin: 0px; padding: 0px; font-weight: 700; font-size: 1.125rem; font-family: Roboto;">Address</h2>
+   <p data-aura-rendered-by="46:245;a" style="box-sizing: border-box; margin: 0px; padding: 0px;">701 Harger Road, Suite 201,</p>
+   <p data-aura-rendered-by="46:245;a" style="box-sizing: border-box; margin: 0px; padding: 0px;">Oak Brook, IL 60523</p>
+   <p data-aura-rendered-by="46:245;a" style="box-sizing: border-box; margin: 0px; padding: 0px;"><br style="box-sizing: border-box; color: rgb(34, 34, 34); font-family: Roboto; font-size: 13px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;" /></p>
+
+    <br /><br /><br /><br /><br /><br /><br />
+</aura:component>

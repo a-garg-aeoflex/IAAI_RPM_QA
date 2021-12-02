@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Incorrect_Format_FEIN</fullName>
+    <active>false</active>
+    <description>Enforce the format of FEIN</description>
+    <errorConditionFormula>!ISBLANK(FEIN__c)&amp;&amp;!REGEX(FEIN__c, &quot;^\\d{9}?$&quot;)</errorConditionFormula>
+    <errorMessage>FEIN should be in the format NNNNNNNNN</errorMessage>
+</ValidationRule>

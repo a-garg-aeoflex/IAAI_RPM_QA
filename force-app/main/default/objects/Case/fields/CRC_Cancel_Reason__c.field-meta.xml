@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CRC_Cancel_Reason__c</fullName>
+    <externalId>false</externalId>
+    <label>Cancel Reason</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>CAR</fullName>
+                <default>false</default>
+                <label>Car is Repairable</label>
+            </value>
+            <value>
+                <fullName>CLC</fullName>
+                <default>false</default>
+                <label>Claimant Car</label>
+            </value>
+            <value>
+                <fullName>CLD</fullName>
+                <default>false</default>
+                <label>Claim Denial</label>
+            </value>
+            <value>
+                <fullName>NOR</fullName>
+                <default>false</default>
+                <label>No Owner Release</label>
+            </value>
+            <value>
+                <fullName>NSD</fullName>
+                <default>false</default>
+                <label>No Sale Disposal</label>
+            </value>
+            <value>
+                <fullName>OTH</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+            <value>
+                <fullName>OWR</fullName>
+                <default>false</default>
+                <label>Owner Retain</label>
+            </value>
+            <value>
+                <fullName>SPR</fullName>
+                <default>false</default>
+                <label>Salvage Provider Request</label>
+            </value>
+            <value>
+                <fullName>ttest1</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>ttest1</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

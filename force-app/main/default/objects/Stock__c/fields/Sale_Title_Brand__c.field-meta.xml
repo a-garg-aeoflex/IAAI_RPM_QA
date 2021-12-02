@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Sale_Title_Brand__c</fullName>
+    <description>Brand of Sale Title</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Brand of Sale Title</inlineHelpText>
+    <label>Sale Title Brand</label>
+    <length>100</length>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

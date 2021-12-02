@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Buyer_Subtype__c</fullName>
+    <externalId>false</externalId>
+    <label>Buyer Subtype</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Full-Serve</fullName>
+                <default>false</default>
+                <label>Full-Serve</label>
+            </value>
+            <value>
+                <fullName>Self-Serve</fullName>
+                <default>false</default>
+                <label>Self-Serve</label>
+            </value>
+            <value>
+                <fullName>Multiple Shop Operator</fullName>
+                <default>false</default>
+                <label>Multiple Shop Operator</label>
+            </value>
+            <value>
+                <fullName>Franchise, Independent</fullName>
+                <default>false</default>
+                <label>Franchise, Independent</label>
+            </value>
+            <value>
+                <fullName>Buy Here Pay Here</fullName>
+                <default>false</default>
+                <label>Buy Here Pay Here</label>
+            </value>
+            <value>
+                <fullName>Lease Here Pay Here</fullName>
+                <default>false</default>
+                <label>Lease Here Pay Here</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

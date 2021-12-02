@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Account_Name_should_not_be_Editable_if</fullName>
+    <active>false</active>
+    <description>Account Name not editable if BI ID NOT Blank</description>
+    <errorConditionFormula>AND(
+NOT(  $User.ProfileId = &apos;00e1U000000jOc4&apos; ),
+IsChanged(Name),
+NOT(ISBLANK( BI_ID__c ))
+)</errorConditionFormula>
+    <errorDisplayField>Name</errorDisplayField>
+    <errorMessage>Account Name cannot be Edited if the Account has a BI ID.</errorMessage>
+</ValidationRule>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Pulsar_Motors_Assignments_Created_Today</fullName>
+    <columns>NAME</columns>
+    <columns>Vehicle_Status__c</columns>
+    <columns>Branch_Name__c</columns>
+    <columns>VIN__c</columns>
+    <columns>Provider_Name__c</columns>
+    <columns>Year__c</columns>
+    <columns>Model__c</columns>
+    <columns>Make__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Provider_Name__c</field>
+        <operation>equals</operation>
+        <value>Pulsar Motors</value>
+    </filters>
+    <label>Pulsar Motors Assignments Created Today</label>
+</ListView>

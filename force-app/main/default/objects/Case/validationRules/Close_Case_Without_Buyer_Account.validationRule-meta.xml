@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Close_Case_Without_Buyer_Account</fullName>
+    <active>true</active>
+    <description>Account and Contact is Required on Buyer service case RT while closing the case.</description>
+    <errorConditionFormula>IF(AND((RecordType.DeveloperName = &apos;Help_Broker_Community&apos; || RecordType.DeveloperName = &apos;Buyer_Services&apos;), ISPICKVAL(Status, &quot;Closed&quot;), OR(AccountId  = NULL, ContactId = NULL) ), True, False)</errorConditionFormula>
+    <errorMessage>Buyer Account and Contact is required to close case</errorMessage>
+</ValidationRule>

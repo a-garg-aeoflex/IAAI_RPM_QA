@@ -1,0 +1,380 @@
+<template>
+
+    <lightning-spinner alternative-text="Loading" size="medium" if:true={isLoading}></lightning-spinner>
+
+    <lightning-card  variant="Narrow"  title="Storage Charges" icon-name="standard:account">
+        <lightning-button-group slot="actions">
+            <lightning-button label={buttonLabel}  if:true={actionsNeeded} onclick={toggleView}></lightning-button>
+        </lightning-button-group>
+        <div class="slds-var-p-horizontal_small">
+            <lightning-layout multiple-rows>
+                <lightning-layout-item size="12" padding="around-small" small-device-size="3" medium-device-size="6" large-device-size="3" >
+                    <div class="custom-box">
+                        <lightning-input
+                            onchange={handleInputChange} 
+                            type="text"
+                            name="CRC_Rate_Type__c"
+                            value={rateType}
+                            readonly 
+                            label="Rate Type"
+                            if:true={readonly}>
+                        </lightning-input>
+
+                        <lightning-combobox 
+                            value={caseInformation.CRC_Rate_Type__c}
+                            onchange={handleInputChange}
+                            if:false={readonly}
+                            name="CRC_Rate_Type__c"
+                            label="Rate Type"
+                            options={rateTypeOptions}>
+                        </lightning-combobox>
+                    </div>
+                </lightning-layout-item>
+                <lightning-layout-item size="12" padding="around-small" small-device-size="3" medium-device-size="6" large-device-size="3">
+                    <div class="custom-box">
+                        <lightning-input
+                            onchange={handleInputChange}
+                            value={caseInformation.CRC_Start_Date__c}
+                            if:false={readonly} 
+                            type="date" 
+                            name="CRC_Start_Date__c" 
+                            label="Start Date"
+                            required={required}>
+                        </lightning-input>
+
+                        <lightning-input
+                            onchange={handleInputChange}
+                            value={caseInformation.CRC_Start_Date__c}
+                            if:true={readonly} 
+                            readonly
+                            type="text" 
+                            name="CRC_Start_Date__c" 
+                            label="Start Date">
+                        </lightning-input>
+                    </div>
+                </lightning-layout-item>
+                <lightning-layout-item size="12" padding="around-small" small-device-size="3" medium-device-size="6" large-device-size="3" >
+                    <div class="custom-box">
+                        <lightning-input 
+                            type="checkbox" 
+                            checked={caseInformation.CRC_Charges_Cleared__c}
+                            label="Charges Cleared?" 
+                            disabled="disabled"
+                            if:true={readonly}>
+                        </lightning-input>
+
+                        <lightning-input 
+                            type="checkbox"
+                            if:false={readonly}
+                            checked={caseInformation.CRC_Charges_Cleared__c}
+                            name="CRC_Charges_Cleared__c"
+                            label="Charges Cleared?">
+                        </lightning-input>
+                    </div>
+                </lightning-layout-item>
+                <lightning-layout-item size="12" padding="around-small" small-device-size="3" medium-device-size="6" large-device-size="3">
+                    <div class="custom-box">
+                        <!-- required={required} -->
+                        <lightning-input
+                            onchange={handleInputChange}
+                            value={caseInformation.CRC_End_Date__c}
+                            if:false={readonly}
+                            type="date" 
+                            name="CRC_End_Date__c" 
+                            label="End Date" >
+                        </lightning-input>
+
+                        <lightning-input
+                            onchange={handleInputChange}
+                            value={caseInformation.CRC_End_Date__c}
+                            if:true={readonly}
+                            readonly
+                            type="text" 
+                            name="CRC_End_Date__c" 
+                            label="End Date" >
+                        </lightning-input>
+                    </div>
+                </lightning-layout-item>
+                <lightning-layout-item size="12" padding="around-small" small-device-size="3" medium-device-size="6" large-device-size="3">
+                    <div class="custom-box">
+                        <lightning-input
+                            onchange={handleInputChange}
+                            readonly
+                            type="number" 
+                            name="Number_Of_Days__c" 
+                            value={numberOfDays}
+                            label="Number of Days">
+                        </lightning-input>
+                    </div>
+                </lightning-layout-item>
+
+                <lightning-layout-item size="12" padding="around-small" small-device-size="3" medium-device-size="6" large-device-size="3" >
+                    <div class="custom-box">
+                        <lightning-input 
+                            type="checkbox" 
+                            checked={caseInformation.IAA_Requested_to_Pay_Advance_Charges__c}
+                            label="IAA Requested to Pay Advance Charges?" 
+                            disabled="disabled"
+                            if:true={readonly}>
+                        </lightning-input>
+
+                        <lightning-input
+                            onchange={handleInputChangeAdvancePay} 
+                            type="checkbox"
+                            if:false={readonly}
+                            checked={caseInformation.IAA_Requested_to_Pay_Advance_Charges__c}
+                            name="IAA_Requested_to_Pay_Advance_Charges__c"
+                            label="IAA Requested to Pay Advance Charges?">
+                        </lightning-input>
+                    </div>
+                </lightning-layout-item>
+                <lightning-layout-item size="12" padding="around-small" small-device-size="3" medium-device-size="6" large-device-size="3">
+                    <div class="custom-box">
+                        <lightning-input
+                            onchange={handleInputChange}
+                            readonly
+                            value={caseInformation.Adv_Charges_Max_Authorized_Amount__c}
+                            type="number" 
+                            formatter="currency"
+                            name="Adv_Charges_Max_Authorized_Amount__c" 
+                            label="IAA Max. Authorized Amt.">
+                        </lightning-input>
+                    </div>
+                </lightning-layout-item>
+                <lightning-layout-item size="12" padding="around-small" small-device-size="3" medium-device-size="6" large-device-size="3">
+                    <div class="custom-box">
+                        <lightning-input
+                            onchange={handleInputChange}
+                            readonly
+                            value={caseInformation.Provider_Defined_Max_Auth_Amount__c}
+                            type="number" 
+                            formatter="currency"
+                            name="Provider_Defined_Max_Auth_Amount__c" 
+                            label="Provider Max. Authorized Amt.">
+                        </lightning-input>
+                    </div>
+                </lightning-layout-item>
+                <lightning-layout-item size="12" padding="around-small" small-device-size="3" medium-device-size="6" large-device-size="3">
+                    <div class="custom-box">
+                        <!-- required={required} -->
+                        <lightning-input
+                            onchange={handleInputChange}
+                            readonly={readonly} 
+                            type="currency" 
+                            max-length="11"
+                            value={caseInformation.CRC_Storage_Rate__c}
+                            formatter="currency" 
+                            name="CRC_Storage_Rate__c" 
+                            label="Fee Amount">
+                        </lightning-input>
+                    </div>
+                </lightning-layout-item>
+                <lightning-layout-item size="12" padding="around-small" small-device-size="3" medium-device-size="6" large-device-size="3">
+                    <div class="custom-box">
+                        <lightning-input
+                            readonly 
+                            type="number" 
+                            formatter="currency"
+                            value={calculatedStorageAmount}
+                            name="Calculated_Storage_Amount__c" 
+                            label="Calculated Storage Amount">
+                        </lightning-input>
+                    </div>
+                </lightning-layout-item>
+                
+                <template if:true={isIAAI_Authorized}>
+                    <lightning-layout-item size="12" padding="around-small" small-device-size="3" medium-device-size="6" large-device-size="3">
+                        <div class="custom-box">
+                            <lightning-input
+                                readonly={readonly}
+                                type="text"  
+                                max-length="50"
+                                value={caseInformation.Updated_Advance_Chg_Auth_By_First_Name__c}
+                                name="Updated_Advance_Chg_Auth_By_First_Name__c" 
+                                label="Updated Advance Chg. Auth By First Name">
+                            </lightning-input>
+                        </div>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="12" padding="around-small" small-device-size="3" medium-device-size="6" large-device-size="3">
+                        <div class="custom-box">
+                            AMount: {caseInformation.Updated_Advance_Chg_Max_Authorized_Amt__c}
+                            <lightning-input
+                                readonly={readonly}
+                                type="text"  
+                                max-length="50"
+                                value={caseInformation.Updated_Advance_Chg_Auth_By_Last_Name__c}
+                                name="Updated_Advance_Chg_Auth_By_Last_Name__c" 
+                                label="Updated Advance Chg. Auth By Last Name">
+                            </lightning-input>
+                        </div>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="12" padding="around-small" small-device-size="3" medium-device-size="6" large-device-size="3">
+                        <div class="custom-box">
+                            <label class="slds-form-element__label_edit">Updated Advance Chg. Auth DateTime</label>
+                            <br/>
+                            <lightning-formatted-date-time 
+                                value={caseInformation.Updated_Advance_Chg_Auth_DateTime__c}
+                                year="numeric" 
+                                month="numeric" 
+                                day="numeric" 
+                                hour="2-digit"
+                                minute="2-digit" 
+                                hour12="false"
+                                time-zone={timeZone}>
+                            </lightning-formatted-date-time>
+                            <!-- <lightning-input
+                                if:false={readonly}
+                                type="datetime" 
+                                value={caseInformation.Updated_Advance_Chg_Auth_DateTime__c}
+                                name="Updated_Advance_Chg_Auth_DateTime__c" 
+                                label="Updated Advance Chg. Auth DateTime">
+                            </lightning-input> -->
+                        </div>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="12" padding="around-small" small-device-size="3" medium-device-size="6" large-device-size="3">
+                        <div class="custom-box">
+                            <lightning-input
+                                readonly={readonly}
+                                value={caseInformation.Updated_Advance_Chg_Max_Authorized_Amt__c}
+                                type="number" 
+                                formatter="currency"
+                                name="Updated_Advance_Chg_Max_Authorized_Amt__c" 
+                                label="Updated Advance Chg. Max Authorized Amt">
+                            </lightning-input>
+
+                        </div>
+                    </lightning-layout-item>
+                </template>
+
+                <lightning-layout-item size="12" padding="around-small" small-device-size="12" medium-device-size="12" large-device-size="12" if:true={isVariableStorage}>
+                    <div class="custom-box">
+                        <table class="slds-table slds-table_cell-buffer slds-table_col-bordered slds-table_bordered">
+                            <thead>
+                                <tr class="slds-line-height_reset slds-var-p-around_large">
+                                    <!-- <th scope="col"> Sequence # </th> -->
+                                    <th scope="col"> From Day </th>
+                                    <th scope="col"> Through Day </th>
+                                    <th scope="col"> Variable Days </th>
+                                    <th scope="col"> Amount </th>
+                                    <th scope="col"> Responsible Party </th>
+                                    <th scope="col"> Action </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <template if:true={records} for:each={records} for:item="record">
+                                    <tr key={record.sequenceNumber} class="slds-hint-parent slds-var-m-around_large">
+                                        <!-- <th scope="row"> 
+                                            {record.sequenceNumber}    
+                                        </th> -->
+                                        <th scope="row"> 
+                                            <lightning-input 
+                                                readonly={record.readonly}
+                                                variant="label-hidden"
+                                                type="number" 
+                                                name="From_Day__c" 
+                                                value={record.From_Day__c}
+                                                onchange={handleVariableRowChange}
+                                                data-id={record.sequenceNumber}>
+                                            </lightning-input>
+                                        </th>
+                                        <th scope="row"> 
+                                            <lightning-input 
+                                                readonly={record.readonly}
+                                                variant="label-hidden"
+                                                type="number" 
+                                                name="Through_Day__c" 
+                                                value={record.Through_Day__c}
+                                                onchange={handleVariableRowChange}
+                                                data-id={record.sequenceNumber}>
+                                            </lightning-input>    
+                                        </th>
+                                        <th scope="row"> 
+                                            <lightning-input 
+                                                variant="label-hidden"
+                                                type="number" 
+                                                readonly
+                                                value={record.Variable_Days__c}
+                                                name="Variable_Days__c" 
+                                                data-id={record.sequenceNumber}>
+                                            </lightning-input>
+                                        </th>
+                                        <th scope="row"> 
+                                            <lightning-input 
+                                                readonly={record.readonly}
+                                                onchange={handleVariableRowChange}
+                                                type="number" 
+                                                formatter="currency"
+                                                value={record.Fee_Amount__c}
+                                                name="Fee_Amount__c" 
+                                                variant="label-hidden"
+                                                data-id={record.sequenceNumber}>
+                                            </lightning-input>
+                                        </th>
+                                        <th scope="row"> 
+
+                                            <template if:true={record.readonly}>
+                                                <lightning-input 
+                                                    type="text" 
+                                                    readonly 
+                                                    variant="label-hidden"
+                                                    value={record.responsiblePartyText}>
+                                                </lightning-input>
+                                            </template>
+
+                                            <template if:false={record.readonly}>
+                                                <lightning-combobox
+                                                    name="Responsible_Party__c"
+                                                    variant="label-hidden"
+                                                    value={record.Responsible_Party__c}
+                                                    options={responsiblePartyOptions}
+                                                    onchange={handleVariableRowChange}
+                                                    data-id={record.sequenceNumber}>
+                                                </lightning-combobox>
+                                            </template>
+                                        </th>
+                                        <th scope="row"> 
+                                            <lightning-icon 
+                                                style="cursor:pointer;"
+                                                if:true={record.readonly}
+                                                size="small"
+                                                icon-name="utility:edit" 
+                                                alternative-text="Edit"
+                                                data-id={record.sequenceNumber}
+                                                onclick={rowEditHandler}>
+                                            </lightning-icon>
+                                            <span class="slds-var-m-horizontal_medium"></span>
+                                            <lightning-icon 
+                                                size="small"
+                                                icon-name="utility:delete" 
+                                                alternative-text="Delete"
+                                                onclick={rowDeleteHandler}
+                                                data-id={record.sequenceNumber}>
+                                            </lightning-icon>
+                                        </th>
+                                    </tr>
+                                </template>
+                            </tbody>
+                        </table>
+                    </div>
+                </lightning-layout-item>
+            </lightning-layout>
+        </div>
+        <p slot="footer">
+            <lightning-button 
+                if:true={showAddStorageLocationButton}
+                variant="neutral" 
+                label="Add Variable Storage Charge" 
+                title="Add Variable Storage Charge"
+                onclick={addHandler}>
+            </lightning-button>
+            <span class="slds-var-m-horizontal_small"></span>
+            <lightning-button 
+                if:false={readonly}
+                variant="brand" 
+                label="Save" 
+                title="Save" 
+                onclick={saveStorageCharges}>
+            </lightning-button>
+        </p>
+    </lightning-card>
+</template>

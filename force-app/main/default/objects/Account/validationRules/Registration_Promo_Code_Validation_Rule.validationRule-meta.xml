@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Registration_Promo_Code_Validation_Rule</fullName>
+    <active>false</active>
+    <errorConditionFormula>AND( ISCHANGED(Buyer_Status__c), ISPICKVAL(Buyer_Status__c , &quot;ACT&quot;), NOT(ISNULL(Buyer_Promo_Code__c)), NOT(ISBLANK(Buyer_Promo_Code__c)))</errorConditionFormula>
+    <errorMessage>This Buyer can&apos;t be Active</errorMessage>
+</ValidationRule>

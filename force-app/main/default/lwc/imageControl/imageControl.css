@@ -1,0 +1,10 @@
+.image
+{
+  width: 70px;
+  height: auto;
+  /*max-height: 50px;*/
+}
+
+.inline{
+  display: inline-block;
+}

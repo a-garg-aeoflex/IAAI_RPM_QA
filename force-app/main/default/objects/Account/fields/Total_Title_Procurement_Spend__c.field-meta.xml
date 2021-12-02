@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Total_Title_Procurement_Spend__c</fullName>
+    <description>Displays how much a Provider spent on Title Procurement charges in the current year. (YTD)</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Displays how much a Provider spent on Title Procurement charges in the current year. (YTD)</inlineHelpText>
+    <label>Total Title Procurement Spend</label>
+    <precision>12</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Currency</type>
+</CustomField>

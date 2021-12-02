@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Cannot_edit_Segmentation</fullName>
+    <active>true</active>
+    <description>Only Buyer Dev Director and Channel Manager can edit segmentation</description>
+    <errorConditionFormula>(ISCHANGED( Primary_Segmentation__c )
+|| ISCHANGED(  Buyer_Volume_Segmentation__c )
+|| ISCHANGED(  Behavioral_Segment__c ))
+&amp;&amp; $UserRole.Name &lt;&gt; &quot;Buyer Development Director&quot;
+&amp;&amp; $UserRole.Name &lt;&gt; &quot;Channel Manager&quot;
+&amp;&amp;  $Profile.Name &lt;&gt; &quot;System Administrator&quot;
+&amp;&amp;  $Profile.Name &lt;&gt; &quot;Integration User&quot;</errorConditionFormula>
+    <errorMessage>You do not have access to edit segmentation fields</errorMessage>
+</ValidationRule>

@@ -1,0 +1,13 @@
+.THIS .emptyContent {
+    outline: 0;
+    min-height: 50px;
+   
+}
+.THIS .emptyContentInner {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    text-align: center;
+     background-color:rgba(238, 238, 238, 1);
+}

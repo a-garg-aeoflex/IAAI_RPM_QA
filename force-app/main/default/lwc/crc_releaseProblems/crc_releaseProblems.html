@@ -1,0 +1,189 @@
+<!-- sldsValidatorIgnore -->
+<template>
+    <lightning-spinner alternative-text="Loading" size="medium" if:true={isLoading}></lightning-spinner>
+    <lightning-accordion allow-multiple-sections-open style="background-color: white;" active-section-name="Open_Release_Problems">
+        <lightning-accordion-section name="Open_Release_Problems" label="Open Release Problems" style="background-color: white;">
+            <lightning-button label="Add Release Problem" if:true={actionsNeeded} onclick={openAddReleaseProblem} alternative-text="Add Release Problem" slot="actions"></lightning-button>
+            <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+                <thead>
+                    <tr class="slds-line-height_reset">
+                        <th scope="col">
+                            Release Problem Type
+                        </th>
+                        <th scope="col">
+                            Description
+                        </th>
+                        <th scope="col">
+                            Next Follow Up
+                        </th>
+                        <th scope="col">
+                            Action
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <template if:true={openReleaseProblems} for:each={openReleaseProblems} for:item="rp">
+                        <tr class="slds-hint-parent" key={rp.Id}>
+                           
+                            <th scope="row">
+                                {rp.Release_Problem_Code__c}
+                            </th>
+                            <th scope="row">
+                                {rp.Subject}
+                            </th>
+                            <th scope="row">
+                                <lightning-formatted-date-time 
+                                    value={rp.RP_Follow_Up_Date_Time__c}
+                                    year="numeric" 
+                                    month="numeric" 
+                                    day="numeric" 
+                                    hour="2-digit"
+                                    minute="2-digit" 
+                                    hour12="false"
+                                    time-zone={timeZone}>
+                                </lightning-formatted-date-time>
+                            </th>
+                            <th scope="row">
+                                <lightning-button-icon 
+                                data-id = {rp.Id}
+                                variant="border-filled" 
+                                size="small" 
+                                icon-name="utility:down" 
+                                alternative-text="Edit"
+                                onclick={handleEditModal}
+                                >
+                            </lightning-button-icon>
+                            </th>
+                        </tr>
+                    </template>
+                </tbody>
+            </table>
+        </lightning-accordion-section>
+        <lightning-accordion-section name="Closed_Release_Problems" label="Closed Release Problems">
+            <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+                <thead>
+                    <tr class="slds-line-height_reset">
+                        <th scope="col">
+                            Release Problem Code
+                        </th>
+                        <th scope="col">
+                            Description
+                        </th>
+                        <th scope="col">
+                            Next Follow Up
+                        </th>
+                        <th scope="col">
+                            Action
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <template if:true={closeReleaseProblems} for:each={closeReleaseProblems} for:item="rp">
+                        <tr class="slds-hint-parent" key={rp.Id}>
+                            
+                            <th scope="row">
+                                {rp.Release_Problem_Code__c}
+                            </th>
+                            <th scope="row">
+                                {rp.Subject}
+                            </th>
+                            <th scope="row">
+                                <lightning-formatted-date-time 
+                                    value={rp.RP_Follow_Up_Date_Time__c}
+                                    year="numeric" 
+                                    month="numeric" 
+                                    day="numeric" 
+                                    hour="2-digit"
+                                    minute="2-digit" 
+                                    time-zone="UTC" 
+                                    time-zone-name="short" 
+                                    hour12="false">
+                                </lightning-formatted-date-time>
+                            </th>
+                            <th scope="row">
+                                <!--<lightning-button-icon 
+                                    data-id = {rp.Id}
+                                    variant="border-filled" 
+                                    size="small" 
+                                    icon-name="utility:pencil" 
+                                    alternative-text="Edit"
+                                    onclick={handleEditModal}
+                                    >
+                                </lightning-button-icon>-->
+                            </th>
+                        </tr>
+                    </template>
+                </tbody>
+            </table>
+        </lightning-accordion-section>
+    </lightning-accordion>
+
+    <div class="custom-modal" if:true={releaseProblemOpened}>
+        <section role="dialog" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+                <lightning-card>
+                <header class="slds-modal__header">
+                    <span class="slds-modal__close">
+                        <lightning-icon icon-name="utility:close" variant="inverse" alternative-text="close"></lightning-icon>
+                    </span>
+                    <h2 class="slds-text-heading_medium slds-hyphenate">
+                        Add New Release Problem
+                    </h2>
+                </header>
+                
+                <div class="slds-modal__content slds-p-around_medium">
+                    <lightning-layout multiple-rows>
+                        <lightning-layout-item padding="around-small" size="12" >
+                            <lightning-combobox
+                                required
+                                name="CRC_RP_CODE"
+                                label="Release Problem Type"
+                                value={releaseProblem.Release_Problem_Code__c}
+                                onchange={handleInputChange}
+                                options={crcRPCode}>
+                            </lightning-combobox>
+                        </lightning-layout-item>
+
+                        <!--<lightning-layout-item  padding="around-small" size="6">
+                            <lightning-input
+                            type="datetime" 
+                            name="CRC_Comment_DateTime__c" 
+                            label="Open DateTime" 
+                            value={releaseProblem.CRC_Comment_DateTime__c}>
+                        </lightning-input>
+                        </lightning-layout-item>-->
+                        
+                        <lightning-layout-item padding="around-small"  size="12" >
+                            <lightning-input
+                            type="datetime" 
+                            required
+                            name="RP_Follow_Up_Date_Time__c" 
+                            onchange={handleInputChange}
+                            label="Follow-Up DateTime" 
+                            value={releaseProblem.RP_Follow_Up_Date_Time__c}>
+                            </lightning-input>
+                        </lightning-layout-item>
+                        
+                      <lightning-layout-item  if:true={releaseProblemEditOpened} padding="around-small" size="6">
+                            <lightning-input
+                                class="slds-var-m-top_large"
+                                type="checkbox" 
+                                name="CRC_Resolved" 
+                                label="Resolved?" 
+                                checked={releaseProblem.Resolved__c}>
+                            </lightning-input> 
+                        </lightning-layout-item>
+                       
+                    </lightning-layout>
+                </div>
+            
+                <footer class="slds-modal__footer">
+                    <lightning-button label="Cancel" title="Cancel" onclick={handleModalCancel} class="slds-m-right_small"></lightning-button>
+                    <lightning-button variant="brand" label="Save" onclick={handleModalSave} disabled={isButtonDisabled} title="Save"></lightning-button>
+                </footer>
+            </lightning-card>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </div>
+</template>

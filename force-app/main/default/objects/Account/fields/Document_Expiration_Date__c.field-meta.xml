@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Document_Expiration_Date__c</fullName>
+    <description>This field displays the date of the most recent expiring registration document for Buyers.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>This field displays the date of the most recent expiring registration document for Buyers.</inlineHelpText>
+    <label>Document Expiration Date</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Date</type>
+</CustomField>

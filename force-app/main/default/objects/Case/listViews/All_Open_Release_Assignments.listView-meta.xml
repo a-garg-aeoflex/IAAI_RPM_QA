@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All_Open_Release_Assignments</fullName>
+    <columns>Stock_no__c</columns>
+    <columns>Branch__c</columns>
+    <columns>CRC_Assignment_Type__c</columns>
+    <columns>CRC_SLA_Calculated_Pickup_DateTime__c</columns>
+    <columns>CRC_Pickup_Location_Type__c</columns>
+    <columns>CRC_Provider_Name__c</columns>
+    <columns>CASES.STATUS</columns>
+    <columns>CRC_Release_Problem_Follow_Up_Datetime__c</columns>
+    <columns>SLA_Indicator__c</columns>
+    <columns>CRC_Priority__c</columns>
+    <columns>OWNER_NAME</columns>
+    <columns>CRC_Tow_Zone__c</columns>
+    <columns>CRC_Mileage__c</columns>
+    <columns>CRC_Total_Check_Amount__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>CASES.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Case.CRC_Residential,Case.CRC_Storage_Location</value>
+    </filters>
+    <filters>
+        <field>CASES.CLOSED</field>
+        <operation>equals</operation>
+        <value>0</value>
+    </filters>
+    <label>All Open Release Assignments</label>
+    <sharedTo>
+        <group>Release_Supervisors</group>
+    </sharedTo>
+</ListView>

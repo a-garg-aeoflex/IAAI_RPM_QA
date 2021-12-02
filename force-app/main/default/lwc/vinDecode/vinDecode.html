@@ -1,0 +1,226 @@
+<template>
+   <lightning-spinner alternative-text="Loading" size="medium" if:true={showSpinner}></lightning-spinner>
+  <div style="background-color:#ffffff;">
+     <br>
+     <lightning-progress-indicator type="base"  variant="base"  current-step={currentStep}>
+        <lightning-progress-step label="VIN" value="VIN"></lightning-progress-step>
+        <lightning-progress-step label="Vehicle Basic Information" value="Vehicle Basic Information"></lightning-progress-step>
+        <lightning-progress-step label="Vehicle Condition Grade" value="Vehicle Condition Grade"></lightning-progress-step>
+        <lightning-progress-step label="Location" value="Location"></lightning-progress-step>
+     </lightning-progress-indicator>
+     
+     
+     <div class="slds-grid slds-gutters" if:true={showVinDecode}>
+        <div class="slds-col"></div>
+        <div class="slds-col">
+           <table >
+              <tr>
+                 <td width="20%"></td>
+                 <td width="60%">
+                    <lightning-card>
+                       <div>
+                          <p align = "Center" style="font-size:19px;">Tell us about your car</p>
+                          <br><br>
+                       </div>
+                       <div>
+                          <h2>
+                             <p align = "Center" style="padding:10px;">Your VIN helps us fill in key details about your vehicle and ensures a more accurate offer.</p>
+                          </h2>
+                       </div>
+                       <lightning-layout horizontal-align="center" vertical-align="end">
+                          <div class="slds-var-m-top_large slds-var-p-right_medium">
+                             <lightning-layout-item size="2">
+                                <lightning-input type="text" label="VIN"></lightning-input>
+                             </lightning-layout-item>
+                          </div>
+                          <lightning-layout-item size="2">
+                             <lightning-button variant="brand" label="Go" onclick={handleGo}></lightning-button>
+                          </lightning-layout-item>
+                       </lightning-layout>
+                       <br>
+                       <p align = "Center"><a>Where is my VIN?</a></p>
+                       <br>
+                    </lightning-card>
+                 </td>
+                 <td width="20%"></td>
+              </tr>
+           </table>
+        </div>
+        <div class="slds-col"></div>
+     </div>
+     <br>
+
+     <!-- Vehicle Info Section -->
+     <template if:true={showVehicleInfo}>
+        <div class="slds-grid slds-gutters" >
+           <div class="slds-col">
+              <table>
+                 <tr>
+                    <td width="14%"></td>
+                    <td style="text-align: left;" width="72%">
+                       <br>
+                       <h1 style="font-size:20px;"><b>Basic Information</b></h1>
+                       <hr style="border-top: 2px solid #c3c3c3;margin:0px;">
+                    </td>
+                    <td width="14%"></td>
+                 </tr>
+              </table>
+           </div>
+        </div>
+        <br>
+        
+        <div class="slds-grid slds-gutters" >
+           <div class="slds-col">
+              <table>
+                 <tr>
+                    <td width="19%"></td>
+                    <td style="text-align: center;" width="66%">
+                       <br>
+                       <h1 style="font-size:16px;"><b>Year:</b> {vehicleInfo.Model_Year}</h1><br>
+                       <h1 style="font-size:16px;"><b> Make:</b> {vehicleInfo.Make}</h1><br>
+                       <h1 style="font-size:16px;"><b>Model:</b> {vehicleInfo.Model}</h1><br>
+                       <h1 style="font-size:16px;">VIN: {currentVin}</h1><br>
+                    </td>
+                    <td width="19%"></td>
+                 </tr>
+              </table>
+           </div>
+        </div>
+        <br><br>
+     </template>
+
+<!-- Predicted price Section -->
+<div class="slds-grid slds-gutters" if:true={showPredictedPrice}>
+    <div class="slds-col"></div>
+    <div class="slds-col">
+        <table>
+            <tr>
+                <td width="5%"></td>
+                <td width="90%">
+                    <lightning-card>
+                        <div>
+                            <p align="Center" style="font-size:19px;">Condition Information</p>
+                            <br><br>
+                        </div>
+                        <div>
+                            <h2>
+                                <p align="Center" style="padding:10px;">Please fill out the mileage and condition grade information.</p>
+                            </h2>
+                        </div>
+                        <lightning-layout horizontal-align="center" vertical-align="end">
+                            <div class="slds-var-m-top_large slds-var-p-right_medium">
+                                <lightning-layout-item size="2">
+                                    <lightning-input type="number" value={vpeListingRecord.Mileage__c} label="Mileage" name="Mileage__c" required onchange={handleChange}></lightning-input>
+                                </lightning-layout-item>
+                                <lightning-layout-item size="2">
+                                    <lightning-combobox name="Vehicle_Condition_Grade__c" value={vpeListingRecord.Vehicle_Condition_Grade__c} required label="Vehicle Condition Grade" placeholder="Select Condition Grade" options={options} onchange={handleChange}></lightning-combobox>
+                                </lightning-layout-item>
+                                <lightning-layout-item size="2">
+                                    <lightning-combobox name="Has_Keys__c" value={vpeListingRecord.Has_Keys__c} required label="Has Keys?" options={hasKeysOptions} onchange={handleChange}></lightning-combobox>
+                                </lightning-layout-item>
+                                <lightning-layout-item size="2">
+                                    <lightning-combobox name="Type_Of_Title__c" value={vpeListingRecord.Type_Of_Title__c} required label="Type of Title" if:true={typeOfTitleOptions} options={typeOfTitleOptions.data.values} onchange={handleChange}></lightning-combobox>
+                                </lightning-layout-item>
+                                <div class="slds-var-m-bottom_medium"></div>
+                                <!-- <lightning-layout-item size="2">
+                                    <lightning-button variant="brand" label="Get Offer" onclick={getPredictedPriceMethod}></lightning-button>
+                                </lightning-layout-item> -->
+                            </div>
+                        </lightning-layout>
+
+                        <br>
+                    </lightning-card>
+                </td>
+                <td width="5%"></td>
+            </tr>
+        </table>
+    </div>
+    <div class="slds-col"></div>
+</div>
+<br>
+
+<!-- Location Section -->
+<template if:true={showLocation}>
+         
+      <div class="slds-grid slds-gutters">
+         <div class="slds-col"></div>
+         <div class="slds-col">
+            <table>
+                  <tr>
+                     <td width="15%"></td>
+                     <td width="70%">
+                        <lightning-card>
+                              <div>
+                                 <p align="Center" style="font-size:19px;">Pickup Location Information</p>
+                                 <br><br>
+                              </div>
+                              <div>
+                                 <h2>
+                                    <p align="Center" style="padding:10px;">Please fill out Pickup Location Information.</p>
+                                 </h2>
+                              </div>
+                              <lightning-layout horizontal-align="center" vertical-align="end">
+                                 <div class="slds-var-m-top_large slds-var-p-right_medium">
+                                    <lightning-layout-item size="2">
+                                          <lightning-input type="Text" value={vpeListingRecord.Pickup_Street__c} label="Pickup Street" name="Pickup_Street__c" required onchange={handleChange}></lightning-input>
+                                    </lightning-layout-item>
+                                    
+                                   <!-- <lightning-layout-item size="2">
+                                       <lightning-input type="Text" label="Pickup Country" value={vpeListingRecord.Pickup_Country__c} name="Pickup_Country__c" required onchange={handleChange}></lightning-input>
+                                    </lightning-layout-item>
+
+                                    <lightning-layout-item size="2">
+                                    <lightning-input type="Text" label="Pickup State" value={vpeListingRecord.Pickup_State__c} name="Pickup_State__c" required onchange={handleChange}></lightning-input>
+                                 </lightning-layout-item>-->
+                                 <lightning-layout-item size="2">
+                                  <lightning-combobox name="Pickup_Country__c" value={vpeListingRecord.Pickup_Country__c} required label="Pickup Country" options={countryList} placeholder="--Coutry--" onchange={handleChange}></lightning-combobox>
+                                 </lightning-layout-item>
+
+                                 <lightning-layout-item size="2">
+                                  <lightning-combobox name="Pickup_State__c" value={vpeListingRecord.Pickup_State__c} required label="Pickup State" options={stateList} placeholder="---State---" onchange={handleChange}></lightning-combobox>
+                                 </lightning-layout-item>
+
+                                 <lightning-layout-item size="2">
+                                  <lightning-input type="Text" label="Pickup City" value={vpeListingRecord.Pickup_City__c} name="Pickup_City__c" required onchange={handleChange}></lightning-input>
+                               </lightning-layout-item>
+
+                                 <lightning-layout-item size="2">
+                                    <lightning-input type="Text" label="Pickup Zip" name="Pickup_Zip__c"  value={vpeListingRecord.Pickup_Zip__c} required onchange={handleChange}></lightning-input>
+                              </lightning-layout-item>
+
+                              <lightning-layout-item size="2">
+                                 <lightning-input type="Text" label="Pickup Phone" name="Pickup_Phone_Number__c" value={vpeListingRecord.Pickup_Phone_Number__c} required onchange={handleChange}></lightning-input>
+                              </lightning-layout-item>
+                                 <br>
+                                 <lightning-layout-item size="2">
+                                    <lightning-button variant="brand" label="Save Listing" onclick={saveListing}></lightning-button>
+                                 </lightning-layout-item>
+                              </div>
+                              </lightning-layout>
+                              <br>
+                              
+                        </lightning-card>
+                     </td>
+                     <td width="15%"></td>
+                  </tr>
+            </table>
+         </div>
+         <div class="slds-col"></div>
+      </div>
+
+      </template>
+
+<div class="slds-grid slds-gutters">
+    <div class="slds-col slds-size_1-of-12"></div>
+    <div class="slds-col slds-size_2-of-12">
+        <lightning-button variant="neutral" label="Previous" title="Previous" if:true={showPreviousButton} onclick={handlePrevious}></lightning-button>
+    </div>
+    <div class="slds-col slds-size_6-of-12"></div>
+    <div class="slds-col slds-size_2-of-12">
+        <lightning-button variant="brand" label="Next" title="Next" if:false={showVinDecode} onclick={handleClick}></lightning-button>
+    </div>
+    <div class="slds-col slds-size_1-of-12"></div>
+</div>
+<br> <br>
+</div>
+</template>

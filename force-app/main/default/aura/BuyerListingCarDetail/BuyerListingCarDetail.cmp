@@ -1,0 +1,13 @@
+<aura:component >
+   <aura:attribute name ="listingID" type="String"/>  
+    <aura:attribute name ="ImgSrc" type="String"/>
+    
+   <img src="{!v.ImgSrc}"/> 
+    
+   <lightning:recordForm
+        recordId="{!v.listingID}"
+        objectApiName="VPE_Listings__c"
+        layoutType="Full"
+        mode="readonly" >
+       </lightning:recordForm>
+</aura:component>

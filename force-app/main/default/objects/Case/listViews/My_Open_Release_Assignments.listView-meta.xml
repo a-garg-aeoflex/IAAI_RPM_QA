@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>My_Open_Release_Assignments</fullName>
+    <columns>Stock_no__c</columns>
+    <columns>Branch__c</columns>
+    <columns>CRC_Assignment_Type__c</columns>
+    <columns>CRC_Pickup_Location_Type__c</columns>
+    <columns>CRC_Provider_Name__c</columns>
+    <columns>CASES.STATUS</columns>
+    <columns>CRC_Release_Problem_Follow_Up_Datetime__c</columns>
+    <columns>SLA_Indicator__c</columns>
+    <columns>CRC_Priority__c</columns>
+    <columns>CRC_Charges_Cleared__c</columns>
+    <filterScope>Mine</filterScope>
+    <filters>
+        <field>CASES.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Case.CRC_Residential,Case.CRC_Storage_Location</value>
+    </filters>
+    <filters>
+        <field>CASES.CLOSED</field>
+        <operation>equals</operation>
+        <value>0</value>
+    </filters>
+    <label>My Open Release Assignments</label>
+    <sharedTo>
+        <group>CRC_Release_Agents</group>
+        <group>Release_Supervisors</group>
+    </sharedTo>
+</ListView>

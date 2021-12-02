@@ -1,0 +1,65 @@
+<!-- FinishedScreen -->
+<aura:component>
+    <!--use boolean attribute for Store true/false value,
+    make default to "false" so modal box are not display on the load of component. 
+    --> 
+    <aura:handler name="CaseIdValue"
+                  event="c:caseIdEvent"
+                  action="{!c.handleCaseDetailEvent}" />
+    <aura:attribute name="isOpen" type="boolean" default="true"/>
+    <aura:attribute name="caseNumber" type="string" />
+    <aura:attribute name="caseId" type="string" />
+    <aura:handler
+                  name="CaseIdValue"
+                  event="c:caseIdEvent"
+                  action="{!c.handleCaseDetailEvent}"
+                  />
+    <!--Use "slds-m-around_xx-large" class to add standard X-Large padding to the component--> 
+    <div class="slds-m-around_xx-large">
+        <lightning:navigation aura:id="navService"/>
+
+        <!--<lightning:button variant="brand"
+                          label="Open"
+                          title="open"
+                          onclick="{! c.openModel }" />-->
+        <!--Use aura:if tag to display Model Box, on the bese of conditions. [isOpen boolean attribute] -->   
+        <aura:if isTrue="{!v.isOpen}">
+            
+            <!--###### MODAL BOX Start######--> 
+            <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+                
+                <div class="slds-modal__container">
+                    <!-- ###### MODAL BOX HEADER Start ######-->
+                    <header class="slds-modal__header">
+                        <lightning:buttonIcon iconName="utility:close"
+                                              onclick="{! c.closeModel }"
+                                              alternativeText="close"
+                                              variant="bare-inverse"
+                                              class="slds-modal__close"/>
+                        <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">Case Details</h2>
+                    </header>
+                    <!--###### MODAL BOX BODY Part Start######-->
+                    <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                        <p><b> log call is added on case Number: {!v.caseNumber}
+                            </b>
+                        </p>
+                    </div>
+                    <!--###### MODAL BOX FOOTER Part Start ######-->
+                    <footer class="slds-modal__footer">
+                        <lightning:button variant="neutral" 
+                                          label="Cancel"
+                                          title="Cancel"
+                                          onclick="{! c.closeModel }"/>
+                        <lightning:button variant="brand" 
+                                          label="Open Case Details"
+                                          title="Open Case Details"
+                                          onclick="{! c.openCaseDetail }"/>
+                    </footer>
+                </div>
+            </section>
+            <div class="slds-backdrop slds-backdrop_open"></div>
+            <!--###### MODAL BOX Part END Here ######-->
+            
+        </aura:if>
+    </div>
+</aura:component>

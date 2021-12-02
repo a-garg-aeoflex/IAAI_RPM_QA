@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ao2__AO_Dashboard</fullName>
+    <availability>online</availability>
+    <description>Account Optimizer Dashboard</description>
+    <displayType>button</displayType>
+    <linkType>page</linkType>
+    <masterLabel>Optimize</masterLabel>
+    <openType>replace</openType>
+    <page>ao2__AODBMain</page>
+    <protected>false</protected>
+</WebLink>

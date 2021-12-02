@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>lco1__Activity_Monitor__c</fullName>
+    <deprecated>false</deprecated>
+    <description>This field is deprecated starting from v1.284.</description>
+    <externalId>false</externalId>
+    <formula>IF
+(ISNULL(LastActivityDate),
+IMAGE(&quot;/img/samples/flag_red.gif &quot;, &quot;NO ACTIVITIES&quot;),
+IF(lco1__Days_Since_Last_Activity__c &lt;15,
+IMAGE(&quot;/img/samples/flag_green.gif&quot;,&quot;Less than 15&quot;) ,
+IF(lco1__Days_Since_Last_Activity__c&lt; 30,
+IMAGE(&quot;/img/samples/flag_yellow.gif&quot;,&quot;15 to 30&quot;),
+IF(lco1__Days_Since_Last_Activity__c&lt; 45,
+IMAGE(&quot;/img/samples/flag_red.gif&quot;,&quot;31 to 45&quot;) ,
+IMAGE(&quot;/img/samples/flag_red.gif&quot;,&quot;More than 45 Days&quot;)))))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>Green Flag = Last Activity &lt;15 days 
+Yellow Flag = Last Activity between 15 and 30 days 
+Red Flag = Last Activity &gt;30</inlineHelpText>
+    <label>DEPRECATED</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

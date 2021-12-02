@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ao2__Generate_Documents</fullName>
+    <availability>online</availability>
+    <displayType>button</displayType>
+    <height>600</height>
+    <linkType>page</linkType>
+    <masterLabel>Generate Documents</masterLabel>
+    <openType>sidebar</openType>
+    <page>ao2__AODocGen</page>
+    <protected>false</protected>
+</WebLink>

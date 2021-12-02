@@ -1,0 +1,18 @@
+<!--c:ListViewAutoRefresh -->
+<aura:component implements="lightning:utilityItem" controller="ListViewAutoRefreshController">
+    <aura:attribute name="refreshInterval" type="Integer" default="15" />
+    <aura:attribute name="refreshing" type="Boolean" default="false" access="private" />
+    <aura:attribute name="intervalId" type="String" access="private" />
+    <aura:attribute name="profileName" type="String"/>
+    <aura:attribute name="controlledRefresh" type="Boolean" default="false" />
+                    
+    <!-- Needed to refresh the list -->
+    <lightning:navigationItemAPI aura:id="navigationItemAPI"/>
+
+                    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    
+    <aura:if isTrue="{!v.controlledRefresh}">
+        <lightning:button label="{!if(v.refreshing, 'Stop', 'Start')}" onclick="{!c.autoRefresh}"/>
+    </aura:if>
+  </aura:component>

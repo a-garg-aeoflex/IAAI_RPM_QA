@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Sub_Segment__c</fullName>
+    <externalId>false</externalId>
+    <label>Sub-Segment</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>Segment__c</controllingField>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Insurance</fullName>
+                <default>false</default>
+                <label>Insurance</label>
+            </value>
+            <value>
+                <fullName>Rental /Fleet / Mobility</fullName>
+                <default>false</default>
+                <label>Rental /Fleet / Mobility</label>
+            </value>
+            <value>
+                <fullName>Lender/Repossession</fullName>
+                <default>false</default>
+                <label>Lender/Repossession</label>
+            </value>
+            <value>
+                <fullName>Dealerships</fullName>
+                <default>false</default>
+                <label>Dealerships</label>
+            </value>
+            <value>
+                <fullName>Consumer Source Inventory</fullName>
+                <default>false</default>
+                <label>Consumer Source Inventory</label>
+            </value>
+            <value>
+                <fullName>Marshaling</fullName>
+                <default>false</default>
+                <label>Marshaling</label>
+            </value>
+            <value>
+                <fullName>Virtual Lane</fullName>
+                <default>false</default>
+                <label>Virtual Lane</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Supply</controllingFieldValue>
+            <valueName>Insurance</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Supply</controllingFieldValue>
+            <valueName>Rental /Fleet / Mobility</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Supply</controllingFieldValue>
+            <valueName>Lender/Repossession</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Supply</controllingFieldValue>
+            <valueName>Dealerships</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Supply</controllingFieldValue>
+            <valueName>Consumer Source Inventory</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Supply</controllingFieldValue>
+            <valueName>Marshaling</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Supply</controllingFieldValue>
+            <valueName>Virtual Lane</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>lco1__PMO_Goal__c</fullName>
+    <deprecated>false</deprecated>
+    <description>PMO Goal</description>
+    <externalId>false</externalId>
+    <inlineHelpText>PMO Goal</inlineHelpText>
+    <label>PMO Goal</label>
+    <length>255</length>
+    <required>false</required>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,512 @@
+<!-- sldsValidatorIgnore -->
+<template>
+
+    <lightning-spinner alternative-text="Loading" size="medium" if:true={isLoading}></lightning-spinner>
+
+    <lightning-card title="Vehicle Information" icon-name="action:info">
+        <template if:true={readonly}>
+            <lightning-button 
+                variant="neutral" 
+                label={buttonLabel}
+                title="Edit"
+                if:true={actionsNeeded}
+                slot="actions"
+                onclick={toggleView}>
+            </lightning-button>
+        </template>
+
+        <lightning-layout multiple-rows="true" >
+            <lightning-layout-item padding="around-small" size="3">
+                <lightning-input
+                    readonly={readonly}
+                    type="text" 
+                    name="VR_RELEASED_BY_FIRST_NAME"
+                    label="Release Person First Name" 
+                    max-length="30"
+                    value={data.CRC_Release_Person_First_Name__c}>
+                </lightning-input>
+            </lightning-layout-item>
+            <lightning-layout-item padding="around-small" size="3">
+                <!-- Not Found -->
+                <lightning-input
+                    readonly={readonly}
+                    type="text" 
+                    name="VR_RELEASED_BY_LAST_NAME"
+                    label="Release Person Last Name" 
+                    max-length="30"
+                    value={data.CRC_Release_Person_Last_Name__c}>
+                </lightning-input>
+            </lightning-layout-item>
+            <lightning-layout-item padding="around-small" size="3">
+                <lightning-input
+                    readonly={readonly} 
+                    type="text" 
+                    name="VIN" 
+                    label="VIN"
+                    max-length="20" 
+                    value={data.CRC_VIN__c}>
+                </lightning-input>
+            </lightning-layout-item>
+            <lightning-layout-item padding="around-small" size="3">
+                <lightning-input
+                    readonly={readonly} 
+                    type="text" 
+                    name="YEAR" 
+                    label="Year" 
+                    value={data.CRC_Year__c}>
+                </lightning-input>
+            </lightning-layout-item>
+            <lightning-layout-item padding="around-small" size="3">
+                <lightning-input
+                    readonly={readonly} 
+                    type="text" 
+                    name="MODEL" 
+                    label="Model" 
+                    value={data.Model__c}>
+                </lightning-input>
+                <!-- <div class="header-column">
+                    <p class="field-title" title="Model">Model</p>
+                    <p>
+                        {data.Model__c}
+                    </p>
+                </div> -->
+            </lightning-layout-item>
+            <lightning-layout-item padding="around-small" size="3">
+                <lightning-input
+                    readonly={readonly} 
+                    type="text" 
+                    name="MAKE" 
+                    label="Make" 
+                    value={data.CRC_Make__c}>
+                </lightning-input>
+            </lightning-layout-item>
+            <lightning-layout-item padding="around-small" size="3">
+                <!-- Not Found -->
+                <lightning-input
+                    readonly={readonly} 
+                    type="text" 
+                    max-length="10"
+                    name="LICENSE_PLATE_NUMBER" 
+                    label="License Plate Number" 
+                    value={data.CRC_License_Plate__c}>
+                </lightning-input>
+            </lightning-layout-item>
+            <lightning-layout-item padding="around-small" size="3">
+                <lightning-input
+                    if:true={readonly} 
+                    type="text" 
+                    readonly 
+                    label="Exterior Color"
+                    value={exteriorColorLabel}>
+                </lightning-input>
+                
+                <lightning-combobox
+                    required
+                    if:false={readonly}
+                    name="COLOR"
+                    label="Exterior Color"
+                    value={data.CRC_Exterior_Color__c}
+                    options={exteriorColorOptions}>
+                </lightning-combobox>
+
+            </lightning-layout-item>
+            <lightning-layout-item padding="around-small" size="3">
+                <lightning-input
+                    if:false={readonly} 
+                    type="checkbox" 
+                    name="VR_IS_VEHICLE_AT_LOCATION" 
+                    label="Is Vehicle There?" 
+                    checked={data.CRC_Is_Vehicle_There__c}>
+                </lightning-input>
+
+                <lightning-input
+                    if:true={readonly} 
+                    disabled
+                    type="checkbox" 
+                    name="VR_IS_VEHICLE_AT_LOCATION" 
+                    label="Is Vehicle There?" 
+                    checked={data.CRC_Is_Vehicle_There__c}>
+                </lightning-input>
+            </lightning-layout-item>
+            <lightning-layout-item padding="around-small" size="3">
+                <lightning-input
+                    readonly
+                    type="checkbox" 
+                    name="VR_VEHICLE_RELEASED" 
+                    label="Vehicle Released?" 
+                    checked={data.CRC_Vehicle_Released__c}>
+                </lightning-input>
+            </lightning-layout-item>
+            <lightning-layout-item padding="around-small" size="3">
+                <!-- Not Found -->
+                <lightning-input
+                    readonly
+                    type="text" 
+                    name="CRC_Mileage__c" 
+                    label="Mileage" 
+                    value={data.CRC_Mileage__c}>
+                </lightning-input>
+            </lightning-layout-item>
+            <lightning-layout-item padding="around-small" size="3" if:true={isResidential}>
+                <lightning-input
+                    if:true={readonly}
+                    readonly
+                    type="text" 
+                    name="VR_VEHICLE_LOCATION_CODE" 
+                    label="Vehicle Location" 
+                    value={vehicleLocationLabel}>
+                </lightning-input>
+
+                <lightning-combobox
+                    if:false={readonly}
+                    name="VR_VEHICLE_LOCATION_CODE"
+                    label="Vehicle Location"
+                    value={data.CRC_Vehicle_Location__c}
+                    options={vehicleLocationOptions}>
+                </lightning-combobox>
+
+            </lightning-layout-item>
+            <lightning-layout-item padding="around-small" size="3">
+                
+                <div class="slds-form-element">
+                    <label class="slds-form-element__label" for="text-input-id-1">Anticipated Pickup Datetime</label>
+                    <div class="slds-form-element__control">
+                        <lightning-formatted-date-time 
+                            value={data.CRC_Anticipated_Release_Date_Time__c}
+                            year="numeric" 
+                            month="numeric" 
+                            day="numeric" 
+                            hour="2-digit"
+                            minute="2-digit" 
+                            hour12="false"
+                            time-zone={timeZone}>
+                        </lightning-formatted-date-time>
+                    </div>
+                </div>
+            </lightning-layout-item>
+            <lightning-layout-item padding="around-small" size="3">
+             
+                <div if:true={readonly}>
+                    <div class="slds-form-element">
+                        <label class="slds-form-element__label" for="text-input-id-1">Earliest Available Pickup Datetime</label>
+                        <div class="slds-form-element__control">
+                            <lightning-formatted-date-time 
+                                value={data.CRC_Earliest_Available_Pickup__c}
+                                year="numeric" 
+                                month="numeric" 
+                                day="numeric" 
+                                hour="2-digit"
+                                minute="2-digit" 
+                                hour12="false"
+                                time-zone={timeZone}>
+                            </lightning-formatted-date-time>
+                        </div>
+                    </div>
+                </div>
+                 <lightning-input
+                    required
+                    if:false={readonly}
+                    type="datetime" 
+                    timezone={timeZone}
+                    name="VR_EARLIEST_AVAILABLE_PICKUP_START_DATETIME" 
+                    label="Earliest Available Pickup Datetime" 
+                    value={data.CRC_Earliest_Available_Pickup__c}>
+                </lightning-input> 
+
+            </lightning-layout-item>
+
+            <lightning-layout-item padding="around-small" size="3">
+
+                <!-- if:true={readonly} -->
+                <div class="slds-form-element">
+                    <label class="slds-form-element__label" for="text-input-id-1">Due Date Time</label>
+                    <div class="slds-form-element__control">
+                        <lightning-formatted-date-time 
+                            value={data.CRC_SLA_Calculated_Pickup_DateTime__c}
+                            year="numeric" 
+                            month="numeric" 
+                            day="numeric" 
+                            hour="2-digit"
+                            minute="2-digit" 
+                            hour12="false"
+                            time-zone={timeZone}>
+                        </lightning-formatted-date-time>
+                    </div>
+                </div>
+            </lightning-layout-item>
+            <lightning-layout-item padding="around-small" size="3">
+
+                <!-- if:true={readonly} -->
+                <div class="slds-form-element">
+                    <label class="slds-form-element__label" for="text-input-id-1">Quoted Release Date</label>
+                    <div class="slds-form-element__control">
+                        <lightning-formatted-date-time 
+                            value={data.CRC_Quoted_Release_Date_Time__c}
+                            year="numeric" 
+                            month="numeric" 
+                            day="numeric" 
+                            hour="2-digit"
+                            minute="2-digit" 
+                            hour12="false"
+                            time-zone={timeZone}>
+                        </lightning-formatted-date-time>
+                    </div>
+                </div>
+            </lightning-layout-item>
+            <lightning-layout-item padding="around-small" size="3">
+
+                <lightning-input
+                    if:false={readonly}
+                    class="slds-var-m-top_large"
+                    type="checkbox" 
+                    name="VR_VEHICLE_BLOCKED_IN" 
+                    label="Vehicle Blocked In?" 
+                    checked={data.CRC_Vehicle_Blocked_In__c}>
+                </lightning-input>
+
+                <lightning-input
+                    if:true={readonly}
+                    class="slds-var-m-top_large"
+                    disabled
+                    type="checkbox" 
+                    name="VR_VEHICLE_BLOCKED_IN" 
+                    label="Vehicle Blocked In?" 
+                    checked={data.CRC_Vehicle_Blocked_In__c}>
+                </lightning-input>
+
+            </lightning-layout-item>
+            <lightning-layout-item padding="around-small" size="3">
+                <lightning-input
+                    if:true={readonly} 
+                    readonly
+                    type="text"
+                    name="KEYS_INDICATOR" 
+                    label="Keys With Vehicle?" 
+                    value={keyLabel}>
+                </lightning-input>
+
+                <lightning-combobox
+                    required
+                    if:false={readonly} 
+                    name="KEYS_INDICATOR" 
+                    label="Keys With Vehicle?" 
+                    value={data.CRC_Keys_with_Vehicle__c}
+                    options={keysOptions}>
+                </lightning-combobox>
+            </lightning-layout-item>
+            <lightning-layout-item padding="around-small" size="3">
+
+                <!-- if:true={readonly} -->
+                <!-- <lightning-input 
+                    readonly
+                    type="text" 
+                    label="Title" 
+                    value={data.CRC_Assignment_Type__c}>
+                </lightning-input> -->
+
+                <!-- Not Found -->
+                <!-- <lightning-combobox
+                    if:false={readonly}
+                    label="Title"
+                    value={data.CRC_Assignment_Type__c}
+                    options={assignmentTypeOptions}>
+                </lightning-combobox> -->
+            </lightning-layout-item>
+            <lightning-layout-item padding="around-small" size="3">
+                <lightning-input
+                    if:false={readonly}
+                    class="slds-var-m-top_large"
+                    readonly={readonly} 
+                    type="checkbox" 
+                    name="VR_CALL_BEFORE_COMING" 
+                    label="Call Before Coming?" 
+                    checked={data.CRC_Call_Before_Coming__c}>
+                </lightning-input>
+
+                <lightning-input
+                    if:true={readonly}
+                    class="slds-var-m-top_large"
+                    disabled
+                    type="checkbox" 
+                    name="VR_CALL_BEFORE_COMING" 
+                    label="Call Before Coming?" 
+                    checked={data.CRC_Call_Before_Coming__c}>
+                </lightning-input>
+            </lightning-layout-item>
+            <lightning-layout-item padding="around-small" size="3">
+                <lightning-input
+                    if:true={readonly}
+                    readonly
+                    type="text" 
+                    name="VR_TITLE_IND" 
+                    label="Title Indicator" 
+                    value={primaryTitleIndicatorLabel}>
+                </lightning-input>
+
+                <lightning-combobox
+                    required
+                    if:false={readonly}
+                    name="VR_TITLE_IND"
+                    label="Title Indicator"
+                    value={data.Title_Indicator__c}
+                    options={titleIndicatorOptions}>
+                </lightning-combobox>
+            </lightning-layout-item>
+
+
+            <lightning-layout-item padding="around-small" size="3">
+                <lightning-input
+                    if:false={readonly}
+                    class="slds-var-m-top_large"
+                    type="checkbox" 
+                    name="VR_VEHICLE_TOWABLE" 
+                    label="Vehicle Towable?" 
+                    checked={data.CRC_Vehicle_Towable__c}>
+                </lightning-input>
+
+                <lightning-input
+                    class="slds-var-m-top_large"
+                    if:true={readonly} 
+                    disabled
+                    type="checkbox" 
+                    name="VR_VEHICLE_TOWABLE" 
+                    label="Vehicle Towable?" 
+                    checked={data.CRC_Vehicle_Towable__c}>
+                </lightning-input>
+            </lightning-layout-item>
+            <lightning-layout-item padding="around-small" size="3">
+                <!-- Not Found -->
+                <lightning-input
+                    readonly
+                    type="number" 
+                    name="CRC_Tow_Zone__c" 
+                    label="Tow Zone" 
+                    value={data.CRC_Tow_Zone__c}>
+                </lightning-input>
+            </lightning-layout-item>
+            <lightning-layout-item padding="around-small" size="3">
+
+                <lightning-combobox
+                    if:false={readonly}
+                    name="PRIMARY_DAMAGE_CODE"
+                    label="Primary Damage"
+                    value={data.CRC_Primary_Damage_Code__c}
+                    options={primaryDamageOptions}>
+                </lightning-combobox>
+
+                <lightning-input
+                    if:true={readonly}
+                    readonly
+                    type="text" 
+                    name="CRC_Primary_Damage_Code__c" 
+                    label="Primary Damage" 
+                    value={primaryDamageLabel}>
+                </lightning-input>
+                <!-- <div class="header-column">
+                    <p class="field-title" title="Primary Damage">Primary Damage</p>
+                    <p>
+                        {data.CRC_Primary_Damage_Code__c}
+                    </p>
+                </div> -->
+            </lightning-layout-item>
+            <lightning-layout-item padding="around-small" size="3">
+
+                <lightning-input
+                    readonly
+                    if:true={readonly}
+                    type="text" 
+                    name="DRIVE" 
+                    label="Drivetrain" 
+                    value={driveLabel}>
+                </lightning-input>
+                
+                <lightning-combobox
+                    if:false={readonly}
+                    name="DRIVE"
+                    label="Drivetrain"
+                    value={data.CRC_Drive__c}
+                    options={driveOptions}>
+                </lightning-combobox>
+
+            </lightning-layout-item>
+            <lightning-layout-item padding="around-small" size="3">
+                <lightning-input
+                    readonly
+                    if:true={readonly}
+                    type="text" 
+                    name="FUEL_TYPE" 
+                    label="Fuel Type" 
+                    value={fuelTypeLabel}>
+                </lightning-input>
+
+                <lightning-combobox
+                    if:false={readonly}
+                    name="FUEL_TYPE"
+                    label="Fuel Type"
+                    value={data.CRC_Fuel_Type__c}
+                    options={fuelTypeOptions}>
+                </lightning-combobox>
+
+            </lightning-layout-item>
+            <lightning-layout-item padding="around-small" size="3">
+                <lightning-input
+                    readonly
+                    if:true={readonly}
+                    type="text" 
+                    name="TYPE_OF_LOSS_CODE" 
+                    label="Loss Type" 
+                    value={lossTypeLabel}>
+                </lightning-input>
+                
+                <lightning-combobox
+                    required
+                    if:false={readonly}
+                    name="TYPE_OF_LOSS_CODE"
+                    label="Loss Type"
+                    value={data.CRC_Loss_Type__c}
+                    options={lossTypeOptions}>
+                </lightning-combobox>
+            </lightning-layout-item>
+            <lightning-layout-item padding="around-small" size="3">
+                <lightning-input
+                    readonly
+                    if:true={readonly}
+                    type="text" 
+                    name="SECONDARY_DAMAGE_CODE" 
+                    label="Secondary Damage" 
+                    value={secondaryDamageLabel}>
+                </lightning-input>
+                
+                <lightning-combobox
+                    required
+                    if:false={readonly}
+                    name="SECONDARY_DAMAGE_CODE"
+                    label="Secondary Damage"
+                    value={data.CRC_Secondary_Damage_Code__c}
+                    options={secondaryDamageOptions}>
+                </lightning-combobox>
+            </lightning-layout-item>
+        </lightning-layout>
+
+        <p slot="footer" class="slds-modal__footer">
+            <lightning-button
+                if:false={readonly}
+                variant="neutral" 
+                label="Cancel" 
+                title="Cancel" 
+                onclick={toggleView}>
+            </lightning-button>
+
+            <span class="slds-var-p-around_small"></span>
+
+            <lightning-button
+                if:false={readonly}
+                variant="brand" 
+                label="Save" 
+                title="Save" 
+                onclick={saveVehicleInformation}>
+            </lightning-button>
+        </p>
+
+    </lightning-card>
+</template>

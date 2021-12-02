@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Topic__c</fullName>
+    <externalId>false</externalId>
+    <label>Topic</label>
+    <required>false</required>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Bidder Growth</fullName>
+                <default>false</default>
+                <label>Bidder Growth</label>
+            </value>
+            <value>
+                <fullName>Reactivation</fullName>
+                <default>false</default>
+                <label>Reactivation</label>
+            </value>
+            <value>
+                <fullName>Licensing and Renewals</fullName>
+                <default>false</default>
+                <label>Licensing and Renewals</label>
+            </value>
+            <value>
+                <fullName>Local Tow</fullName>
+                <default>false</default>
+                <label>Local Tow</label>
+            </value>
+            <value>
+                <fullName>Long Haul</fullName>
+                <default>false</default>
+                <label>Long Haul</label>
+            </value>
+            <value>
+                <fullName>International</fullName>
+                <default>false</default>
+                <label>International</label>
+            </value>
+            <value>
+                <fullName>Floorplan Utilization</fullName>
+                <default>false</default>
+                <label>Floorplan Utilization</label>
+            </value>
+            <value>
+                <fullName>Floorplan Existing to IAA</fullName>
+                <default>false</default>
+                <label>Floorplan Existing to IAA</label>
+            </value>
+            <value>
+                <fullName>Floorplan New to IAA</fullName>
+                <default>false</default>
+                <label>Floorplan New to IAA</label>
+            </value>
+            <value>
+                <fullName>Inspection Reports</fullName>
+                <default>false</default>
+                <label>Inspection Reports</label>
+            </value>
+            <value>
+                <fullName>Bidding</fullName>
+                <default>false</default>
+                <label>Bidding</label>
+            </value>
+            <value>
+                <fullName>Buying</fullName>
+                <default>false</default>
+                <label>Buying</label>
+            </value>
+            <value>
+                <fullName>Filtering and Searching</fullName>
+                <default>false</default>
+                <label>Filtering and Searching</label>
+            </value>
+            <value>
+                <fullName>Buyer Training</fullName>
+                <default>false</default>
+                <label>Buyer Training</label>
+            </value>
+            <value>
+                <fullName>New Buyer Onboarding</fullName>
+                <default>false</default>
+                <label>New Buyer Onboarding</label>
+            </value>
+            <value>
+                <fullName>Broker Fees</fullName>
+                <default>false</default>
+                <label>Broker Fees</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

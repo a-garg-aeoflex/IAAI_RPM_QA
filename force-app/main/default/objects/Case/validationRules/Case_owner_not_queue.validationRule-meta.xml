@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Case_owner_not_queue</fullName>
+    <active>true</active>
+    <description>Case Can&apos;t be closed with queue as the owner</description>
+    <errorConditionFormula>AND(
+         NOT(ISBLANK(Owner:Queue.Id)),
+         ISPICKVAL(Status, &quot;Closed&quot;)
+)</errorConditionFormula>
+    <errorMessage>Cases can not be closed with a Queue being the owner.</errorMessage>
+</ValidationRule>

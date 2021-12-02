@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Queue xmlns="http://soap.sforce.com/2006/04/metadata">
+    <doesSendEmailToMembers>true</doesSendEmailToMembers>
+    <name>IAA Transport</name>
+    <queueMembers>
+        <users>
+            <user>bsuser@iaai.com</user>
+            <user>erika.villarreal1@iaai.com</user>
+            <user>lkennedy1@iaai.com</user>
+            <user>ngtran@levdigital.com.iaai</user>
+            <user>testagent@levdigital.com</user>
+            <user>robert.madeja1@iaai.com</user>
+        </users>
+    </queueMembers>
+    <queueRoutingConfig>Help_Cases_Routing_Config</queueRoutingConfig>
+    <queueSobject>
+        <sobjectType>Case</sobjectType>
+    </queueSobject>
+    <queueSobject>
+        <sobjectType>Task</sobjectType>
+    </queueSobject>
+</Queue>

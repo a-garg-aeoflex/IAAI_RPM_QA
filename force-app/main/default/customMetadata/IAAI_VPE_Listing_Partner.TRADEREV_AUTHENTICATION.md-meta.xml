@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>TRADEREV AUTHENTICATION</label>
+    <protected>false</protected>
+    <values>
+        <field>Authtoken__c</field>
+        <value xsi:type="xsd:string">059dc2dd-4907-464e-891d-9d8112874425</value>
+    </values>
+    <values>
+        <field>Endpoint__c</field>
+        <value xsi:type="xsd:string">https://prod-tr-api.traderev.com/auth/public/token</value>
+    </values>
+    <values>
+        <field>Password__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>UserName__c</field>
+        <value xsi:type="xsd:string">finneganp</value>
+    </values>
+</CustomMetadata>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Disposition_Status_Required</fullName>
+    <active>true</active>
+    <errorConditionFormula>ISBLANK(TEXT(Disposition_Status__c )) &amp;&amp;
+TEXT( Type ) = &quot;Registration&quot; &amp;&amp;
+TEXT( Origin ) = &quot;Auction Center&quot; &amp;&amp;
+TEXT (Status) = &quot;Closed&quot; &amp;&amp;
+RecordType.Name = &quot;Buyer Services&quot;</errorConditionFormula>
+    <errorDisplayField>Disposition_Status__c</errorDisplayField>
+    <errorMessage>Please provide case disposition before closing the case.</errorMessage>
+</ValidationRule>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>lco1__User</fullName>
+    <active>true</active>
+    <description>Snapshot Definition for Users</description>
+    <label>User</label>
+</RecordType>

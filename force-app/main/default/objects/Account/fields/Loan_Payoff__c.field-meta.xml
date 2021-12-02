@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Loan_Payoff__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Designates if an Account utilizes IAA&apos;s Loan Payoff portal.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Designates if an Account utilizes IAA&apos;s Loan Payoff portal.</inlineHelpText>
+    <label>Loan Payoff</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

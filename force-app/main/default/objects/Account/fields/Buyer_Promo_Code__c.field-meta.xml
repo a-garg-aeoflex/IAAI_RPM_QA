@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Buyer_Promo_Code__c</fullName>
+    <description>Last Promo Code Used by Buyer for discounted registration fees.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Last Promo Code Used by Buyer for discounted registration fees.</inlineHelpText>
+    <label>Buyer Promo Code</label>
+    <length>50</length>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

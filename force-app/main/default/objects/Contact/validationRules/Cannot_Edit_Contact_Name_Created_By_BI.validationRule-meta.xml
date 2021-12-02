@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Cannot_Edit_Contact_Name_Created_By_BI</fullName>
+    <active>true</active>
+    <description>Prevent user from editing contact records created by BI or any other contacts not created by himself/herself</description>
+    <errorConditionFormula>(ISCHANGED( Full_Name__c) || ISCHANGED(  Salutation ) ||ISCHANGED (AccountId) ||  ISCHANGED( HasOptedOutOfEmail ))
+&amp;&amp;
+CreatedBy.Id &lt;&gt;  $User.Id 
+&amp;&amp;
+$Profile.Name = &quot;Broker&quot;</errorConditionFormula>
+    <errorMessage>You do not have permission to edit Contact Name and Account for this record.</errorMessage>
+</ValidationRule>

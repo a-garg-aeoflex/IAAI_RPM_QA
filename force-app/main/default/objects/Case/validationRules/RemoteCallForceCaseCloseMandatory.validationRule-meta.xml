@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>RemoteCallForceCaseCloseMandatory</fullName>
+    <active>false</active>
+    <errorConditionFormula>AND( ISPICKVAL(Status , &apos;Closed&apos;)  , OR(ISBLANK(Branch__c), ISBLANK(ContactId), ISPICKVAL( Type , &apos;&apos;), ISBLANK(AccountId), ISPICKVAL(  Reason_for_Case__c  , &apos;&apos;)))</errorConditionFormula>
+    <errorMessage>Branch,Account,Contact,Type,Reason of case is mandatory fields while closing the case.</errorMessage>
+</ValidationRule>

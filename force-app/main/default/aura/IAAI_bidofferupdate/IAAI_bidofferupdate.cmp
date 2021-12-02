@@ -1,0 +1,39 @@
+<aura:component controller="BuyerListingController">
+    <aura:attribute name ="vpeRecordId" type="String"/>
+    <aura:attribute name="checkboxFieldValue" type="Boolean" default="true" />
+    <aura:method name="callChild" action="{!c.callChildMethod}" />
+    <aura:registerEvent name="cmpEvent" type="c:MSCountEvent"/> 
+    <lightning:recordEditForm aura:id="recordEditForm"
+                              onload="{!c.handleLoad}"
+                              recordId="{!v.vpeRecordId}"
+                              objectApiName="VPE_Listings__c">
+     
+        
+        <table>
+            <tr>
+                <td style="text-align: left;">
+                    <lightning:inputField aura:id="sfdcid" class ="slds-hide" fieldName="Id"/>
+                    <lightning:inputField aura:id="listingid" class ="slds-hide" fieldName="Listing_Id__c"/>
+                    <label for="inputCmp" style="text-align: left;">Offer</label>
+                    <lightning:inputField aura:id="inputCmp" variant="label-hidden" label="Offer" fieldName="Original_Bid_Offer_Amount__c"  required="true"/>
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: right;margin-right:2px;">
+                    <lightning:inputField aura:id="bidoffer" fieldName="Bid_Offer_Submitted__c" class ="slds-hide" value="{!v.checkboxFieldValue}"/>
+        
+                    <lightning:button  aura:id="submit" variant="destructive" label="Bid/Offer" onclick="{!c.updateBidOfferAmount}"/>
+       			   <div id="divforcb" class="slds-grid slds-gutters slds-clearfix" style="margin-top:5px;">
+                        <div class="slds-col slds-float_right">
+                            <p>Select to Mass Bid:</p>
+                        </div>
+                        <div class="slds-col">
+                            <lightning:input aura:id="massupdatecb" type="checkbox"  variant="label-hidden" onchange="{!c.checkboxSelect}"/> 
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+                                                       
+    </lightning:recordEditForm>
+</aura:component>

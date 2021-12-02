@@ -1,0 +1,470 @@
+<template>
+
+    <lightning-spinner alternative-text="Loading" size="medium" if:true={isLoading}></lightning-spinner>
+
+    <lightning-card title="Storage Information" icon-name="standard:account">
+        <lightning-layout multiple-rows="true"> 
+            <lightning-layout-item padding="around-small" size="3">
+                <lightning-input 
+                    readonly
+                    type="text" 
+                    name="STORAGE_LOCATION_ID" 
+                    label="Location Id" 
+                    value={storageInformation.STORAGE_LOCATION_ID}>
+                </lightning-input>
+            </lightning-layout-item>
+            <lightning-layout-item padding="around-small" size="3">
+                <lightning-input 
+                    readonly={readonly}
+                    type="text" 
+                    
+                    label="Location Name" 
+                    name="CONTACT.COMPANY_NAME"
+                    value={storageInformation.CONTACT.COMPANY_NAME}>
+                </lightning-input>
+            </lightning-layout-item>
+            <lightning-layout-item padding="around-small" size="3">
+                <lightning-input 
+                    if:true={readonly}
+                    readonly
+                    type="text" 
+                    label="Pickup Location Type" 
+                    name="PICKUP_LOCATION_TYPE"
+                    value={storageInformation.PICKUP_LOCATION_TYPE}>
+                </lightning-input>
+
+                <lightning-combobox
+                    if:false={readonly}
+                    
+                    name="PICKUP_LOCATION_TYPE"
+                    label="Pickup Location Type"
+                    value={storageInformation.PICKUP_LOCATION_TYPE}
+                    options={typeOptions}>
+                </lightning-combobox>
+
+            </lightning-layout-item>
+            <lightning-layout-item padding="around-small" size="3">
+                <lightning-input 
+                    if:true={readonly}
+                    readonly
+                    type="text" 
+                    name="SL_STATUS" 
+                    label="Status" 
+                    value={storageInformation.SL_STATUS}>
+                </lightning-input>
+
+                <lightning-combobox
+                    if:false={readonly}
+                    
+                    name="SL_STATUS"
+                    label="Status"
+                    value={storageInformation.SL_STATUS}
+                    options={storageLocationStatusOptions}>
+                </lightning-combobox>
+            </lightning-layout-item>
+            
+            <!-- Storage/Billing Address -->
+
+            <template if:true={readonly}>
+                <lightning-layout-item padding="around-small" size="3">
+                    <label for="storageAddress">Storage Address</label>
+                    <lightning-formatted-address
+                        id="storageAddress"
+                        street={storageInformation.CONTACT.ADDRESS_LINE1}
+                        city={storageInformation.CONTACT.CITY}
+                        country={storageInformation.CONTACT.COUNTRY_CODE}
+                        province={storageInformation.CONTACT.STATE}
+                        postal-code={storageInformation.CONTACT.ZIP}
+                        disabled>
+                    </lightning-formatted-address>
+                </lightning-layout-item>
+            </template>
+
+            <template if:false={readonly}>
+                <lightning-layout-item padding="around-small" size="3">
+                    <lightning-input 
+                        type="text" 
+                        
+                        name="CONTACT.ADDRESS_LINE1"
+                        label="Storage Street" 
+                        value={storageInformation.CONTACT.ADDRESS_LINE1}>
+                    </lightning-input>
+                </lightning-layout-item>
+
+                <lightning-layout-item padding="around-small" size="3">
+                    <lightning-input 
+                        type="text" 
+                        
+                        name="CONTACT.ADDRESS_LINE2"
+                        label="Storage Address Line 2" 
+                        value={storageInformation.CONTACT.ADDRESS_LINE2}>
+                    </lightning-input>
+                </lightning-layout-item>
+
+                <lightning-layout-item padding="around-small" size="3">
+                    <lightning-input 
+                        type="text" 
+                        
+                        name="CONTACT.CITY"
+                        label="Storage City" 
+                        value={storageInformation.CONTACT.CITY}>
+                    </lightning-input>
+                </lightning-layout-item>
+                <lightning-layout-item padding="around-small" size="3">
+                    <lightning-combobox 
+                        
+                        name="CONTACT.STATE"
+                        label="Storage State" 
+                        options={storageStateOptions}
+                        value={storageInformation.CONTACT.STATE}>
+                    </lightning-combobox>
+                </lightning-layout-item>
+                <lightning-layout-item padding="around-small" size="3">
+                    <lightning-input 
+                        type="text" 
+                        name="CONTACT.ZIP" 
+                        label="Storage Zip Code" 
+                        value={storageInformation.CONTACT.ZIP}>
+                    </lightning-input>
+                </lightning-layout-item>
+                <lightning-layout-item padding="around-small" size="3">
+                    <lightning-combobox
+                        name="CONTACT.COUNTRY_CODE" 
+                        label="Storage Country" 
+                        onchange={handleStorageCountryChange}
+                        value={storageInformation.CONTACT.COUNTRY_CODE}
+                        options={countryOptions}>
+                    </lightning-combobox>
+                </lightning-layout-item>
+            </template>
+
+            <!-- Mailing/Shipping Address -->
+
+            <template if:true={readonly}>
+                <lightning-layout-item padding="around-small" size="3">
+                    <label for="shippingAddress">Mailing Address</label>
+                    <lightning-formatted-address
+                        id="shippingAddress"
+                        street={storageInformation.MAILING_ADDRESS.CONTACT.ADDRESS_LINE1}
+                        city={storageInformation.MAILING_ADDRESS.CONTACT.CITY}
+                        country={storageInformation.MAILING_ADDRESS.CONTACT.COUNTRY}
+                        province={storageInformation.MAILING_ADDRESS.CONTACT.STATE}
+                        postal-code={storageInformation.MAILING_ADDRESS.CONTACT.ZIP}
+                        disabled>
+                    </lightning-formatted-address>
+                </lightning-layout-item>
+            </template>
+
+            <template if:false={readonly}>
+                <lightning-layout-item padding="around-small" size="3">
+                    <lightning-input 
+                        
+                        type="text" 
+                        name="MAILING_ADDRESS.CONTACT.ADDRESS_LINE1" 
+                        label="Mailing Street" 
+                        value={storageInformation.MAILING_ADDRESS.CONTACT.ADDRESS_LINE1}>
+                    </lightning-input>
+                </lightning-layout-item>
+                <lightning-layout-item padding="around-small" size="3">
+                    <lightning-input 
+                        
+                        type="text" 
+                        name="MAILING_ADDRESS.CONTACT.ADDRESS_LINE2" 
+                        label="Mailing Address Line 2" 
+                        value={storageInformation.MAILING_ADDRESS.CONTACT.ADDRESS_LINE2}>
+                    </lightning-input>
+                </lightning-layout-item>
+                <lightning-layout-item padding="around-small" size="3">
+                    <lightning-input 
+                        type="text" 
+                        
+                        name="MAILING_ADDRESS.CONTACT.CITY" 
+                        label="Mailing City" 
+                        value={storageInformation.MAILING_ADDRESS.CONTACT.CITY}>
+                    </lightning-input>
+                </lightning-layout-item>
+                <lightning-layout-item padding="around-small" size="3">
+                    <lightning-combobox
+                        
+                        name="MAILING_ADDRESS.CONTACT.STATE" 
+                        label="Mailing State" 
+                        value={storageInformation.MAILING_ADDRESS.CONTACT.STATE}
+                        options={mailingStateOptions}>
+                    </lightning-combobox>
+                </lightning-layout-item>
+                <lightning-layout-item padding="around-small" size="3">
+                    <lightning-combobox
+                        
+                        name="MAILING_ADDRESS.CONTACT.COUNTRY_CODE" 
+                        label="Mailing Country" 
+                        onchange={handleMailingCountryChange}
+                        value={storageInformation.MAILING_ADDRESS.CONTACT.COUNTRY}
+                        options={countryOptions}>
+                    </lightning-combobox>
+                </lightning-layout-item>
+                <lightning-layout-item padding="around-small" size="3">
+                    <lightning-input 
+                        type="text" 
+                        
+                        name="MAILING_ADDRESS.CONTACT.ZIP" 
+                        label="Mailing Zip Code" 
+                        value={storageInformation.MAILING_ADDRESS.CONTACT.ZIP}>
+                    </lightning-input>
+                </lightning-layout-item>
+            </template>
+
+            <lightning-layout-item padding="around-small" size="3">
+                <lightning-input 
+                    readonly={readonly}
+                    type="text" 
+                    
+                    min-length="10"
+                    max-length="10"
+                    name="CONTACT.PHONE_NUMBER1" 
+                    label="Phone" 
+                    value={storageInformation.CONTACT.PHONE_NUMBER1}>
+                </lightning-input>
+            </lightning-layout-item>
+        <lightning-layout-item padding="around-small" size="3">
+            <lightning-input 
+                    readonly={readonly}
+                    type="text" 
+                    name="CONTACT.FAX_NUMBER" 
+                    label="Fax" 
+                    value={storageInformation.CONTACT.FAX_NUMBER}>
+                </lightning-input>
+            </lightning-layout-item>
+            <lightning-layout-item padding="around-small" size="3">
+                <lightning-input 
+                    readonly={readonly}
+                    type="email" 
+                    name="CONTACT.EMAIL" 
+                    label="Email" 
+                    value={storageInformation.CONTACT.EMAIL}>
+                </lightning-input>
+            </lightning-layout-item>
+            <lightning-layout-item padding="around-small" size="3">
+                <lightning-input 
+                    readonly={readonly}
+                    type="text" 
+                    name="SL_FEDERAL_EIN" 
+                    label="Federal Tax ID" 
+                    max-length="9"
+                    value={storageInformation.SL_FEDERAL_EIN}>
+                </lightning-input>
+            </lightning-layout-item>
+            <lightning-layout-item padding="around-small" size="3">
+                <lightning-input 
+                    class="slds-var-m-top_large"
+                    if:false={readonly}
+                    type="checkbox" 
+                    name="SL_VALIDATION" 
+                    label="Validated?" 
+                    checked={storageInformation.SL_VALIDATION_STATUS}>
+                </lightning-input>
+
+                <lightning-input 
+                    class="slds-var-m-top_large"
+                    if:true={readonly}
+                    disabled
+                    
+                    type="checkbox" 
+                    name="SL_VALIDATION" 
+                    label="Validated?" 
+                    checked={storageInformation.SL_VALIDATION_STATUS}>
+                </lightning-input>
+            </lightning-layout-item>
+
+            
+        </lightning-layout>
+    </lightning-card>
+
+    <lightning-card  variant="Narrow"  title="Operational Information">
+        <div class="slds-grid slds-wrap" if:false={readonly}>
+            <div class="slds-col slds-size_2-of-3">
+                <div class="slds-var-m-around_medium slds-var-m-top_large">
+
+                    <lightning-input 
+                        type="text" 
+                        name="Release_Requirement__c" 
+                        if:true={readonly}
+                        label="Release Requirement">
+                    </lightning-input>
+
+                    <lightning-dual-listbox 
+                        name="Release_Requirement__c"
+                        label="Release Requirement"
+                        
+                        source-label="Available"
+                        selected-label="Selected"
+                        options={storageRequirementOptions}>
+                    </lightning-dual-listbox>
+                </div>
+            </div>
+            <div class="slds-col slds-size_1-of-3">
+                <div class="slds-var-m-around_medium">
+                    <lightning-input
+                        if:false={readonly}
+                        class="slds-var-m-top_large"
+                        type="checkbox" 
+                        name="SL_CASH_ONLY"
+                        label="Cash Only?"
+                        checked={storageInformation.SL_CASH_ONLY}>
+                    </lightning-input>
+
+                    <lightning-input 
+                        class="slds-var-m-top_large"
+                        if:true={readonly}
+                        disabled
+                        type="checkbox" 
+                        name="SL_CASH_ONLY" 
+                        label="Cash Only?" 
+                        checked={storageInformation.SL_CASH_ONLY}>
+                    </lightning-input>
+
+                    <br/>
+
+                    <lightning-input 
+                        if:false={readonly}
+                        class="slds-var-m-top_large"
+                        type="checkbox" 
+                        name="SL_IAA_CHECK"
+                        label="IAA Check"
+                        checked={storageInformation.SL_IAA_CHECK}>
+                    </lightning-input>
+
+                    <br/>
+
+                    <lightning-input 
+                        if:false={readonly}
+                        class="slds-var-m-top_large"
+                        type="checkbox" 
+                        name="SL_TOWER_CHECK"
+                        label="Tower Check"
+                        checked={storageInformation.SL_TOWER_CHECK}>
+                    </lightning-input>
+                    <br/>
+
+                    <lightning-input 
+                        if:false={readonly}
+                        class="slds-var-m-top_large"
+                        type="checkbox" 
+                        name="SL_CALL_BEFORE_PICKUP"
+                        label="Call First Before Pickup?"
+                        checked={storageInformation.SL_CALL_BEFORE_PICKUP}>
+                    </lightning-input>
+
+                    <lightning-input 
+                        if:true={readonly}
+                        disabled
+                        class="slds-var-m-top_large"
+                        type="checkbox" 
+                        name="SL_CALL_BEFORE_PICKUP"
+                        label="Call First Before Pickup?"
+                        checked={storageInformation.SL_CALL_BEFORE_PICKUP}>
+                    </lightning-input>
+
+                    <br/>
+
+                    <lightning-input 
+                        type="text" 
+                        name="SL_CHECK_PAYABLE_TO"
+                        label="Check Payable To"
+                        value={storageInformation.SL_CHECK_PAYABLE_TO}>
+                    </lightning-input>
+                </div>
+            </div>
+        </div>
+        <div class="slds-grid slds-wrap" if:true={readonly}>
+            <div class="slds-col slds-size_1-of-5 slds-var-m-horizontal_small">
+                <lightning-input
+                    readonly
+                    type="text" 
+                    label="Release Requirement"
+                    value={releaseRequirementValue}>
+                </lightning-input>
+            </div>
+
+            <div class="slds-col slds-size_1-of-5 slds-var-m-horizontal_small">
+                <lightning-input 
+                    readonly
+                    type="text" 
+                    name="SL_CHECK_PAYABLE_TO"
+                    label="Check Payable To"
+                    value={storageInformation.SL_CHECK_PAYABLE_TO}>
+                </lightning-input>
+            </div>
+
+            <div class="slds-col slds-size_1-of-5 slds-var-m-horizontal_small">
+                <lightning-input
+                    class="slds-var-m-top_large"
+                    disabled
+                    type="checkbox" 
+                    name="SL_CASH_ONLY"
+                    label="Cash Only?"
+                    checked={storageInformation.SL_CASH_ONLY}>
+                </lightning-input>
+            </div>
+
+            <div class="slds-col slds-size_1-of-5 slds-var-m-horizontal_small">
+                <lightning-input 
+                    disabled
+                    class="slds-var-m-top_large"
+                    type="checkbox" 
+                    name="SL_IAA_CHECK"
+                    label="IAA Check"
+                    checked={storageInformation.SL_IAA_CHECK}>
+                </lightning-input>
+            </div>
+
+            <div class="slds-col slds-size_1-of-5 slds-var-m-horizontal_small">
+                <lightning-input 
+                    disabled
+                    class="slds-var-m-top_large"
+                    type="checkbox" 
+                    name="SL_TOWER_CHECK"
+                    label="Tower Check"
+                    checked={storageInformation.SL_TOWER_CHECK}>
+                </lightning-input>
+            </div>
+
+            <div class="slds-col slds-size_1-of-5 slds-var-m-horizontal_small">
+                <lightning-input 
+                    class="slds-var-m-top_large"
+                    disabled
+                    type="checkbox" 
+                    name="SL_CALL_BEFORE_PICKUP"
+                    label="Call First Before Pickup?"
+                    checked={storageInformation.SL_CALL_BEFORE_PICKUP}>
+                </lightning-input>
+            </div>
+        </div>
+            
+    </lightning-card>
+
+    <template if:true={readonly}>
+        <c-crc_operational-hours view-only rpm-data={rpmHoursData} is-r-p-m storage-information={storageInformation}></c-crc_operational-hours>
+    </template>
+
+    <template if:false={readonly}>
+        <c-crc_operational-hours storage-information={storageInformation}></c-crc_operational-hours>
+    </template>
+
+    <!-- <p slot="footer" class="slds-modal__footer" if:false={readonly}>
+        <lightning-button 
+            variant="neutral" 
+            label="Cancel" 
+            title="Cancel" 
+            onclick={toggleView}>
+        </lightning-button>
+
+        <span class="slds-var-p-around_small"></span>
+
+        <lightning-button 
+            variant="brand" 
+            label="Save" 
+            title="Save" 
+            onclick={handleSave}>
+        </lightning-button>
+    </p> -->
+</template>

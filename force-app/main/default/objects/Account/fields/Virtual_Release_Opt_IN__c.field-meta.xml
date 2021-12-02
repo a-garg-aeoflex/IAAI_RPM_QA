@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Virtual_Release_Opt_IN__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Displays if a Provider Opted into using Virtual Release</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Displays if a Provider Opted into using Virtual Release</inlineHelpText>
+    <label>Virtual Release Opt IN</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

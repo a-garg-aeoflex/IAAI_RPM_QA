@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Broker_Case_Transfer_Invalid_Case_Owner</fullName>
+    <active>true</active>
+    <description>This validation rule makes sure broker users transfer cases to the correct queue.</description>
+    <errorConditionFormula>$Profile.Name  = &quot;Broker&quot; &amp;&amp;
+ Text(Origin) &lt;&gt; &quot;IAA Help&quot; &amp;&amp;
+ RecordType.DeveloperName = &quot;Help_Broker_Community&quot; &amp;&amp;
+ISCHANGED(OwnerId) &amp;&amp;
+Owner:Queue.QueueName &lt;&gt; &quot;Broker Support&quot;</errorConditionFormula>
+    <errorDisplayField>OwnerId</errorDisplayField>
+    <errorMessage>You can only transfer case to Broker Support queue. Please update Case Owner and try again.</errorMessage>
+</ValidationRule>

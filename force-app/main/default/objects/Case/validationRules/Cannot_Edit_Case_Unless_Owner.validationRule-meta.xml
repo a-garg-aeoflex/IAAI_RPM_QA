@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Cannot_Edit_Case_Unless_Owner</fullName>
+    <active>true</active>
+    <errorConditionFormula>and
+    (
+        not(isnew()), 
+        RecordType.DeveloperName = &quot;Help_Broker_Community&quot;,
+        $Profile.Name &lt;&gt; &quot;System Administrator&quot;, 
+        $User.Id &lt;&gt;  OwnerId,
+		or (
+		ischanged(Subject),
+		ischanged(AccountId),
+		ischanged(ContactId),
+		ischanged(Buyer_ID__c ),
+		ischanged(Description),
+		ischanged(Stock__c),
+		ischanged(Status),
+		ischanged(Origin),
+		ischanged(Priority),
+		ischanged(SuppliedName),
+		ischanged(SuppliedEmail),
+		ischanged(SuppliedPhone),
+		ischanged(RecordTypeId)        
+		)
+    )</errorConditionFormula>
+    <errorMessage>You can only edit case type, subtype, and reason for case unless you are the owner.</errorMessage>
+</ValidationRule>

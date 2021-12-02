@@ -1,0 +1,778 @@
+<template>
+    <lightning-card title="Operational Hours">
+        <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+            <thead>
+                <tr class="slds-line-height_reset">
+                    <th scope="col"> Week Day </th>
+                    <th scope="col"> Hours of Operation From </th>
+                    <th scope="col"> Hours of Operation To </th>
+                    <th scope="col"> Unavailable Hours From </th>
+                    <th scope="col"> Unavailable Hours To </th>
+                </tr>
+            </thead>
+            <tbody if:false={isRPM}>
+                <tr class="slds-hint-parent">
+                    <th scope="row"> Sunday </th>
+                    <th scope="row"> 
+                        <lightning-formatted-time 
+                            value={storageInformation.Sunday_Open_From__c} 
+                            if:true={viewOnly}>
+                        </lightning-formatted-time>
+                        <lightning-input 
+                            timezone={timeZone}
+                            data-value={storageInformation.Sunday_Open_From__c}
+                            data-day="Sunday"
+                            onchange={handleChange}
+                            type="time" 
+                            if:false={viewOnly}
+                            value={storageInformation.Sunday_Open_From__c} 
+                            name="Sunday_Open_From__c" 
+                            variant="label-hidden">
+                        </lightning-input>
+                    </th>
+                    <th scope="row"> 
+                        <lightning-formatted-time 
+                            value={storageInformation.Sunday_Closed_At__c} 
+                            if:true={viewOnly}>
+                        </lightning-formatted-time>
+                        <lightning-input 
+                            timezone={timeZone}
+                            data-value={storageInformation.Sunday_Closed_At__c}
+                            data-day="Sunday"
+                            onchange={handleChange}
+                            type="time" 
+                            if:false={viewOnly}
+                            value={storageInformation.Sunday_Closed_At__c} 
+                            name="Sunday_Closed_At__c" 
+                            variant="label-hidden">
+                        </lightning-input>
+                    </th>
+                    <th scope="row"> 
+                        <lightning-formatted-time 
+                            value={storageInformation.Sunday_Unavailable_From__c} 
+                            if:true={viewOnly}>
+                        </lightning-formatted-time>
+                        <lightning-input 
+                            timezone={timeZone}
+                            data-value={storageInformation.Sunday_Unavailable_From__c}
+                            data-day="Sunday"
+                            onchange={handleChange}
+                            type="time" 
+                            if:false={viewOnly}
+                            value={storageInformation.Sunday_Unavailable_From__c} 
+                            name="Sunday_Unavailable_From__c" 
+                            variant="label-hidden">
+                        </lightning-input>
+                    </th>
+                    <th scope="row"> 
+                        <lightning-formatted-time 
+                            value={storageInformation.Sunday_Unavailable_To__c} 
+                            if:true={viewOnly}>
+                        </lightning-formatted-time>
+                        <lightning-input 
+                            timezone={timeZone}
+                            data-value={storageInformation.Sunday_Unavailable_To__c}
+                            data-day="Sunday"
+                            onchange={handleChange}
+                            type="time" 
+                            if:false={viewOnly}
+                            value={storageInformation.Sunday_Unavailable_To__c} 
+                            name="Sunday_Unavailable_To__c" 
+                            variant="label-hidden">
+                        </lightning-input>
+                    </th>
+                </tr>
+                <tr class="slds-hint-parent">
+                    <th scope="row"> Monday </th>
+                    <th scope="row"> 
+                        <lightning-formatted-time 
+                            value={storageInformation.Monday_Open_From__c} 
+                            if:true={viewOnly}>
+                        </lightning-formatted-time>
+                        <lightning-input 
+                            timezone={timeZone}
+                            data-value={storageInformation.Monday_Open_From__c}
+                            data-day="Monday"
+                            onchange={handleChange}
+                            type="time" 
+                            if:false={viewOnly}
+                            value={storageInformation.Monday_Open_From__c} 
+                            name="Monday_Open_From__c" 
+                            variant="label-hidden">
+                        </lightning-input>
+                        </th>
+                    <th scope="row"> 
+                        <lightning-formatted-time 
+                            value={storageInformation.Monday_Closed_At__c} 
+                            if:true={viewOnly}>
+                        </lightning-formatted-time>
+                        <lightning-input 
+                            timezone={timeZone}
+                            data-value={storageInformation.Monday_Closed_At__c}
+                            data-day="Monday"
+                            onchange={handleChange}
+                            type="time" 
+                            if:false={viewOnly}
+                            value={storageInformation.Monday_Closed_At__c} 
+                            name="Monday_Closed_At__c" 
+                            variant="label-hidden">
+                        </lightning-input>
+                        </th>
+                    <th scope="row"> 
+                        <lightning-formatted-time 
+                            value={storageInformation.Monday_Unavailable_From__c} 
+                            if:true={viewOnly}>
+                        </lightning-formatted-time>
+                        <lightning-input 
+                            timezone={timeZone}
+                            data-value={storageInformation.Monday_Unavailable_From__c}
+                            data-day="Monday"
+                            onchange={handleChange}
+                            type="time" 
+                            if:false={viewOnly}
+                            value={storageInformation.Monday_Unavailable_From__c} 
+                            name="Monday_Unavailable_From__c" 
+                            variant="label-hidden">
+                        </lightning-input>
+                        </th>
+                    <th scope="row"> 
+                        <lightning-formatted-time 
+                            value={storageInformation.Monday_Unavailable_To__c} 
+                            if:true={viewOnly}>
+                        </lightning-formatted-time>
+                        <lightning-input 
+                            timezone={timeZone}
+                            data-value={storageInformation.Monday_Unavailable_To__c}
+                            data-day="Monday"
+                            onchange={handleChange}
+                            type="time" 
+                            if:false={viewOnly}
+                            value={storageInformation.Monday_Unavailable_To__c} 
+                            name="Monday_Unavailable_To__c" 
+                            variant="label-hidden">
+                        </lightning-input>
+                        </th>
+                </tr>
+                <tr class="slds-hint-parent">
+                    <th scope="row"> Tuesday </th>
+                    <th scope="row"> 
+                        <lightning-formatted-time 
+                            value={storageInformation.Tuesday_Open_From__c} 
+                            if:true={viewOnly}>
+                        </lightning-formatted-time>
+                        <lightning-input 
+                            timezone={timeZone}
+                            data-value={storageInformation.Tuesday_Open_From__c}
+                            data-day="Tuesday"
+                            onchange={handleChange}
+                            type="time" 
+                            if:false={viewOnly}
+                            value={storageInformation.Tuesday_Open_From__c} 
+                            name="Tuesday_Open_From__c" 
+                            variant="label-hidden">
+                        </lightning-input>
+                        </th>
+                    <th scope="row"> 
+                        <lightning-formatted-time 
+                            value={storageInformation.Tuesday_Closed_At__c} 
+                            if:true={viewOnly}>
+                        </lightning-formatted-time>
+                        <lightning-input 
+                            timezone={timeZone}
+                            data-value={storageInformation.Tuesday_Closed_At__c}
+                            data-day="Tuesday"
+                            onchange={handleChange}
+                            type="time" 
+                            if:false={viewOnly}
+                            value={storageInformation.Tuesday_Closed_At__c} 
+                            name="Tuesday_Closed_At__c" 
+                            variant="label-hidden">
+                        </lightning-input>
+                        </th>
+                    <th scope="row"> 
+                        <lightning-formatted-time 
+                            value={storageInformation.Tuesday_Unavailable_From__c} 
+                            if:true={viewOnly}>
+                        </lightning-formatted-time>
+                        <lightning-input 
+                            timezone={timeZone}
+                            data-value={storageInformation.Tuesday_Unavailable_From__c}
+                            data-day="Tuesday"
+                            onchange={handleChange}
+                            type="time" 
+                            if:false={viewOnly}
+                            value={storageInformation.Tuesday_Unavailable_From__c} 
+                            name="Tuesday_Unavailable_From__c" 
+                            variant="label-hidden">
+                        </lightning-input>
+                        </th>
+                    <th scope="row"> 
+                        <lightning-formatted-time 
+                            value={storageInformation.Tuesday_Unavailable_To__c} 
+                            if:true={viewOnly}>
+                        </lightning-formatted-time>
+                        <lightning-input 
+                            timezone={timeZone}
+                            data-value={storageInformation.Tuesday_Unavailable_To__c}
+                            data-day="Tuesday"
+                            onchange={handleChange}
+                            type="time" 
+                            if:false={viewOnly}
+                            value={storageInformation.Tuesday_Unavailable_To__c} 
+                            name="Tuesday_Unavailable_To__c" 
+                            variant="label-hidden">
+                        </lightning-input>
+                        </th>
+                </tr>
+                <tr class="slds-hint-parent">
+                    <th scope="row"> Wednesday </th>
+                    <th scope="row"> 
+                        <lightning-formatted-time 
+                            value={storageInformation.Wednesday_Open_From__c} 
+                            if:true={viewOnly}>
+                        </lightning-formatted-time>
+                        <lightning-input 
+                            timezone={timeZone}
+                            data-value={storageInformation.Wednesday_Open_From__c}
+                            data-day="Wednesday"
+                            onchange={handleChange}
+                            type="time" 
+                            if:false={viewOnly}
+                            value={storageInformation.Wednesday_Open_From__c} 
+                            name="Wednesday_Open_From__c" 
+                            variant="label-hidden">
+                        </lightning-input>
+                        </th>
+                    <th scope="row"> 
+                        <lightning-formatted-time 
+                            value={storageInformation.Wednesday_Closed_At__c} 
+                            if:true={viewOnly}>
+                        </lightning-formatted-time>
+                        <lightning-input 
+                            timezone={timeZone}
+                            data-value={storageInformation.Wednesday_Closed_At__c}
+                            data-day="Wednesday"
+                            onchange={handleChange}
+                            type="time" 
+                            if:false={viewOnly}
+                            value={storageInformation.Wednesday_Closed_At__c} 
+                            name="Wednesday_Closed_At__c" 
+                            variant="label-hidden">
+                        </lightning-input>
+                        </th>
+                    <th scope="row"> 
+                        <lightning-formatted-time 
+                            value={storageInformation.Wednesday_Unavailable_From__c} 
+                            if:true={viewOnly}>
+                        </lightning-formatted-time>
+                        <lightning-input 
+                            timezone={timeZone}
+                            data-value={storageInformation.Wednesday_Unavailable_From__c}
+                            data-day="Wednesday"
+                            onchange={handleChange}
+                            type="time" 
+                            if:false={viewOnly}
+                            value={storageInformation.Wednesday_Unavailable_From__c} 
+                            name="Wednesday_Unavailable_From__c" 
+                            variant="label-hidden">
+                        </lightning-input>
+                        </th>
+                    <th scope="row"> 
+                        <lightning-formatted-time 
+                            value={storageInformation.Wednesday_Unavailable_To__c} 
+                            if:true={viewOnly}>
+                        </lightning-formatted-time>
+                        <lightning-input 
+                            timezone={timeZone}
+                            data-value={storageInformation.Wednesday_Unavailable_To__c}
+                            data-day="Wednesday"
+                            onchange={handleChange}
+                            type="time" 
+                            if:false={viewOnly}
+                            value={storageInformation.Wednesday_Unavailable_To__c} 
+                            name="Wednesday_Unavailable_To__c" 
+                            variant="label-hidden">
+                        </lightning-input>
+                        </th>
+                </tr>
+                <tr class="slds-hint-parent">
+                    <th scope="row"> Thursday </th>
+                    <th scope="row"> 
+                        <lightning-formatted-time 
+                            value={storageInformation.Thursday_Open_From__c} 
+                            if:true={viewOnly}>
+                        </lightning-formatted-time>
+                        <lightning-input 
+                            timezone={timeZone}
+                            data-value={storageInformation.Thursday_Open_From__c}
+                            data-day="Thursday"
+                            onchange={handleChange}
+                            type="time" 
+                            if:false={viewOnly}
+                            value={storageInformation.Thursday_Open_From__c} 
+                            name="Thursday_Open_From__c" 
+                            variant="label-hidden">
+                        </lightning-input>
+                        </th>
+                    <th scope="row"> 
+                        <lightning-formatted-time 
+                            value={storageInformation.Thursday_Closed_At__c} 
+                            if:true={viewOnly}>
+                        </lightning-formatted-time>
+                        <lightning-input 
+                            timezone={timeZone}
+                            data-value={storageInformation.Thursday_Closed_At__c}
+                            data-day="Thursday"
+                            onchange={handleChange}
+                            type="time" 
+                            if:false={viewOnly}
+                            value={storageInformation.Thursday_Closed_At__c} 
+                            name="Thursday_Closed_At__c" 
+                            variant="label-hidden">
+                        </lightning-input>
+                        </th>
+                    <th scope="row"> 
+                        <lightning-formatted-time 
+                            value={storageInformation.Thursday_Unavailable_From__c} 
+                            if:true={viewOnly}>
+                        </lightning-formatted-time>
+                        <lightning-input 
+                            timezone={timeZone}
+                            data-value={storageInformation.Thursday_Unavailable_From__c}
+                            data-day="Thursday"
+                            onchange={handleChange}
+                            type="time" 
+                            if:false={viewOnly}
+                            value={storageInformation.Thursday_Unavailable_From__c} 
+                            name="Thursday_Unavailable_From__c" 
+                            variant="label-hidden">
+                        </lightning-input>
+                        </th>
+                    <th scope="row"> 
+                        <lightning-formatted-time 
+                            value={storageInformation.Thursday_Unavailable_To__c} 
+                            if:true={viewOnly}>
+                        </lightning-formatted-time>
+                        <lightning-input 
+                            timezone={timeZone}
+                            data-value={storageInformation.Thursday_Unavailable_To__c}
+                            data-day="Thursday"
+                            onchange={handleChange}
+                            type="time" 
+                            if:false={viewOnly}
+                            value={storageInformation.Thursday_Unavailable_To__c} 
+                            name="Thursday_Unavailable_To__c" 
+                            variant="label-hidden">
+                        </lightning-input>
+                        </th>
+                </tr>
+                <tr class="slds-hint-parent">
+                    <th scope="row"> Friday </th>
+                    <th scope="row"> 
+                        <lightning-formatted-time 
+                            value={storageInformation.Friday_Open_From__c} 
+                            if:true={viewOnly}>
+                        </lightning-formatted-time>
+                        <lightning-input 
+                            timezone={timeZone}
+                            data-value={storageInformation.Friday_Open_From__c}
+                            data-day="Friday"
+                            onchange={handleChange}
+                            type="time" 
+                            if:false={viewOnly}
+                            value={storageInformation.Friday_Open_From__c} 
+                            name="Friday_Open_From__c" 
+                            variant="label-hidden">
+                        </lightning-input>
+                        </th>
+                    <th scope="row"> 
+                        <lightning-formatted-time 
+                            value={storageInformation.Friday_Closed_At__c} 
+                            if:true={viewOnly}>
+                        </lightning-formatted-time>
+                        <lightning-input 
+                            timezone={timeZone}
+                            data-value={storageInformation.Friday_Closed_At__c}
+                            data-day="Friday"
+                            onchange={handleChange}
+                            type="time" 
+                            if:false={viewOnly}
+                            value={storageInformation.Friday_Closed_At__c} 
+                            name="Friday_Closed_At__c" 
+                            variant="label-hidden">
+                        </lightning-input>
+                        </th>
+                    <th scope="row"> 
+                        <lightning-formatted-time 
+                            value={storageInformation.Friday_Unavailable_From__c} 
+                            if:true={viewOnly}>
+                        </lightning-formatted-time>
+                        <lightning-input 
+                            timezone={timeZone}
+                            data-value={storageInformation.Friday_Unavailable_From__c}
+                            data-day="Friday"
+                            onchange={handleChange}
+                            type="time" 
+                            if:false={viewOnly}
+                            value={storageInformation.Friday_Unavailable_From__c} 
+                            name="Friday_Unavailable_From__c" 
+                            variant="label-hidden">
+                        </lightning-input>
+                        </th>
+                    <th scope="row"> 
+                        <lightning-formatted-time 
+                            value={storageInformation.Friday_Unavailable_To__c} 
+                            if:true={viewOnly}>
+                        </lightning-formatted-time>
+                        <lightning-input 
+                            timezone={timeZone}
+                            data-value={storageInformation.Friday_Unavailable_To__c}
+                            data-day="Friday"
+                            onchange={handleChange}
+                            type="time" 
+                            if:false={viewOnly}
+                            value={storageInformation.Friday_Unavailable_To__c} 
+                            name="Friday_Unavailable_To__c" 
+                            variant="label-hidden">
+                        </lightning-input>
+                        </th>
+                </tr>
+                <tr class="slds-hint-parent">
+                    <th scope="row"> Saturday </th>
+                    <th scope="row"> 
+                        <lightning-formatted-time 
+                            value={storageInformation.Saturday_Open_From__c} 
+                            if:true={viewOnly}>
+                        </lightning-formatted-time>
+                        <lightning-input 
+                            timezone={timeZone}
+                            data-value={storageInformation.Saturday_Open_From__c}
+                            data-day="Saturday"
+                            onchange={handleChange}
+                            type="time" 
+                            if:false={viewOnly}
+                            value={storageInformation.Saturday_Open_From__c} 
+                            name="Saturday_Open_From__c" 
+                            variant="label-hidden">
+                        </lightning-input>
+                        </th>
+                    <th scope="row"> 
+                        <lightning-formatted-time 
+                            value={storageInformation.Saturday_Closed_At__c} 
+                            if:true={viewOnly}>
+                        </lightning-formatted-time>
+                        <lightning-input 
+                            timezone={timeZone}
+                            data-value={storageInformation.Saturday_Closed_At__c}
+                            data-day="Saturday"
+                            onchange={handleChange}
+                            type="time" 
+                            if:false={viewOnly}
+                            value={storageInformation.Saturday_Closed_At__c} 
+                            name="Saturday_Closed_At__c" 
+                            variant="label-hidden">
+                        </lightning-input>
+                        </th>
+                    <th scope="row"> 
+                        <lightning-formatted-time 
+                            value={storageInformation.Saturday_Unavailable_From__c} 
+                            if:true={viewOnly}>
+                        </lightning-formatted-time>
+                        <lightning-input 
+                            timezone={timeZone}
+                            data-value={storageInformation.Saturday_Unavailable_From__c}
+                            data-day="Saturday"
+                            onchange={handleChange}
+                            type="time" 
+                            if:false={viewOnly}
+                            value={storageInformation.Saturday_Unavailable_From__c} 
+                            name="Saturday_Unavailable_From__c" 
+                            variant="label-hidden">
+                        </lightning-input>
+                        </th>
+                    <th scope="row"> 
+                        <lightning-formatted-time 
+                            value={storageInformation.Saturday_Unavailable_To__c} 
+                            if:true={viewOnly}>
+                        </lightning-formatted-time>
+                        <lightning-input 
+                            timezone={timeZone}
+                            data-value={storageInformation.Saturday_Unavailable_To__c}
+                            data-day="Saturday"
+                            onchange={handleChange}
+                            type="time" 
+                            if:false={viewOnly}
+                            value={storageInformation.Saturday_Unavailable_To__c} 
+                            name="Saturday_Unavailable_To__c" 
+                            variant="label-hidden">
+                        </lightning-input>
+                    </th>
+                </tr>
+            </tbody>
+
+            <tbody if:true={isRPM}>
+                <template if:true={hours} for:each={hours} for:item="hour">
+                    <tr class="slds-hint-parent" key={hour.HOO_DAY_OF_WEEK_TEXT}>
+                        <th scope="row"> {hour.HOO_DAY_OF_WEEK_TEXT} </th>
+                        <th scope="row"> 
+                            <lightning-formatted-time 
+                                data-day={hour.HOO_DAY_OF_WEEK_TEXT}
+                                onchange={handleChange}
+                                value={hour.HOO_OPEN_FROM} 
+                                year="numeric" 
+                                month="numeric" 
+                                day="numeric" 
+                                hour="2-digit"
+                                minute="2-digit" 
+                                hour12="true">
+                            </lightning-formatted-time>
+                        </th>
+                        <th scope="row"> 
+                            <lightning-formatted-time 
+                                data-day={hour.HOO_DAY_OF_WEEK}
+                                onchange={handleChange}
+                                value={hour.HOO_CLOSED_AT} 
+                                year="numeric" 
+                                month="numeric" 
+                                day="numeric" 
+                                hour="2-digit"
+                                minute="2-digit" 
+                                hour12="true">
+                            </lightning-formatted-time>
+                        </th>
+                        <th scope="row"> 
+                            <lightning-formatted-time 
+                                data-day={hour.HOO_DAY_OF_WEEK}
+                                onchange={handleChange}
+                                value={hour.HOO_UNAVAILABLE_FROM} 
+                                year="numeric" 
+                                month="numeric" 
+                                day="numeric" 
+                                hour="2-digit"
+                                minute="2-digit" 
+                                hour12="true">
+                            </lightning-formatted-time>
+                        </th>
+                        <th scope="row"> 
+                            <lightning-formatted-time 
+                                data-day={hour.HOO_DAY_OF_WEEK}
+                                onchange={handleChange}
+                                value={hour.HOO_UNAVAILABLE_TO} 
+                                year="numeric" 
+                                month="numeric" 
+                                day="numeric" 
+                                hour="2-digit"
+                                minute="2-digit" 
+                                hour12="true" >
+                            </lightning-formatted-time>
+                        </th>
+                    </tr>
+                </template>
+                <!-- <tr class="slds-hint-parent">
+                    <th scope="row"> Sunday </th>
+                    <th scope="row"> 
+                        <lightning-formatted-time 
+                            value={storageInformation.Sunday_Open_From__c} 
+                            year="numeric" 
+                            month="numeric" 
+                            day="numeric" 
+                            hour="2-digit"
+                            minute="2-digit" 
+                            hour12="true">
+                        </lightning-formatted-time>
+                    </th>
+                    <th scope="row"> 
+                        <lightning-formatted-time 
+                            value={storageInformation.Sunday_Closed_At__c} 
+                            year="numeric" 
+                            month="numeric" 
+                            day="numeric" 
+                            hour="2-digit"
+                            minute="2-digit" 
+                            hour12="true">
+                        </lightning-formatted-time>
+                    </th>
+                    <th scope="row"> 
+                        <lightning-formatted-time 
+                            value={storageInformation.Sunday_Unavailable_From__c} 
+                            year="numeric" 
+                            month="numeric" 
+                            day="numeric" 
+                            hour="2-digit"
+                            minute="2-digit" 
+                            hour12="true">
+                        </lightning-formatted-time>
+                    </th>
+                    <th scope="row"> 
+                        <lightning-formatted-time 
+                            value={storageInformation.Sunday_Unavailable_To__c} >
+                        </lightning-formatted-time>
+                    </th>
+                </tr> -->
+
+                <!-- <tr class="slds-hint-parent">
+                    <th scope="row"> Monday </th>
+                    <th scope="row"> 
+                        <lightning-formatted-time 
+                            value={storageInformation.Monday_Open_From__c} 
+                            if:true={viewOnly}>
+                        </lightning-formatted-time>
+                        </th>
+                    <th scope="row"> 
+                        <lightning-formatted-time 
+                            value={storageInformation.Monday_Closed_At__c} 
+                            if:true={viewOnly}>
+                        </lightning-formatted-time>
+                        </th>
+                    <th scope="row"> 
+                        <lightning-formatted-time 
+                            value={storageInformation.Monday_Unavailable_From__c} 
+                            if:true={viewOnly}>
+                        </lightning-formatted-time>
+                        </th>
+                    <th scope="row"> 
+                        <lightning-formatted-time 
+                            value={storageInformation.Monday_Unavailable_To__c} 
+                            if:true={viewOnly}>
+                        </lightning-formatted-time>
+                        </th>
+                </tr>
+                <tr class="slds-hint-parent">
+                    <th scope="row"> Tuesday </th>
+                    <th scope="row"> 
+                        <lightning-formatted-time 
+                            value={storageInformation.Tuesday_Open_From__c} 
+                            if:true={viewOnly}>
+                        </lightning-formatted-time>
+                        </th>
+                    <th scope="row"> 
+                        <lightning-formatted-time 
+                            value={storageInformation.Tuesday_Closed_At__c} 
+                            if:true={viewOnly}>
+                        </lightning-formatted-time>
+                        </th>
+                    <th scope="row"> 
+                        <lightning-formatted-time 
+                            value={storageInformation.Tuesday_Unavailable_From__c} 
+                            if:true={viewOnly}>
+                        </lightning-formatted-time>
+                        </th>
+                    <th scope="row"> 
+                        <lightning-formatted-time 
+                            value={storageInformation.Tuesday_Unavailable_To__c} 
+                            if:true={viewOnly}>
+                        </lightning-formatted-time>
+                        </th>
+                </tr>
+                <tr class="slds-hint-parent">
+                    <th scope="row"> Wednesday </th>
+                    <th scope="row"> 
+                        <lightning-formatted-time 
+                            value={storageInformation.Wednesday_Open_From__c} 
+                            if:true={viewOnly}>
+                        </lightning-formatted-time>
+                        </th>
+                    <th scope="row"> 
+                        <lightning-formatted-time 
+                            value={storageInformation.Wednesday_Closed_At__c} 
+                            if:true={viewOnly}>
+                        </lightning-formatted-time>
+                        </th>
+                    <th scope="row"> 
+                        <lightning-formatted-time 
+                            value={storageInformation.Wednesday_Unavailable_From__c} 
+                            if:true={viewOnly}>
+                        </lightning-formatted-time>
+                        </th>
+                    <th scope="row"> 
+                        <lightning-formatted-time 
+                            value={storageInformation.Wednesday_Unavailable_To__c} 
+                            if:true={viewOnly}>
+                        </lightning-formatted-time>
+                        </th>
+                </tr>
+                <tr class="slds-hint-parent">
+                    <th scope="row"> Thursday </th>
+                    <th scope="row"> 
+                        <lightning-formatted-time 
+                            value={storageInformation.Thursday_Open_From__c} 
+                            if:true={viewOnly}>
+                        </lightning-formatted-time>
+                        </th>
+                    <th scope="row"> 
+                        <lightning-formatted-time 
+                            value={storageInformation.Thursday_Closed_At__c} 
+                            if:true={viewOnly}>
+                        </lightning-formatted-time>
+                        </th>
+                    <th scope="row"> 
+                        <lightning-formatted-time 
+                            value={storageInformation.Thursday_Unavailable_From__c} 
+                            if:true={viewOnly}>
+                        </lightning-formatted-time>
+                        </th>
+                    <th scope="row"> 
+                        <lightning-formatted-time 
+                            value={storageInformation.Thursday_Unavailable_To__c} 
+                            if:true={viewOnly}>
+                        </lightning-formatted-time>
+                        </th>
+                </tr>
+                <tr class="slds-hint-parent">
+                    <th scope="row"> Friday </th>
+                    <th scope="row"> 
+                        <lightning-formatted-time 
+                            value={storageInformation.Friday_Open_From__c} 
+                            if:true={viewOnly}>
+                        </lightning-formatted-time>
+                        </th>
+                    <th scope="row"> 
+                        <lightning-formatted-time 
+                            value={storageInformation.Friday_Closed_At__c} 
+                            if:true={viewOnly}>
+                        </lightning-formatted-time>
+                        </th>
+                    <th scope="row"> 
+                        <lightning-formatted-time 
+                            value={storageInformation.Friday_Unavailable_From__c} 
+                            if:true={viewOnly}>
+                        </lightning-formatted-time>
+                        </th>
+                    <th scope="row"> 
+                        <lightning-formatted-time 
+                            value={storageInformation.Friday_Unavailable_To__c} 
+                            if:true={viewOnly}>
+                        </lightning-formatted-time>
+                        </th>
+                </tr>
+                <tr class="slds-hint-parent">
+                    <th scope="row"> Saturday </th>
+                    <th scope="row"> 
+                        <lightning-formatted-time 
+                            value={storageInformation.Saturday_Open_From__c} 
+                            if:true={viewOnly}>
+                        </lightning-formatted-time>
+                        </th>
+                    <th scope="row"> 
+                        <lightning-formatted-time 
+                            value={storageInformation.Saturday_Closed_At__c} 
+                            if:true={viewOnly}>
+                        </lightning-formatted-time>
+                        </th>
+                    <th scope="row"> 
+                        <lightning-formatted-time 
+                            value={storageInformation.Saturday_Unavailable_From__c} 
+                            if:true={viewOnly}>
+                        </lightning-formatted-time>
+                        </th>
+                    <th scope="row"> 
+                        <lightning-formatted-time 
+                            value={storageInformation.Saturday_Unavailable_To__c} 
+                            if:true={viewOnly}>
+                        </lightning-formatted-time>
+                    </th>
+                </tr> -->
+            </tbody>
+        </table>
+    </lightning-card>
+</template>

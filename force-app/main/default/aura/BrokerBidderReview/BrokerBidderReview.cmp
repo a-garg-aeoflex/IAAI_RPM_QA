@@ -1,0 +1,108 @@
+<!-- BrokerBidderReview -->
+<aura:component controller ="BrokerBidderReviewClass" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction,force:hasRecordId" access="global" >
+    <aura:attribute name = "errors" type ="String" default="No items to display."/>
+    <aura:attribute name = "recordId" type  = "String" />
+    <aura:attribute name = "lstedAccountID" type = "String" />
+    <aura:attribute name = "ContactId" type = "String"/>
+    <aura:attribute name = "activeFilter" type = "String" default = "all" access = "PRIVATE" />
+    <aura:attribute name = "contactList" type = "Contact[]" />
+    <aura:attribute name = "caseList" type = "Case[]" />
+    <aura:attribute name = "Account" type = "Account"/>    
+    <aura:attribute name = "selectedRow" type = "object"/> 
+    <aura:attribute name = "rawData" type = "Object" access = "PRIVATE" />
+    <aura:attribute name = "columns" type = "List"/> 
+    <aura:attribute name = "selectedRows" type = "List" />    
+    <aura:attribute name = "maxRowSelection" type = "Integer" default = "10000"/>
+    <aura:attribute name = "isLoading" type = "Boolean" default = "true"/>
+    <aura:attribute name = "isAddBrokerFee" type = "Boolean" default = "false"/>
+    <aura:attribute name="isModalOpen" type="boolean" default="false"/>
+    <aura:attribute name="isSuccess" type="boolean" default="true"/>
+    <aura:attribute name="IsMessage" type="boolean" default="false"/>
+    <aura:attribute name="isAlreadyConverted" type="boolean" default="false"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:attribute name = "toastMessage" type = "String"/>
+    <aura:attribute name = "toastType" type = "String"/>
+    <div class="slds-m-around_xxx-large " style="background-color: White;height: 130px;" >
+        <div class="demo-only" style="padding:0.5rem;background:#16325c">
+            <div class="slds-text-color_inverse">Create Broker</div>
+        </div>  
+        <div style="margin:6px ">
+            <aura:if  isTrue="{!v.isAlreadyConverted}">
+                <br />
+                This Buyer is already converted to Broker.
+                
+            </aura:if><br /><br />
+            <lightning:button variant="brand"
+                              label="Create Broker"
+                              title="Create Broker"
+                              onclick="{! c.handleOpenModal }"  
+                              disabled="{!or(v.Account.Is_Broker_Created__c,v.IsMessage)}" />
+        </div>
+        <aura:if isTrue="{!v.isModalOpen}">            
+            <!-- Modal/Popup Box starts here-->
+            <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+                <div class="slds-modal__container" style="height:80%">                    
+                    <!-- Modal/Popup Box Header Starts here-->
+                    <header class="slds-modal__header">
+                        <lightning:buttonIcon iconName="utility:close"
+                                              onclick="{! c.handleCloseModal }"
+                                              alternativeText="close"
+                                              variant="bare-inverse"
+                                              class="slds-modal__close"/>
+                        <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">Create Broker</h2>
+                    </header>
+                    <!--Modal/Popup Box Body Starts here-->
+                    <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                        <aura:if isTrue="{!v.isSuccess}">       
+                            <div style="background-color: White;height: 900px;">
+                                <div aura:id="AccountDetail" class="slds-show">
+                                    <div class="slds-grid slds-wrap slds-grid_vertical" >
+                                        <div class="slds-col" style="margin-top:5px">
+                                            <div class="slds-grid slds-gutters">
+                                                <div class="slds-col slds-size_1-of-2">
+                                                    <span><lightning:input name="AccountName" readonly="true" value="{!v.Account.Name}" label="Account Name" /></span>
+                                                </div>
+                                                <div class="slds-col slds-size_1-of-2">
+                                                    <span><lightning:input name="AccountBIID" readonly="true" value="{!v.Account.BI_ID__c}" label="BI Id" /></span>
+                                                </div>
+                                                <div class="slds-col slds-size_1-of-2">
+                                                    <span><lightning:input name="Buyer Status" readonly="true" value="{!v.Account.Buyer_Status__c}" label="Status" /></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="slds-col" style="margin-top:5px">
+                                            <div class="slds-grid slds-gutters">
+                                                <div class="slds-col slds-size_1-of-1">
+                                                    <span><lightning:input  aura:id="AddBrokerFee" type="checkbox" checked="{!v.isAddBrokerFee}" label="Add Broker Fee" name = "input1" onchange = "{!c.selectedAddBroker}"/></span>
+                                                </div>
+                                            </div>                                            
+                                        </div>
+                                    </div>
+                                </div>
+                                <div aura:id="datatable" class="slds-hide" >
+                                    <lightning:datatable columns="{! v.columns }"
+                                                         data="{! v.contactList }"
+                                                         keyField="id"
+                                                         maxRowSelection="{! v.maxRowSelection }"
+                                                         showRowNumberColumn="true"
+                                                         onrowselection="{!c.handleRowSelection}"
+                                                         isLoading ="{!v.isLoading}"
+                                                         onrowaction="{! c.handleRowAction }" style="height: 300px"/>                                    
+                                </div> 
+                                <lightning:spinner aura:id="processSpinner" variant="brand" alternativeText="Loading" size="large" class="slds-hide" />
+                            </div>                            
+                        </aura:if> 
+                    </div>
+                    <!--Modal/Popup Box Footer Starts here-->
+                    <footer class="slds-modal__footer">
+                        <lightning:button aura:id="Cancel" class="slds-show slds-float_right" label="Cancel" onclick="{!c.handleCloseModal}" />
+                        <lightning:button aura:id="Submit" label="Submit" class="slds-hide slds-float_right" title="Submit" onclick="{! c.creakeBroker}" disabled="{!or(v.Account.Is_Broker_Created__c,v.IsMessage)}" />
+                        <lightning:button aura:id="nextButtom" label="Next" title="Next" class="slds-show slds-float_right" onclick="{! c.getNext }" disabled="{!or(v.Account.Is_Broker_Created__c,v.IsMessage)}" />
+                        <lightning:button aura:id="Previous" label="Previous" class="slds-hide slds-float_right" title="Previous" onclick="{! c.getPrevious}" disabled="{!or(v.Account.Is_Broker_Created__c,v.IsMessage)}"/>
+                    </footer> 
+                </div>
+            </section>
+            <div class="slds-backdrop slds-backdrop_open"></div>
+        </aura:if>
+    </div>
+</aura:component>

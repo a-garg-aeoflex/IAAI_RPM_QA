@@ -1,0 +1,6 @@
+<!-- CustomCommunityCreateCaseForm -->
+<aura:component implements="forceCommunity:availableForAllPageTypes" access="global" >
+    <aura:registerEvent name="appEvent" type="selfService:caseCreateFieldChange"/>
+    <aura:attribute name="inputValue" type="String"/>
+    <c:reCaptchaCreateCaseForm  onvaluechange="{!c.getValueFromLwc}" style="width:100%;;"/><br/> 
+</aura:component>

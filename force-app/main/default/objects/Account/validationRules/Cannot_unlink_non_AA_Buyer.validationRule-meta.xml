@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Cannot_unlink_non_AA_Buyer</fullName>
+    <active>true</active>
+    <description>Prevent user from unlinking non AA Buyer</description>
+    <errorConditionFormula>ISCHANGED( Unlink_AA_Membership__c ) 
+&amp;&amp; 
+TEXT( Unlink_AA_Membership__c ) = &quot;Request&quot;
+&amp;&amp;
+ISBLANK( AuctionAccess_Company_Id__c )</errorConditionFormula>
+    <errorDisplayField>Unlink_AA_Membership__c</errorDisplayField>
+    <errorMessage>This buyer account is not linked to any AuctionAccess membership</errorMessage>
+</ValidationRule>
